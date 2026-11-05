@@ -3,7 +3,7 @@
   "id": "emergency-contact",
   "title": "紧急联络人",
   "description": "如果当时做出了不同的选择，我们的关系会不会不一样？你的手机接到了那通电话。之后，他的手机交到了你的手上。（EMERGENCY CONTACT · 互动手机故事）",
-  "revision": 4,
+  "revision": 5,
   "phone": {
     "owner": "{player}",
     "date": "2026-12-25",
@@ -13,7 +13,6 @@
     "wallpaper": "sage"
   },
   "installedApps": [
-    "wechat",
     "kakao",
     "phone",
     "contacts",
@@ -52,7 +51,7 @@
   "chats": [
     {
       "id": "chat-ep",
-      "app": "wechat",
+      "app": "kakao",
       "title": "Eric",
       "participants": [
         "eric",
@@ -78,59 +77,143 @@
           "time": "2026-12-20 11:22"
         },
         {
-          "id": "er-4",
+          "id": "er-f1",
           "senderId": "eric",
-          "body": "在吗",
+          "body": "你知道吗",
           "time": "2026-12-25 18:04",
           "hidden": true
         },
         {
-          "id": "er-5",
+          "id": "er-f2",
           "senderId": "eric",
-          "body": "我刚刚才知道。",
+          "body": "juyeon他",
           "time": "2026-12-25 18:04",
           "hidden": true
         },
         {
-          "id": "er-6",
+          "id": "er-f3",
           "senderId": "eric",
-          "body": "你们……",
-          "time": "2026-12-25 18:04",
+          "body": "李柱延他——",
+          "time": "2026-12-25 18:06",
           "hidden": true
         },
         {
-          "id": "er-r1",
-          "senderId": "owner",
-          "body": "你知道多少？",
-          "time": "2026-12-25 18:04",
-          "hidden": true
-        },
-        {
-          "id": "er-r2",
-          "senderId": "owner",
-          "body": "我们已经很久没联系了。",
-          "time": "2026-12-25 18:04",
-          "hidden": true
-        },
-        {
-          "id": "er-r3",
-          "senderId": "owner",
-          "body": "我刚接到电话。",
-          "time": "2026-12-25 18:04",
-          "hidden": true
-        },
-        {
-          "id": "er-7",
+          "id": "er-f4",
           "senderId": "eric",
-          "body": "他最近好像一直挺忙的。",
-          "time": "2026-12-25 18:20",
+          "body": "你在哪",
+          "time": "2026-12-25 18:07",
           "hidden": true
         },
         {
-          "id": "er-8",
+          "id": "er-f5",
           "senderId": "eric",
-          "body": "之前还问过我你的近况。",
-          "time": "2026-12-25 18:20",
+          "body": "你还好吗",
+          "time": "2026-12-25 18:07",
+          "hidden": true
+        },
+        {
+          "id": "er-f6",
+          "senderId": "eric",
+          "body": "我刷到新闻了",
+          "time": "2026-12-25 18:07",
+          "hidden": true
+        },
+        {
+          "id": "er-f7",
+          "senderId": "eric",
+          "body": "是不是那班",
+          "time": "2026-12-25 18:08",
+          "hidden": true
+        },
+        {
+          "id": "er-f8",
+          "senderId": "eric",
+          "body": "电话打得通吗。他的电话",
+          "time": "2026-12-25 18:09",
+          "hidden": true
+        },
+        {
+          "id": "er-f9",
+          "senderId": "eric",
+          "body": "我一开始以为是假的",
+          "time": "2026-12-25 18:09",
+          "hidden": true
+        },
+        {
+          "id": "er-f10",
+          "senderId": "eric",
+          "body": "媒体都在发",
+          "time": "2026-12-25 18:10",
+          "hidden": true
+        },
+        {
+          "id": "er-f11",
+          "senderId": "eric",
+          "body": "你接电话了吗 航空公司那边",
+          "time": "2026-12-25 18:11",
+          "hidden": true
+        },
+        {
+          "id": "er-f12",
+          "senderId": "eric",
+          "body": "他说什么了",
+          "time": "2026-12-25 18:11",
+          "hidden": true
+        },
+        {
+          "id": "er-f13",
+          "senderId": "eric",
+          "body": "……",
+          "time": "2026-12-25 18:12",
+          "hidden": true
+        },
+        {
+          "id": "er-f14",
+          "senderId": "eric",
+          "body": "你知道吗 十一月他还来问我 你最近怎么样",
+          "time": "2026-12-25 18:13",
+          "hidden": true
+        },
+        {
+          "id": "er-f15",
+          "senderId": "eric",
+          "body": "他最近好像一直挺忙的 我以为只是忙",
+          "time": "2026-12-25 18:13",
+          "hidden": true
+        },
+        {
+          "id": "er-f16",
+          "senderId": "eric",
+          "body": "你还好吗",
+          "time": "2026-12-25 18:14",
+          "hidden": true
+        },
+        {
+          "id": "er-f17",
+          "senderId": "eric",
+          "body": "你在哪",
+          "time": "2026-12-25 18:14",
+          "hidden": true
+        },
+        {
+          "id": "er-f18",
+          "senderId": "eric",
+          "body": "家人那边到了会联系你的",
+          "time": "2026-12-25 18:15",
+          "hidden": true
+        },
+        {
+          "id": "er-f19",
+          "senderId": "eric",
+          "body": "有消息随时告诉我",
+          "time": "2026-12-25 18:16",
+          "hidden": true
+        },
+        {
+          "id": "er-f20",
+          "senderId": "eric",
+          "body": "你在哪",
+          "time": "2026-12-25 18:16",
           "hidden": true
         }
       ]
@@ -702,8 +785,7 @@
     "n4a": false,
     "n5a": false,
     "a_hidden": false,
-    "frdone": false,
-    "__chatapp": "wechat",
+    "__chatapp": "kakao",
     "__narration": "",
     "__sub": "",
     "__call_over": false
@@ -1264,51 +1346,281 @@
       "actions": [
         {
           "type": "unlock",
-          "key": "er-4",
+          "key": "er-f1",
           "value": true
         },
         {
           "type": "unlock",
-          "key": "er-5",
+          "key": "er-f2",
           "value": true
         },
         {
           "type": "unlock",
-          "key": "er-6",
+          "key": "er-f3",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f4",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f5",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f6",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f7",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f8",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f9",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f10",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f11",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f12",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f13",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f14",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f15",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f16",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f17",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f18",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f19",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f20",
           "value": true
         }
       ]
     },
     {
       "id": "post-call",
-      "label": "挂断电话之后",
+      "label": "挂断电话之后 · 第一波",
       "event": "callEnded",
       "target": "pcall-airline",
       "actions": [
         {
           "type": "unlock",
-          "key": "er-4",
+          "key": "er-f1",
           "value": true
         },
         {
           "type": "unlock",
-          "key": "er-5",
+          "key": "er-f2",
           "value": true
         },
         {
           "type": "unlock",
-          "key": "er-6",
+          "key": "er-f3",
           "value": true
         },
         {
           "type": "notification",
           "key": "",
-          "value": "Eric：在吗"
+          "value": "Eric：你知道吗"
+        }
+      ],
+      "next": [
+        "flood-2"
+      ]
+    },
+    {
+      "id": "flood-2",
+      "label": "第二波",
+      "type": "delay",
+      "delayMs": 5000,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f4",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f5",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f6",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f7",
+          "value": true
+        }
+      ],
+      "next": [
+        "flood-3"
+      ]
+    },
+    {
+      "id": "flood-3",
+      "label": "第三波",
+      "type": "delay",
+      "delayMs": 6000,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f8",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f9",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f10",
+          "value": true
         },
         {
           "type": "notification",
           "key": "",
-          "value": "Eric：我刚刚才知道。"
+          "value": "Eric：你还好吗"
+        }
+      ],
+      "next": [
+        "flood-4"
+      ]
+    },
+    {
+      "id": "flood-4",
+      "label": "第四波",
+      "type": "delay",
+      "delayMs": 6000,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f11",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f12",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f13",
+          "value": true
+        }
+      ],
+      "next": [
+        "flood-5"
+      ]
+    },
+    {
+      "id": "flood-5",
+      "label": "第五波",
+      "type": "delay",
+      "delayMs": 6000,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f14",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f15",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f16",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f17",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f18",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f19",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-f20",
+          "value": true
+        }
+      ],
+      "next": [
+        "handoff-ready"
+      ]
+    },
+    {
+      "id": "handoff-ready",
+      "label": "轰炸结束 · 进入旁白",
+      "type": "delay",
+      "delayMs": 3000,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__narration",
+          "value": "Eric 还在发消息。你没有回。\n\n你顺着指引去了航空公司，领回了李柱延的遗物。\n\n那是一部手机。家人把它交到你手上的时候，谁都没有说话。\n\n回到家，你把它放在桌上，按亮了屏幕。"
         }
       ]
     },
@@ -1329,143 +1641,6 @@
           "type": "variable",
           "key": "act",
           "value": 1
-        }
-      ]
-    },
-    {
-      "id": "ev-read-er5",
-      "label": "Eric 的消息",
-      "event": "read",
-      "target": "er-5",
-      "conditions": [
-        {
-          "key": "act",
-          "op": "eq",
-          "value": 1
-        }
-      ],
-      "next": [
-        "friend-choice"
-      ]
-    },
-    {
-      "id": "friend-choice",
-      "label": "如何回复Eric",
-      "type": "choice",
-      "next": [
-        "fr-1",
-        "fr-2",
-        "fr-3"
-      ]
-    },
-    {
-      "id": "fr-1",
-      "label": "回复：你知道多少？",
-      "actions": [
-        {
-          "type": "unlock",
-          "key": "er-r1",
-          "value": true
-        },
-        {
-          "type": "variable",
-          "key": "frdone",
-          "value": true
-        }
-      ],
-      "next": [
-        "fr-cont"
-      ]
-    },
-    {
-      "id": "fr-2",
-      "label": "回复：我们已经很久没联系了。",
-      "actions": [
-        {
-          "type": "unlock",
-          "key": "er-r2",
-          "value": true
-        },
-        {
-          "type": "variable",
-          "key": "frdone",
-          "value": true
-        }
-      ],
-      "next": [
-        "fr-cont"
-      ]
-    },
-    {
-      "id": "fr-3",
-      "label": "回复：我刚接到电话。",
-      "actions": [
-        {
-          "type": "unlock",
-          "key": "er-r3",
-          "value": true
-        },
-        {
-          "type": "variable",
-          "key": "frdone",
-          "value": true
-        }
-      ],
-      "next": [
-        "fr-cont"
-      ]
-    },
-    {
-      "id": "fr-cont",
-      "label": "Eric 继续说",
-      "type": "delay",
-      "delayMs": 1800,
-      "actions": [
-        {
-          "type": "unlock",
-          "key": "er-7",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-8",
-          "value": true
-        },
-        {
-          "type": "clue",
-          "key": "f",
-          "value": true
-        },
-        {
-          "type": "notification",
-          "key": "",
-          "value": "Eric：他最近好像一直挺忙的。"
-        },
-        {
-          "type": "notification",
-          "key": "",
-          "value": "Eric：之前还问过我你的近况。"
-        }
-      ],
-      "next": [
-        "act1-check"
-      ]
-    },
-    {
-      "id": "act1-check",
-      "label": "电话线完成",
-      "conditions": [
-        {
-          "key": "clue:f",
-          "op": "eq",
-          "value": true
-        }
-      ],
-      "actions": [
-        {
-          "type": "variable",
-          "key": "__narration",
-          "value": "你还没有完全反应过来。\n\n你顺着指引去了航空公司，领回了李柱延的遗物。\n\n那是一部手机。家人把它交到你手上的时候，谁都没有说话。\n\n回到家，你把它放在桌上，按亮了屏幕。"
         }
       ]
     },
@@ -1506,42 +1681,102 @@
         },
         {
           "type": "hide",
-          "key": "er-4",
+          "key": "er-f1",
           "value": true
         },
         {
           "type": "hide",
-          "key": "er-5",
+          "key": "er-f2",
           "value": true
         },
         {
           "type": "hide",
-          "key": "er-6",
+          "key": "er-f3",
           "value": true
         },
         {
           "type": "hide",
-          "key": "er-7",
+          "key": "er-f4",
           "value": true
         },
         {
           "type": "hide",
-          "key": "er-8",
+          "key": "er-f5",
           "value": true
         },
         {
           "type": "hide",
-          "key": "er-r1",
+          "key": "er-f6",
           "value": true
         },
         {
           "type": "hide",
-          "key": "er-r2",
+          "key": "er-f7",
           "value": true
         },
         {
           "type": "hide",
-          "key": "er-r3",
+          "key": "er-f8",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f9",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f10",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f11",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f12",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f13",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f14",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f15",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f16",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f17",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f18",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f19",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-f20",
           "value": true
         },
         {
@@ -2791,14 +3026,7 @@
           "target": "pcall-airline"
         },
         {
-          "event": "read",
-          "target": "er-5"
-        },
-        {
-          "choose": "fr-1"
-        },
-        {
-          "advanceMs": 2000
+          "advanceMs": 35000
         },
         {
           "event": "narrationDone"
@@ -2880,7 +3108,7 @@
         "note-a4",
         "hcal-xmas",
         "kp-send1",
-        "er-7"
+        "er-f14"
       ]
     },
     {
@@ -2913,14 +3141,7 @@
           "target": "pcall-airline"
         },
         {
-          "event": "read",
-          "target": "er-5"
-        },
-        {
-          "choose": "fr-1"
-        },
-        {
-          "advanceMs": 2000
+          "advanceMs": 35000
         },
         {
           "event": "narrationDone"
@@ -3010,14 +3231,7 @@
           "target": "pcall-airline"
         },
         {
-          "event": "read",
-          "target": "er-5"
-        },
-        {
-          "choose": "fr-1"
-        },
-        {
-          "advanceMs": 2000
+          "advanceMs": 35000
         },
         {
           "event": "narrationDone"
@@ -3115,14 +3329,7 @@
           "target": "pcall-airline"
         },
         {
-          "event": "read",
-          "target": "er-5"
-        },
-        {
-          "choose": "fr-1"
-        },
-        {
-          "advanceMs": 2000
+          "advanceMs": 35000
         },
         {
           "event": "narrationDone"
@@ -3212,14 +3419,7 @@
           "target": "pcall-airline"
         },
         {
-          "event": "read",
-          "target": "er-5"
-        },
-        {
-          "choose": "fr-1"
-        },
-        {
-          "advanceMs": 2000
+          "advanceMs": 35000
         },
         {
           "event": "narrationDone"
