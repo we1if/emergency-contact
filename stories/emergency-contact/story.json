@@ -3,7 +3,7 @@
   "id": "emergency-contact",
   "title": "紧急联络人",
   "description": "如果当时做出了不同的选择，我们的关系会不会不一样？你的手机接到了那通电话。之后，他的手机交到了你的手上。（EMERGENCY CONTACT · 互动手机故事）",
-  "revision": 7,
+  "revision": 9,
   "phone": {
     "owner": "{player}",
     "date": "2026-12-25",
@@ -79,21 +79,21 @@
         {
           "id": "er-f1",
           "senderId": "eric",
-          "body": "你知道吗",
+          "body": "juyeon他",
           "time": "2026-12-25 18:04",
           "hidden": true
         },
         {
           "id": "er-f2",
           "senderId": "eric",
-          "body": "juyeon他",
+          "body": "你知道吗",
           "time": "2026-12-25 18:04",
           "hidden": true
         },
         {
           "id": "er-f3",
           "senderId": "eric",
-          "body": "李柱延他——",
+          "body": "李柱延他",
           "time": "2026-12-25 18:06",
           "hidden": true
         },
@@ -149,14 +149,14 @@
         {
           "id": "er-f11",
           "senderId": "eric",
-          "body": "你接电话了吗 航空公司那边",
+          "body": "名单里有他",
           "time": "2026-12-25 18:11",
           "hidden": true
         },
         {
           "id": "er-f12",
           "senderId": "eric",
-          "body": "他说什么了",
+          "body": "你能接电话吗",
           "time": "2026-12-25 18:11",
           "hidden": true
         },
@@ -198,7 +198,7 @@
         {
           "id": "er-f18",
           "senderId": "eric",
-          "body": "家人那边到了会联系你的",
+          "body": "你看到消息回我一下",
           "time": "2026-12-25 18:15",
           "hidden": true
         },
@@ -214,6 +214,13 @@
           "senderId": "eric",
           "body": "你在哪",
           "time": "2026-12-25 18:16",
+          "hidden": true
+        },
+        {
+          "id": "er-f21",
+          "senderId": "eric",
+          "body": "你没事吧",
+          "time": "2026-12-25 18:17",
           "hidden": true
         }
       ]
@@ -788,7 +795,8 @@
     "__chatapp": "kakao",
     "__narration": "",
     "__sub": "",
-    "__call_over": false
+    "__call_over": false,
+    "__lock": false
   },
   "events": [
     {
@@ -1359,7 +1367,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "KakaoTalk：Eric：你知道吗"
+          "value": "KakaoTalk：Eric：juyeon他"
         }
       ],
       "next": [
@@ -1380,7 +1388,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "KakaoTalk：Eric：juyeon他"
+          "value": "KakaoTalk：Eric：你知道吗"
         }
       ],
       "next": [
@@ -1401,7 +1409,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "KakaoTalk：Eric：李柱延他——"
+          "value": "KakaoTalk：Eric：李柱延他"
         }
       ],
       "next": [
@@ -1559,7 +1567,7 @@
       "id": "flood-m11",
       "label": "Eric 11",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 2600,
       "actions": [
         {
           "type": "unlock",
@@ -1569,7 +1577,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "KakaoTalk：Eric：你接电话了吗 航空公司那边"
+          "value": "KakaoTalk：Eric：名单里有他"
         }
       ],
       "next": [
@@ -1580,7 +1588,7 @@
       "id": "flood-m12",
       "label": "Eric 12",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 3000,
       "actions": [
         {
           "type": "unlock",
@@ -1590,7 +1598,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "KakaoTalk：Eric：他说什么了"
+          "value": "KakaoTalk：Eric：你能接电话吗"
         }
       ],
       "next": [
@@ -1716,7 +1724,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "KakaoTalk：Eric：家人那边到了会联系你的"
+          "value": "KakaoTalk：Eric：你看到消息回我一下"
         }
       ],
       "next": [
@@ -1748,7 +1756,7 @@
       "id": "flood-m20",
       "label": "Eric 20",
       "type": "delay",
-      "delayMs": 2600,
+      "delayMs": 2400,
       "actions": [
         {
           "type": "unlock",
@@ -1759,6 +1767,27 @@
           "type": "notification",
           "key": "",
           "value": "KakaoTalk：Eric：你在哪"
+        }
+      ],
+      "next": [
+        "flood-m21"
+      ]
+    },
+    {
+      "id": "flood-m21",
+      "label": "Eric 21",
+      "type": "delay",
+      "delayMs": 2600,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f21",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：你没事吧"
         }
       ],
       "next": [
@@ -1774,7 +1803,7 @@
         {
           "type": "variable",
           "key": "__narration",
-          "value": "Eric 还在发消息。你没有回。\n\n你顺着指引去了航空公司，领回了李柱延的遗物。\n\n那是一部手机。家人把它交到你手上的时候，谁都没有说话。\n\n回到家，你把它放在桌上，按亮了屏幕。"
+          "value": "你不知道自己在原地站了多久。\n\n等再次回过神来时，你已经按照电话中的指引，来到了工作人员告知的地点。接下来的事情，你只是随着他们的安排，一项一项地完成。\n\n他们向你说明了遗物领取的相关事项，并将整理好的个人物品交还给你。\n\n整个过程很安静。\n\n你签了字，接过物品，听完工作人员最后的交代。\n\n直到走出那里，你才发现，自己手里多了一部手机。\n\n那是李柱延的手机。\n\n你已经很久没有见过它了。\n\n屏幕上还留着他生前使用的痕迹。\n\n你看着它，迟迟没有按下电源键。"
         }
       ]
     },
@@ -1816,7 +1845,7 @@
     },
     {
       "id": "handoff",
-      "label": "遗物交接",
+      "label": "设备切换 · 回到锁屏",
       "actions": [
         {
           "type": "hide",
@@ -1935,6 +1964,11 @@
         },
         {
           "type": "hide",
+          "key": "er-f21",
+          "value": true
+        },
+        {
+          "type": "hide",
           "key": "pcall-1",
           "value": true
         },
@@ -1977,6 +2011,44 @@
           "type": "hide",
           "key": "zhuyan-card",
           "value": true
+        },
+        {
+          "type": "wallpaper",
+          "key": "",
+          "value": "night"
+        },
+        {
+          "type": "time",
+          "key": "",
+          "value": "18:04"
+        },
+        {
+          "type": "variable",
+          "key": "act",
+          "value": 2
+        },
+        {
+          "type": "variable",
+          "key": "__chatapp",
+          "value": "kakao"
+        },
+        {
+          "type": "variable",
+          "key": "__lock",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "ev-unlock-his",
+      "label": "解锁李柱延的手机",
+      "event": "password",
+      "target": "",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__lock",
+          "value": false
         },
         {
           "type": "unlock",
@@ -2192,31 +2264,6 @@
           "type": "unlock",
           "key": "zhuyan-self-card",
           "value": true
-        },
-        {
-          "type": "wallpaper",
-          "key": "",
-          "value": "night"
-        },
-        {
-          "type": "time",
-          "key": "",
-          "value": "18:04"
-        },
-        {
-          "type": "variable",
-          "key": "act",
-          "value": 2
-        },
-        {
-          "type": "variable",
-          "key": "__chatapp",
-          "value": "kakao"
-        },
-        {
-          "type": "notification",
-          "key": "",
-          "value": "设置：—— 你拿起的，是李柱延的手机 ——"
         }
       ]
     },
@@ -3180,10 +3227,13 @@
           "target": "pcall-airline"
         },
         {
-          "advanceMs": 35000
+          "advanceMs": 65000
         },
         {
           "event": "narrationDone"
+        },
+        {
+          "event": "password"
         },
         {
           "event": "read",
@@ -3295,10 +3345,13 @@
           "target": "pcall-airline"
         },
         {
-          "advanceMs": 35000
+          "advanceMs": 65000
         },
         {
           "event": "narrationDone"
+        },
+        {
+          "event": "password"
         },
         {
           "event": "read",
@@ -3385,10 +3438,13 @@
           "target": "pcall-airline"
         },
         {
-          "advanceMs": 35000
+          "advanceMs": 65000
         },
         {
           "event": "narrationDone"
+        },
+        {
+          "event": "password"
         },
         {
           "event": "read",
@@ -3483,10 +3539,13 @@
           "target": "pcall-airline"
         },
         {
-          "advanceMs": 35000
+          "advanceMs": 65000
         },
         {
           "event": "narrationDone"
+        },
+        {
+          "event": "password"
         },
         {
           "event": "read",
@@ -3573,10 +3632,13 @@
           "target": "pcall-airline"
         },
         {
-          "advanceMs": 35000
+          "advanceMs": 65000
         },
         {
           "event": "narrationDone"
+        },
+        {
+          "event": "password"
         },
         {
           "event": "read",

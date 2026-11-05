@@ -259,6 +259,10 @@ function PhoneRuntime({
   const event = (event: string, target: string) => {
     if (!creator) update(dispatch(work, runtimeRef.current, event, target));
   };
+  // 紧急联络人：遗物交接后回到锁屏（__lock 变量驱动；解锁时故事清除该变量）
+  useEffect(() => {
+    if (!creator && s.variables.__lock && !locked) setLocked(true);
+  }, [s.variables.__lock, locked, creator]);
   const captureApp = () => {
     if (!app) return;
     const current = shell.current?.querySelector<HTMLElement>(".app-screen");
