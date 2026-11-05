@@ -739,9 +739,14 @@ function PhoneRuntime({
                     </div>
                   );
                 })()}
+              {s.incomingCall.status === "answered" && s.variables.__call_over && (
+                <small style={{ color: "#8b8e98", fontSize: 12, marginTop: 8 }}>
+                  通话已结束 · 点「挂断，继续」回到手机
+                </small>
+              )}
               <div className="incoming-actions">
                 <button
-                  className="decline-call"
+                  className={s.variables.__call_over ? "accept-call" : "decline-call"}
                   onClick={() => {
                     const call = runtimeRef.current.incomingCall;
                     if (call)
@@ -759,10 +764,14 @@ function PhoneRuntime({
                 >
                   <PhoneIcon size={25} />
                   <span>
-                    {s.incomingCall.status === "ringing" ? "拒接" : "挂断"}
+                    {s.incomingCall.status === "ringing"
+                      ? "拒接"
+                      : s.variables.__call_over
+                        ? "挂断，继续"
+                        : "挂断"}
                   </span>
                 </button>
-                {s.incomingCall.status === "ringing" && (
+                {s.incomingCall.status === "ringing" && !s.variables.__call_over && (
                   <button
                     className="accept-call"
                     onClick={() => {
