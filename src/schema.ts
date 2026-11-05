@@ -55,6 +55,7 @@ export const actionSchema = z.object({
     "choice",
     "clue",
     "call",
+    "wallpaper",
   ]),
   key: z.string(),
   value: z.union([z.string(), z.number(), z.boolean()]),

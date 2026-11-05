@@ -1,0 +1,3277 @@
+{
+  "scriptVersion": 1,
+  "id": "emergency-contact",
+  "title": "紧急联络人",
+  "description": "如果当时做出了不同的选择，我们的关系会不会不一样？你的手机接到了那通电话。之后，他的手机交到了你的手上。（EMERGENCY CONTACT · 互动手机故事）",
+  "revision": 3,
+  "phone": {
+    "owner": "{player}",
+    "date": "2026-12-25",
+    "time": "14:47",
+    "battery": 61,
+    "network": "5G",
+    "wallpaper": "sage"
+  },
+  "installedApps": [
+    "wechat",
+    "kakao",
+    "phone",
+    "contacts",
+    "photos",
+    "notes",
+    "calendar",
+    "mail",
+    "settings"
+  ],
+  "contacts": [
+    {
+      "id": "eric",
+      "name": "Eric",
+      "phone": "",
+      "bio": "共同朋友"
+    },
+    {
+      "id": "zhuyan",
+      "name": "李柱延",
+      "phone": "",
+      "bio": ""
+    },
+    {
+      "id": "you",
+      "name": "{player}",
+      "phone": "",
+      "bio": "紧急联系人 · 自2019年11月3日"
+    },
+    {
+      "id": "zhuyan-self",
+      "name": "李柱延",
+      "phone": "",
+      "bio": "本人资料\n紧急联系人：{player}\n最后更新：2019年11月3日"
+    }
+  ],
+  "chats": [
+    {
+      "id": "chat-ep",
+      "app": "wechat",
+      "title": "Eric",
+      "participants": [
+        "eric",
+        "owner"
+      ],
+      "messages": [
+        {
+          "id": "er-1",
+          "senderId": "eric",
+          "body": "圣诞礼物你到底买好了没有",
+          "time": "2026-12-20 11:02"
+        },
+        {
+          "id": "er-2",
+          "senderId": "owner",
+          "body": "还差你的。别偷看。",
+          "time": "2026-12-20 11:20"
+        },
+        {
+          "id": "er-3",
+          "senderId": "eric",
+          "body": "行吧。圣诞节当天记得回我消息。",
+          "time": "2026-12-20 11:22"
+        },
+        {
+          "id": "er-4",
+          "senderId": "eric",
+          "body": "在吗",
+          "time": "2026-12-25 18:04",
+          "hidden": true
+        },
+        {
+          "id": "er-5",
+          "senderId": "eric",
+          "body": "我刚刚才知道。",
+          "time": "2026-12-25 18:04",
+          "hidden": true
+        },
+        {
+          "id": "er-6",
+          "senderId": "eric",
+          "body": "你们……",
+          "time": "2026-12-25 18:04",
+          "hidden": true
+        },
+        {
+          "id": "er-r1",
+          "senderId": "owner",
+          "body": "你知道多少？",
+          "time": "2026-12-25 18:04",
+          "hidden": true
+        },
+        {
+          "id": "er-r2",
+          "senderId": "owner",
+          "body": "我们已经很久没联系了。",
+          "time": "2026-12-25 18:04",
+          "hidden": true
+        },
+        {
+          "id": "er-r3",
+          "senderId": "owner",
+          "body": "我刚接到电话。",
+          "time": "2026-12-25 18:04",
+          "hidden": true
+        },
+        {
+          "id": "er-7",
+          "senderId": "eric",
+          "body": "他最近好像一直挺忙的。",
+          "time": "2026-12-25 18:20",
+          "hidden": true
+        },
+        {
+          "id": "er-8",
+          "senderId": "eric",
+          "body": "之前还问过我你的近况。",
+          "time": "2026-12-25 18:20",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "chat-kp",
+      "app": "kakao",
+      "title": "{player}",
+      "participants": [
+        "zhuyan",
+        "owner"
+      ],
+      "messages": [
+        {
+          "id": "kp-1",
+          "senderId": "zhuyan",
+          "body": "下周降温，你那件厚外套别收起来。",
+          "time": "2026-03-28 09:12",
+          "hidden": true,
+          "outgoing": true
+        },
+        {
+          "id": "kp-2",
+          "senderId": "owner",
+          "body": "知道了。你也是。",
+          "time": "2026-03-28 09:15",
+          "hidden": true
+        },
+        {
+          "id": "kp-3",
+          "senderId": "zhuyan",
+          "body": "今年的行程我再看一下。",
+          "time": "2026-04-01 21:47",
+          "hidden": true,
+          "outgoing": true
+        },
+        {
+          "id": "kp-4",
+          "senderId": "zhuyan",
+          "body": "航班信息回头发你。",
+          "time": "2026-04-01 21:48",
+          "hidden": true,
+          "outgoing": true
+        },
+        {
+          "id": "kp-5",
+          "senderId": "owner",
+          "body": "嗯。",
+          "time": "2026-04-05 23:58",
+          "hidden": true
+        },
+        {
+          "id": "kp-6",
+          "senderId": "zhuyan",
+          "body": "在忙。晚点说。",
+          "time": "2026-04-06 23:41",
+          "hidden": true,
+          "outgoing": true
+        },
+        {
+          "id": "kp-7",
+          "senderId": "owner",
+          "body": "你最近总是「晚点说」。",
+          "time": "2026-04-07 20:12",
+          "hidden": true
+        },
+        {
+          "id": "kp-8",
+          "senderId": "zhuyan",
+          "body": "对不起。",
+          "time": "2026-04-07 22:03",
+          "hidden": true,
+          "outgoing": true
+        },
+        {
+          "id": "kp-9",
+          "senderId": "owner",
+          "body": "算了，你以后不用等我了。",
+          "time": "2026-04-08 22:17",
+          "hidden": true
+        },
+        {
+          "id": "kp-good",
+          "senderId": "zhuyan",
+          "body": "好。",
+          "time": "2026-04-08 22:19",
+          "hidden": true,
+          "outgoing": true
+        },
+        {
+          "id": "kp-draft",
+          "senderId": "zhuyan",
+          "body": "今年圣诞，你还想来巴黎吗？",
+          "time": "2026-04-14 09:30",
+          "hidden": true,
+          "outgoing": true
+        },
+        {
+          "id": "kp-send1",
+          "senderId": "zhuyan",
+          "body": "今年圣诞，你还想来巴黎吗？",
+          "time": "2026-12-25 18:04",
+          "hidden": true,
+          "outgoing": true
+        },
+        {
+          "id": "kp-send3",
+          "senderId": "owner",
+          "body": "圣诞节巴黎，还一起吗？",
+          "time": "2026-12-25 18:04",
+          "hidden": true
+        },
+        {
+          "id": "kp-send5",
+          "senderId": "owner",
+          "body": "我那天不是那个意思。",
+          "time": "2026-12-25 18:04",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "chat-ke",
+      "app": "kakao",
+      "title": "Eric",
+      "participants": [
+        "zhuyan",
+        "eric"
+      ],
+      "messages": [
+        {
+          "id": "ke-0a",
+          "senderId": "zhuyan",
+          "body": "巴黎的机票订好了。12月25日。",
+          "time": "2026-11-30 19:12",
+          "hidden": true,
+          "outgoing": true
+        },
+        {
+          "id": "ke-0b",
+          "senderId": "eric",
+          "body": "又是巴黎。行吧，注意安全。",
+          "time": "2026-11-30 19:40",
+          "hidden": true
+        },
+        {
+          "id": "ke-1",
+          "senderId": "zhuyan",
+          "body": "她最近怎么样？",
+          "time": "2026-11-08 22:14",
+          "hidden": true,
+          "outgoing": true
+        },
+        {
+          "id": "ke-2",
+          "senderId": "eric",
+          "body": "突然问这个干嘛？",
+          "time": "2026-11-08 22:30",
+          "hidden": true
+        },
+        {
+          "id": "ke-3",
+          "senderId": "zhuyan",
+          "body": "没什么。随便问问。",
+          "time": "2026-11-08 22:35",
+          "hidden": true,
+          "outgoing": true
+        },
+        {
+          "id": "ke-4",
+          "senderId": "eric",
+          "body": "问你个事。你怎么还没换紧急联系人？",
+          "time": "2026-06-01 21:07",
+          "hidden": true
+        },
+        {
+          "id": "ke-5",
+          "senderId": "eric",
+          "body": "……算了，当我没问。",
+          "time": "2026-06-04 21:07",
+          "hidden": true
+        }
+      ]
+    }
+  ],
+  "content": {
+    "phone": [
+      {
+        "id": "pcall-1",
+        "title": "Eric",
+        "body": "已通话 · 04:12",
+        "kind": "call",
+        "time": "2026-12-20 21:30"
+      },
+      {
+        "id": "pcall-2",
+        "title": "妈妈",
+        "body": "已通话 · 12:03",
+        "kind": "call",
+        "time": "2026-12-24 10:00"
+      },
+      {
+        "id": "pcall-airline",
+        "title": "未知号码",
+        "body": "已接听 · 00:03:27",
+        "kind": "call",
+        "time": "2026-12-25 14:47",
+        "hidden": true
+      },
+      {
+        "id": "hcall-missed",
+        "title": "{player}",
+        "body": "拨出 · 未接通 · 2026年4月12日 21:36",
+        "kind": "call",
+        "time": "2026-04-12 21:36",
+        "hidden": true
+      },
+      {
+        "id": "hcall-1",
+        "title": "Eric",
+        "body": "已通话 · 08:45",
+        "kind": "call",
+        "time": "2026-11-08 22:00",
+        "hidden": true
+      },
+      {
+        "id": "hcall-2",
+        "title": "Eric",
+        "body": "已通话 · 05:17",
+        "kind": "call",
+        "time": "2026-06-01 21:00",
+        "hidden": true
+      },
+      {
+        "id": "hcall-3",
+        "title": "航空公司",
+        "body": "已通话 · 11:26",
+        "kind": "call",
+        "time": "2026-11-30 19:00",
+        "hidden": true
+      },
+      {
+        "id": "hcall-4",
+        "title": "妈妈",
+        "body": "已通话 · 32:10",
+        "kind": "call",
+        "time": "2026-12-20 20:00",
+        "hidden": true
+      }
+    ],
+    "photos": [
+      {
+        "id": "pphoto-1",
+        "title": "2026年12月24日",
+        "body": "",
+        "kind": "image",
+        "time": "2026-12-24 19:20",
+        "media": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAAEnUlEQVR42u3dS24TQRiF0doAQkpiO3ZixwnOgxBixIAFsExWxhLYxY/E2C3SEdC+1Bl8026rdc+wym119akkZdZ8BAlgSdMA3pekzNpqsy9JmQEsJQNebvYlKbO23DyXpMwAlgCWBLCkkYDXH0tSZgBLAEsCWNJYwE8lKbN2vn4qSZkBLAEsaRrAlx9KUmYASwBLAljSWMCPJSkzgCWAJU0CeHHxWJIya4uL9yUpM4AlgCUBLGks4IeSlBnAUjTg1UNJygxgKRvwfUnKrM1X9yUpM4AlgCVNBPiuJGUGsBQNeHlXkjIDWMoGfFuSMgNYAljSJIBny9uSlFmbLXclKbM2O9+VpMwAlgCWNBHgdyUpM4AlgCUBLGkk4MVNScqsnS1uSlJmAEsAS5oI8HVJygzg0HZPX3UggAUwwEGA59elvGAdANzZDtrZfFvKC9YhwH3tAGCAAQZYAAM8CeDT+baUF6yH620H7XR+VcoL1iHAfe0AYIABBlgAAzwN4NlVKS9YBwB3toN2OtuU8oJ1CHBfOwAYYIABFsAAAyyAAR4LeF3KC9YhwH3toJ3M1qW8xg77x/dvv+1PAPpX7xmqtx20k7N1KS+ABwB3tgOAAQY4G/BlKS+AhwD3tQOAAQYYYAEMMMACGGCAAQYYYAEMMMACGGCABTDAAAMMMMAKBNxLAAtggPsFvNl90YEABhhggAEGGGCAAQYYYIABBhhggAEGGGABDDDAAAMsgAEGGGCAAQYYYIABBhhggAEGGGCAAQYYYIABBhhggF8L+CUHv18D5VifCzDAAAMMMMAAAwwwwAADDDDAAAMMMMAAC2CAAe4d8Gr7OSqAAQYYYIABBhhggAEGGGCAAQYYYIABBljHAfh/+XOzlzwfYIABBhhgAQwwwAADDDDAAAMMMMAAAwwwwAADDDDAAAMMMMAAAwwwwAADDDDASYBf8nsABhhggAF2sbvDDAADDDDAAAMMMMAAAyyAAQYYYIABBhhggAEGGGCAAQYYYIABBhhgAQwwwAAD7FpZgAEGGOBjvdj9b+Vid4ABBhhggAEGGGCAAQYYYIABBhhggAEGGGCAAQYYYIABBhhggAEGGGCAAQYYYIABBhhggAEG2GEGgAEGGGABDDDAAAMMMMAAAwwwwAADDDDAAAMMMMAAC2CAAQYYYNfKAgwwwAADDDDAAAMMMMAAAyyAAQYYYIABBhhggAEGGGCAAQYYYIABBhhggAEGGGCAAQYYYIABdpgBYIABBhhggAEGGGABDDDAAAMsgAEGGGCAAQYYYIABBhhggAEGGGCAAQYYVoABBhhggAEGGGCAAQYYYIABBhhggAEGGGABDDDAAAMMMMAAAwwwwAADDDDAAAMMMMACGGCAAQYYYIABBhhggAEGGGCAAQYYYIABFsAAAwwwwAADDDDAAAMMMMAAAwwwwAADLIABBhhggGEFGGCAAQYYYIABBhhggAEG+FgBv3k7L0mZASwBLAlgSQBLAEsCWBLAkgCWAJYEsCSAJYAlASwJYEkASwBLAlgSwJIAlgCWBLAkgCWAJQEsCWBJAEsASwJYEsCSfvUTODkZL/llPpQAAAAASUVORK5CYII="
+      },
+      {
+        "id": "pphoto-2",
+        "title": "2026年12月23日",
+        "body": "",
+        "kind": "image",
+        "time": "2026-12-23 09:40",
+        "media": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAAFN0lEQVR42u3cSXbbVhCGUazC6tl36qjE6WwvIfsfZJxRdlE5OZmEEWUL5gPwiriDO7YI/N8pjNx8edkFkFPjIYCAAQEDAgYBA9UH/PllF0BOzef9NoCcBAwCBgQMCBgEDAgYEDAgYBAwUEvAn/bbAHISMKQO+HkbQE4ChtwBbwLIScAgYEDAgIBBwICAgQ4D/u15E0BOAgYBAwIGWgb8tAkgJwFD7oDXAeQkYBAwIGBAwDCagH99WgeQk4BBwICAAQGDgIEEAT+uA8hJwJA74FUAOQkYBAwMEvAvj6sAchIwCBgQMCBgEDAgYKDLgB9WAeQkYBAwIGCgXcA/PywDyEnAIGBAwICAQcCAgAEBAwKGcwv4fhlATs1P98sAchIwCBgYKOBFkNdff/5xEs8wNwELGAEjYASMgBGwgAUsYM46XDELmOTBClrAnFm0Yk4W8Mf7RVCPmqJ9i/dUj+bjbhEML0O4r0L23gYnYOEKWcCMMVwhC1i8Iua0gOdBP8453Nche999EPCZx/v7fiJiAVNjvP/EWYqIBUwP4ZaMts+Y7UHAo423j2j7iNkuBDyqeIcMt6uQ7aNwwD/u5kE55xZuFyHbSTkCrijemsMtHbK9lAp4Ow9ON5ZwS4ZsN6cTsHhFLGDxjjVeEQt4dAGfU7glQrYjAYtXxAJGvCJOF/AsaEe8XUZsX20IuIeAxxjv90ZsXwIWr4jHE/AP21nwPj6d+/uUtrf3EXCHAYv3+yO2NwGLV8QCpn3AYi0Tsd29J+DNLPg613fAK2x/XyXgwgGLtPAVtj8Bu76usIAFLF5XWMACRsACFq+I+TfgaXCcgGsK2B6PaV420+A48dYTsT0eJ+AT4xVwf1fYLgUsYAELWMDi9RktYAEjYAH7fPYZPeaA19PgkHgrvsL2eUDAAhawgAWMgAUsYAELWMACFvBoAt6vp8EhAdcbsH0eavbrSXBIwDUHbJ//JWABC1jAAkbAAhaviEUsYBGLV8ACFrCAEwS8mgSHBFxxwPZ5QMACFrCABYyABSxgAQu4XcDPq0lwSMD1BmyfhwQsYAELWMAIWMDJAhZx//8nln2+CvgueE3ANV5fu/w/AQtYwAIeb8Ai7vPz2S4FLGABC1jEAvb5XEfAy7vgOFe4outrj0cJWMACzhzw0/IueJuIh4/XDt8mYAELWMACFnE38QpYwK6w6ytgAYvY9RWwKyxg8ZYN+Db4Nld4iOtrd98iYBGLV8ACFnG5eAUsYFfY9R1JwIvboB0RdxivfbXSPC5ug3Z8Snf36Wxf7QhYxOIVsIhFLF4Bi1i8CLj2gM8x5FOegx0JWMTiFTAiFq+ARTyCkE/9rfZSLOCboJxTh117yCV+n52UI+BKI64t5FK/yT4EPKqIhw655O+wiw4CfljcBN0oOf4+Y+7i77aHbjQP85ugW10EUTrmrv5G779bAk4e8XsiH+rf9t4FLOKkvG8BC1m4CFjE4hUwQhaugDmnkL03AZMwZO9JwCSL2fsQMMli9twTBHw/vw7y6SJYzzUfAY8gdM9BwECVAc+uA8hJwCBgQMCAgEHAgICBDgPeza4DyEnAIGBgoICvAshJwJA64OlVADkJGAQMCBgQMAgYqD/g7fQqgJwEDAIGBAwIGEYU8GUAOQkYUgc8uQwgJwGDgAEBA+0C3kwuA8hJwCBgQMCAgEHAgIABAQPHA74IIKdmc3cRQE4ChswBr+8uAshJwCBgQMCAgEHAgIABAQMCBgED1QR8+yGAnJrV7YcAchIwCBgQMCBgGIu/AbRYDVbMxBnnAAAAAElFTkSuQmCC"
+      },
+      {
+        "id": "hphoto-2018",
+        "title": "2018年10月",
+        "body": "",
+        "kind": "image",
+        "time": "2018-10-14 16:20",
+        "media": "data:image/png;base64,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",
+        "hidden": true
+      },
+      {
+        "id": "hphoto-2019",
+        "title": "2019年8月",
+        "body": "",
+        "kind": "image",
+        "time": "2019-08-11 12:05",
+        "media": "data:image/png;base64,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",
+        "hidden": true
+      },
+      {
+        "id": "hphoto-2021",
+        "title": "2021年4月",
+        "body": "",
+        "kind": "image",
+        "time": "2021-04-11 15:20",
+        "media": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAAD3UlEQVR42u3TuXHbUBSGUZTlAhx4XIJHNbgAF+qMGwASoLlJauAq9xABh7LxLt4JTv6/5Ws24zWAnBqXAAIGBAwIGAQMCBj4dwFvx2sAOQkYBAwIGHgw4OESQE4CBgEDAgYEDAIGBAwIGLgX8G64BJCTgEHAgIABAYOAAQEDAgYEDAIGBAwIGOoO+BxATk07nAPIqWkP5wByEjAIGBAwIGAQMCBgQMCAgEHAgIABAUPNAXeHcwA5CRgEDAgYEDAIGMgQ8CmAnAQMAgYEDDwY8P4UQE4ChswB9/tTADk1t8Pv+Ey/Xr59Kvvss2+agO2zT8Ae2D77BOyB7bNPwPbZJ2AXaJ99AvbA9tknYPvss0/A9tknYBdon30C9sD22Sdg++wTsAu0zz4Be2D77BOwB7bPPgHbZ5+AXaB99gnYA9tnn4Dts88+Adtnn4BdoH32CdgD22efgO2zT8Au0D77BOyB7bNPwB7YPvsEbJ99AnaB9tknYA9sn30Cts8++wRsn30C9sD22SdgD2yffQK2zz4Bu0D77BOwB7bPPgHbZ599ArbPviUGPPTHAHISMAgYmCfg7hhATgIGAQMCBgQMAgYEDAgYEDAsLOCxOwaQk4BBwMBMAY8B5CRgEDAgYEDAIGBAwICAAQHDwgI+dmMAOTXHdgwgJwGDgAEBAwIGAQMCBgQMCBgEDJQT8BBATgKGzAH/aYcAchIwCBgQMCBgEDAgYEDAgIBhaQHvhgByEjAIGBAw8FjAp90QQE4CBgEDAgYEDBUFfAggJwGDgAEBAwIGAfNfvN/GpziXgF2Ej+5cWQM+7w7BfJ796M5VNwH76M4lYHx0AQtYwAIWsIAF7FwCxkd3rgQBbw/BfJ7+6M5VNQH76M4lYHx0AQtYwAIWsIBBwICAp/z88RUWY7aAL9t9zMGjsyRzdSRgELCAEbCAQcACBgELGAQsYAQsYBBwSQH/7eX7l7tK2UedSv+XAgYBCxgBC1jACFjAUE3A1+0+SjB1UaXso06l/0sBQ+qAN/soweRFFbKPOpX+LwUMAhYwAhawgBGwgKGigPsowfRF9eBfThAwCFjACFjAAkbAAoZqAr5t+ijB1EWVso86lf4vBQwCFjACFrCAEbCAQcAuCgQsYAQsYPAvBQwCFjACFrCAEbCAoeqA132UYPKiCtlHnUr/l83ruo8STF1UKfuoU+n/svFIkFfzuu4CyEnAIGBAwICAQcCAgAEBAwIGAQMCBp4O+G3dBZCTgEHAgIABAYOAAQEDAgbuBrzqAsipeVu1AeQkYBAwMEvA76s2gJwEDAIGBAwIGAQMFO8Du7zcVL+jdCEAAAAASUVORK5CYII=",
+        "hidden": true
+      },
+      {
+        "id": "hphoto-2022",
+        "title": "2022年12月",
+        "body": "",
+        "kind": "image",
+        "time": "2022-12-24 17:30",
+        "media": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAAD1UlEQVR42u3dR1ajVxSF0TcgOnQYu3HAZZcDORRJKCOByLjj/vUAqtwAr8XvI+3GnsB592u/9t12r4BMzQggYKCLgDe3ewVkaps7vQIytc2dqwIyCRgEDHQS8Pc7VwVkEjBEB7x7VUAmAYOAgU4C/mG3X0AmAYOAgW4C3usXkEnAkBzwj3v9AjIJGAQMCBh4a8CDAjK1n/YHBWQSMAgYEDAgYFiZgLf2BwVkalsHgwIyta2DYQGZBAwCBjoJ+OeDYQGZBLwk3vO3rN2WIeDDYZHvXQHbLZ6ABYyA+b9ZW9/4il2WMOBPh8Ni+XwrYLssn/bpcFQsn28HbJdlI2ABI2Cgm4CPRgVkar8cjQrIJGAQMCBgQMCwMgH/ejwuIJOAQcCAgAEBw8oE/Pl4XECm9vlkXEAmAUN2wJMCMgkYkgP+7WRSQCYBQ3TAXyYFZBIwCBjoJODfv0wKyCRgyA54WkAmAUN0wKfTAjK1P06nBWQSMAgYEDAgYFiZgP88uy4gk4BBwHyEtfWND2NvAQMCBv414O2z6wIyte3z6wIyCRgEDHQU8KyATG3nfFZAJgGDgIFuAr6YFZBJwJAc8O7FrIBMAobsgOcFZBIwRAd8OS8gU9u7nBeQScAgYEDAgIBhZQLe780LyNT2ezcFZBIwCBgQMPC2gA96NwVkEjBEB3x1U0AmAYOAgU4CPry6LSCTgEHAQDcB928LyCRgSA74qH9bQCYBg4CBjgJeFB9vbX1j6XjXj9eOBosCMrXjwaKATAIGAQMCBgQMKxPwyWBRQKZ2MlwUkKmdDO8KyCRgEDDQScBfhncFZBIwRAc8uisgk4BBwEAnAZ+O7gvIJGAQMNBNwOP7AjIJGJIDPhvfF5BJwCBgQMDAWwN+KCBTO588FJBJwCBgQMCAgGFlAr6YPBSQqV1MHwrI1C6mjwVkEjAIGOgk4MvpYwGZBAzRAV8/FpBJwCDg1ba2vsE7uZ//GHDv+rGATK13/VRAJgGDgIFuAp49FZCpXc2eCsgkYBAwIGBAwLAyAffnzwVkEjAIGBAwIGBYmYAH8+cCMrXBzXMBmQQM2QG/FJBJwJAc8PDmpYBMAobogG9fCsgkYBAw0EnAo9uXAjIJGLIDfi0gk4AhOuDFawGZ2njxWkAmAYOAAQEDAoaVCXhy91cBmQQMAgY6Cfj+9e8CMgkYBAwIGBAwCBgQMCBgQMAgYEDAgIBBwICAAQEDAgYBAwIGBAwIGAQMCBgQMAgYEDAgYEDAIGBAwICAAQGDgAEBAwIGAQMCBgQMCBgEDAgYEDAI2AggYEDAwBv8A6I13UXlZHEhAAAAAElFTkSuQmCC",
+        "hidden": true
+      },
+      {
+        "id": "hphoto-2023",
+        "title": "2023年10月",
+        "body": "",
+        "kind": "image",
+        "time": "2023-10-13 16:02",
+        "media": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAADjklEQVR42u3dQV7VZRzF4XcxzJnfpbSUVpGiSIqIKSqajtMMNM0ky6gmaWAWZe7itICa/LFP18N9Bs8Gzvv7jt/x82cfBeg0jAACBgQMTAv47qkAnQQMzQG/uHsqQCcBg4ABAQNTAz4doNN4ce90gE4CBgEDAgYEDAIGGgJeCdBpvLy3EqDTePn5SoBOAgYBAwIGpgZ8JkAnAYOAgfkEfP9MgE4CBgEDAgamBfzL/bMBOgkYBAzMJ+AvzgboJOAT4jhfU9pNwAiY+Qa8GvodL2C7tRPwCTVbXvoHuwgYASNgBMx/E/DOajh5/jVgu5w4AobmgA92VgN0Ggc75wJ0EjAIGBAwIGBYnIB3zwXoNA521wJ0EjAIGBAwIGBYmIAPd9cCdBqHD9YCdBqHDz4O0EnAIGBAwICAQcBAQcAPzwfoJGAQMCBgYFrArx6eD9BJwCBgYE4BXwjQabz68kKATgIGAQMCBgQMCxTweugwW17639i7g4ChOuBH6wE6jV8frQfoJGAQMCBgYGrAFwN0EjBUB/z4YoBOAgYBAwIGpga8EaCTgKE54NePNwJ0Gq+/2gjQScAgYEDAwNSALwXoJGAQMCBgYGLATy4F6CRg6A54M0Cn8duTzQCdBAwCBgQMTAz4680AnQQM3QFfDtBJwCBgQMCAgGFxAn56OUCn8fvTTwJ0EjAImKlmy0snjncVMCBgEDDw3ge8dyVAJwGDgAEBAwIGAQPvf8BHe1cCdBpHe1cDdBpH31wN0EnAIGBAwICAYYEC3grQScBQHfCzrQCdBAwCBuYS8B/PtgJ0EjB0B3wtQCcBQ3XA314L0EnAIGBAwMDUgK8H6CRgEDAgYGBawH9+dz1AJwGDgIE5BXwjQCcBg4ABAQMTA35+I7yb2fISx+R+3o2AoTvg7QCdBAwCBuYS8Jvn2wE6CRiqA/5+O0AnAUN3wDcDdBIwCBgQMCBgWJyA928G6DTe7N8K0EnA0BzwX/u3AnQSMAgYEDAgYFicgH/4NEAnAYOAAQEDAgYBAw0B3w7Qabz98XaATgIGAQMCBgQMAgYaAr4ToNN4+9OdAJ0EDAIG5hLwhx/MAnQSMAgYEDAgYBAwIGBAwICAQcCAgAEBg4ABAQMCBgQMAgYEDAgYEDAIGBAwIGAQMCBgQMCAgEHAgIABAQMCBgEDAgYEDAIGBAwIGBAwCBgQMCBgELARQMCAgIEJ/gb7pEvjmHiURgAAAABJRU5ErkJggg==",
+        "hidden": true
+      },
+      {
+        "id": "hphoto-2024",
+        "title": "2024年8月",
+        "body": "",
+        "kind": "image",
+        "time": "2024-08-11 18:40",
+        "media": "data:image/png;base64,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",
+        "hidden": true
+      },
+      {
+        "id": "hphoto-2025a",
+        "title": "2025年4月",
+        "body": "",
+        "kind": "image",
+        "time": "2025-04-11 20:15",
+        "media": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAADZElEQVR42u3au1XDUBREUVWDLVk/2/xMQEgFVEOHRGSExHRxqYBAkTzWDnYB92nOIjDNy2kuIFPjEUDAwBoBX05zAZmay3EqIJOAQcCAgIFlAT8fpwIyCRiiA57HAjIJGAQMrBLw0zwWkEnAIGBgnYCnoYBMAobkgB+noYBMAgYBAwIGFgY89gVkah7GvoBMAgYBAwIGBAybCfh+OBSQScAgYEDAgIBhMwGfh0MBmZpz3xWQScAgYEDAwLKAT31XQCYBQ3TAh7aATAIGAQOrBHw8tAVkEjAIGFgn4G5fQCYBQ3LAc7cvIJOAQcCAgIGFAbe7AjI1U7srIJOAQcCAgAEBw2YCHvd3BWQSMAgYEDAgYBAwIGBAwICAQcCAgAEBg4ABAQMCBgQMAgYEDAgYEDAIGBAwIGAQMCBgQMCAgEHAgIABAQMCBgEDAua6fX3/LOLNBIyAETACFjACFrCAETACRsAI2PAFLGAELGABC1jACNjw3SFgDF/AAkbACFjA7kDAhu8OASNgAQtYwAJGwAJ2h4A9guELWMAIWMACFrA7ELDhu0PAGL6ABSxgASNgAbsDARu+gAWMgAUsYAELGAEL2B0CxvAFLGAELGABC9gdCNjw3SFgDF/AAhawgBGwgN2BgA1fwAJGwAIWsIAFjIAN3x0CxvAFLGAE7NsLWMDuQMCG7w4BI2ABC1jAAkbAAnYHAjZ8AQsYAQtYwAIWMAI2fHcIGMMXsIARMAIWMAhYwAgYASNgAQsYAQsYAXsIASNgQMDA9QT8/vYKmyVgELCAQcACBgGDgAUMAhYwCFjAIGAQsIBBwAIGAfuICFjAIGABg4AFDAIGAQsYBCzgG/X7+eEdBCzgtGj/430ELODQeEUsYAELGAEjYAELmMXxiljAAvYXGAEjYAELGAELWMB+B0bAAvafWAgYBCxgELCAQcAgYAGDgAUMAhYwCBgELGAQsIBBwAIGAYOABQwCFjAIGAQsYBCwgEHAAgYBg4AFDAIWMAhYwAhYwCBgAYOABQwCBgELGAQsYBCwgEHAIGABg4AFDAL2ERGwgEHAAgYBCxgEDAIWMAhYwCBgAYOAQcACBgELGAQMAhYwCFjAIGBgXQIGAQMCBgQMAgYEDAgYEDAIGBAwIGAQMCBgQMCAgOHm/QEkrgxF25FFLAAAAABJRU5ErkJggg==",
+        "hidden": true
+      },
+      {
+        "id": "hphoto-2025b",
+        "title": "2025年10月 · 巴黎",
+        "body": "",
+        "kind": "image",
+        "time": "2025-10-12 17:44",
+        "media": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAYAAAA+VemSAAAF8ElEQVR42u3dQXYUVRiG4VqXx5EDhyyApbgKIRAihBCEAAFhLIgJCEYiilEnggmiUWQXvwc9JiShSFeluqv+vs/gHfetW99zumdd/fL5xyEpZ5VLkACWBLCkZoBvnwhJOQNYygz46e0TISlnAEsASwJYUlPAJ0NSzqqnd06GpJwBLAEsCWBJAEsAS8oAeCYk5ax6dmcmJOWsevbFTEjKGcASwJIAltQU8KmQlDOAJYAl9QP47qmQlDOAJYAlASypGeBf754OSTkDWAJYUj+AvzwdknIGsASwpJ4Az4aknAEsASwJYEkNAa/MhqScASxlBry5MhuSclZtrpwJSTkDWAJYEsCSAJbKAbx6JiTlrNpcnQtJOQNYAlgSwJIAlooBvLU6F5JyVm3dmwtJOau27n0SknIGsASwJIAlASwBLCkB4PtnQ1LOAJYAlgSwpGaAn98/G5JyBrAEsKSeAJ8LSTmrnn91LiTlDGAJYEkASwJYKgjwfEjKGcBSasAP5kNSzqrfHsyHpJwBLAGsrjv24fvuQQBngNo096Y3AJ8PTbY2aOsxu8+SAzgpXJD1H+CH50PjbZxwD0B230UF8BThhRhgJcfbN+Ljxz7w7gGGd+iIX0Ntml2MBfBCqNuGgHcXcXfP1QZtPWY76SKApxhvV4i7hAtyx4BfPFwIddMQ8f5fm+cZJ9z92U+7qhdfL4SO3pDx7iBu8DyTxLuD2I4aBzDAg8ALMcDwdoC4T7wQAwzwEQAPAS/EjQFfCLUvE95dxAefY0h4dxHb12EBDPAg8UIMMMAjAB4yXogBhvcQxABnB7x2IdSu1IDXcuDdQWxvbw1ggAHODXgx1K7MgDPh3UVsc/urfl9bDLUL4MlmcwcDGGCAAYYXXogBhhhggBsC/mYx1C6AewBsd3sCGGCAcwO+GGoXwH0Atrs3AxhggAEGGF6IAYYYYngBBhjgcgA/uhhqH8ATBmxze6r+ePRp6Ghlwvv6vJkB29veAAYYYICVBS/AACs54KyI7QzgYhHvPyvAACsJ4redE+BpAbx+KdRtg8L7jnOmwmtXbw3gKUZ82BkBBlgDRTzqGeEFWAND3OR8AAOsASFucz54AVbPkI96NniTAt5evxSabF3C7fJcQ8JrJ6NVba9fDvVXO7TjO88w8NrFqFXb314ODa9/ofb02b3i9e4bBbAGg9i9AzyWb8KS6guxrQEMcMeAJwHZxgAGeMyAxwHZtjoDvBSqrzzAo91LO7T21HUAA9wK8Ltg280kAT9eCtVXHGDvPFUATzngafgnhpF+ngMsgAFOB/jPx0uh+gDOUan7BBhggHMDvhKqD+AsgMvcJ8AAA5wa8HdXQvUBnARwofsEGGCAAQYYYIABBhhggJsCvhqqD+AsgMvcJ8AAAwwwwAADDDDAAAPcDPBf318N1QdwjkrdJ8AAAwwwwAAD3BPga6H6AM4CuMx9AgwwwAADDDDAAAMMMMANAT+5FqoP4CSAC90nwAADnBvwcqg+gLMALnOfAAMMMMAAAwxwL4BfPlkO1QdwjkrdJ8AAA5wa8A/LofoATgK40H0CDDDAuQFfD9UHcBbAZe4TYIABBhhggAEGGGCAAQYYYIDLAbxxPVQfwEkAF7rP6uXGjVB9AGcBXOY+AQYY4MyA/964EaoP4ByVuk+AAQYYYIABBhhggAEGGGCAAS4H8I+fheoDOAngQvcJMMAAAwwwwAADDDDAAAMMMMAAC2CAMwC+GaoP4CyAy9xn9eqnm6H6AM5RqfsEGGCAAQYYYIABBhhggAEGGGCABTDAGQDfCtUHcBbAZe6zevXzrVB9ACcBXOg+AQYYYIABBhjgXgB/dPy9UH0A56jUfQIMMMAAAwwwwAADDDDAAAMMMMACGGCAAQYYYIABBhhggAEGGGCAAQYYYIABBhhggAEGWAADDDDAAAMMsCSAJYAlASwJYEkASwBLAlgSwBLAkgCWBLAkgCWAJQEsCWBJAEsASwJYEsASwJIAlgSwJIAlgCUBLAlgCWCXIAEsCWBJDfoHTjo8tuVB+u8AAAAASUVORK5CYII=",
+        "hidden": true
+      }
+    ],
+    "calendar": [
+      {
+        "id": "pcal-1",
+        "title": "圣诞节",
+        "body": "12月25日 · 全天",
+        "kind": "event",
+        "time": "2026-12-25 00:00"
+      },
+      {
+        "id": "pcal-2",
+        "title": "还信用卡",
+        "body": "12月28日",
+        "kind": "event",
+        "time": "2026-12-28 09:00"
+      },
+      {
+        "id": "hcal-2018",
+        "title": "Paris",
+        "body": "10月 · 那一次，是开始",
+        "kind": "event",
+        "time": "2018-10-14 08:00",
+        "hidden": true
+      },
+      {
+        "id": "hcal-2019",
+        "title": "Paris",
+        "body": "8月 · 夏天",
+        "kind": "event",
+        "time": "2019-08-11 08:00",
+        "hidden": true
+      },
+      {
+        "id": "hcal-2021",
+        "title": "Paris",
+        "body": "4月 · 春天",
+        "kind": "event",
+        "time": "2021-04-11 08:00",
+        "hidden": true
+      },
+      {
+        "id": "hcal-2022",
+        "title": "Paris",
+        "body": "12月 · 圣诞",
+        "kind": "event",
+        "time": "2022-12-24 08:00",
+        "hidden": true
+      },
+      {
+        "id": "hcal-2023",
+        "title": "Paris",
+        "body": "10月 · 秋天",
+        "kind": "event",
+        "time": "2023-10-13 08:00",
+        "hidden": true
+      },
+      {
+        "id": "hcal-2024",
+        "title": "Paris",
+        "body": "8月 · 夏天",
+        "kind": "event",
+        "time": "2024-08-11 08:00",
+        "hidden": true
+      },
+      {
+        "id": "hcal-2025",
+        "title": "Paris",
+        "body": "4月 · 春天",
+        "kind": "event",
+        "time": "2025-04-11 08:00",
+        "hidden": true
+      },
+      {
+        "id": "hcal-xmas",
+        "title": "Paris · Christmas",
+        "body": "12月25日 · 全天",
+        "kind": "event",
+        "time": "2026-12-25 14:47",
+        "hidden": true
+      }
+    ],
+    "notes": [
+      {
+        "id": "pnote-1",
+        "title": "圣诞礼物清单",
+        "kind": "note",
+        "time": "2026-12-19 22:00",
+        "body": "妈妈：围巾\nEric：？？（想到再写）\n圣诞袜：需要新的"
+      },
+      {
+        "id": "hnote-paris",
+        "title": "巴黎必去",
+        "kind": "note",
+        "time": "2025-10-12 09:00",
+        "hidden": true,
+        "body": "老地方的咖啡店\n河边的旧书摊\n十一区的那个酒吧\n塔下的草坪（带酒）\n\n……每次去都更新一点"
+      },
+      {
+        "id": "hnote-pack",
+        "title": "12月行李清单",
+        "kind": "note",
+        "time": "2026-12-22 21:00",
+        "hidden": true,
+        "body": "护照\n充电头\n那条灰色的围巾"
+      },
+      {
+        "id": "note-a1",
+        "title": "如果 · 一",
+        "kind": "note",
+        "time": "2026-12-25 18:04",
+        "hidden": true,
+        "folder": "另一种走向",
+        "body": "这些选择，本来可以那样发生。\n\n——如果那条草稿发给了你。\n\n「今年圣诞，你还想来巴黎吗？」\n\n那天深夜，你回复了他：「想。」\n\n——如果你回拨了那通电话。\n\n电话响了三声，被接通了。\n「喂？」\n「刚刚看到你打电话。」\n「嗯，本来想问你一件事。」"
+      },
+      {
+        "id": "note-a2",
+        "title": "如果 · 二",
+        "kind": "note",
+        "time": "2026-12-25 18:04",
+        "hidden": true,
+        "folder": "另一种走向",
+        "body": "你们重新开始说话。\n一开始生疏，小心翼翼。然后一点一点，变回八年来的样子。\n\n——如果那句解释说了出口。\n\n「我那天不是那个意思。」\n「我知道。」\n「那你为什么不说？」\n「我以为你真的不想再见我了。」"
+      },
+      {
+        "id": "note-a3",
+        "title": "如果 · 三",
+        "kind": "note",
+        "time": "2026-12-25 18:04",
+        "hidden": true,
+        "folder": "另一种走向",
+        "body": "订单重新改回了两个名字。\n乘客：你、李柱延。目的地：巴黎。2026年12月25日。\n\n日历上，那条提醒也回来了：Paris · Christmas。\n他在他的日历里，确认了同一个约定。\n\n出发前一天，他发来消息：\n「这次还去之前那家店吗？」\n\n这一次，没有需要做出的重大选择。只剩两个人之间自然的日常。"
+      },
+      {
+        "id": "note-a4",
+        "title": "如果 · 四",
+        "kind": "note",
+        "time": "2026-12-25 18:04",
+        "hidden": true,
+        "folder": "另一种走向",
+        "body": "12月25日。你们一起抵达机场。\n值机。安检。候机。\n登机。\n\n这一次，你们没有错过彼此。\n\n……\n\n飞机失事。\n\n爱人在沉睡。你要叫醒他吗？"
+      }
+    ],
+    "mail": [
+      {
+        "id": "hmail-book",
+        "title": "行程确认 · 2026年12月25日 · 巴黎",
+        "body": "乘客：李柱延 · 单人预订 · 已出票",
+        "kind": "order",
+        "time": "2026-11-30 19:05",
+        "folder": "收件箱",
+        "hidden": true
+      },
+      {
+        "id": "hmail-change",
+        "title": "订单变更通知 · 乘客变更",
+        "body": "订单 PV-1225：乘客由 2 人变更为 1 人",
+        "kind": "order",
+        "time": "2026-04-10 09:12",
+        "folder": "收件箱",
+        "hidden": true
+      },
+      {
+        "id": "hmail-2025",
+        "title": "机票订单 · 2025年4月 · 巴黎",
+        "body": "乘客：{player}、李柱延 · 往返 · 已完成",
+        "kind": "order",
+        "time": "2025-03-30 10:24",
+        "folder": "收件箱",
+        "hidden": true
+      },
+      {
+        "id": "hmail-2024",
+        "title": "机票订单 · 2024年8月 · 巴黎",
+        "body": "乘客：{player}、李柱延 · 往返 · 已完成",
+        "kind": "order",
+        "time": "2024-07-28 10:24",
+        "folder": "收件箱",
+        "hidden": true
+      },
+      {
+        "id": "hmail-2023",
+        "title": "机票订单 · 2023年10月 · 巴黎",
+        "body": "乘客：{player}、李柱延 · 往返 · 已完成",
+        "kind": "order",
+        "time": "2023-09-28 10:24",
+        "folder": "收件箱",
+        "hidden": true
+      },
+      {
+        "id": "hmail-2022",
+        "title": "机票订单 · 2022年12月 · 巴黎",
+        "body": "乘客：{player}、李柱延 · 往返 · 已完成",
+        "kind": "order",
+        "time": "2022-11-29 10:24",
+        "folder": "收件箱",
+        "hidden": true
+      },
+      {
+        "id": "hmail-2021",
+        "title": "机票订单 · 2021年4月 · 巴黎",
+        "body": "乘客：{player}、李柱延 · 往返 · 已完成",
+        "kind": "order",
+        "time": "2021-03-30 10:24",
+        "folder": "收件箱",
+        "hidden": true
+      }
+    ],
+    "settings": [
+      {
+        "id": "hset-profile",
+        "title": "账户资料",
+        "kind": "text",
+        "time": "2026-12-25 18:04",
+        "hidden": true,
+        "body": "头像：2026年11月更新\n收货地址：2026年6月更新\n紧急联系人：{player} · 2019年11月3日设置"
+      }
+    ]
+  },
+  "variables": {
+    "playthrough": 0,
+    "intro_done": false,
+    "route": "",
+    "act": 0,
+    "node_stage": 0,
+    "q1": false,
+    "q2": false,
+    "n1a": false,
+    "n2a": false,
+    "n3a": false,
+    "n4a": false,
+    "n5a": false,
+    "a_hidden": false,
+    "frdone": false,
+    "__chatapp": "wechat",
+    "__narration": "",
+    "__sub": ""
+  },
+  "events": [
+    {
+      "id": "start",
+      "label": "开始",
+      "type": "start",
+      "next": [
+        "q-gate-intro",
+        "q-gate-fresh"
+      ]
+    },
+    {
+      "id": "q-gate-intro",
+      "label": "开场已完成",
+      "conditions": [
+        {
+          "key": "intro_done",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "next": [
+        "prologue-wait"
+      ]
+    },
+    {
+      "id": "q-gate-fresh",
+      "label": "开场未完成",
+      "conditions": [
+        {
+          "key": "intro_done",
+          "op": "neq",
+          "value": true
+        }
+      ],
+      "next": [
+        "q1-wait"
+      ]
+    },
+    {
+      "id": "q1-wait",
+      "label": "第一问等待",
+      "type": "delay",
+      "delayMs": 600,
+      "actions": [
+        {
+          "type": "notification",
+          "key": "",
+          "value": "正式开始前，请先回答两个问题。"
+        }
+      ],
+      "next": [
+        "q1"
+      ]
+    },
+    {
+      "id": "q1",
+      "label": "第一个问题",
+      "type": "choice",
+      "next": [
+        "q1-yes",
+        "q1-no"
+      ]
+    },
+    {
+      "id": "q1-yes",
+      "label": "还有留恋",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "q1",
+          "value": true
+        }
+      ],
+      "next": [
+        "q2-wait"
+      ]
+    },
+    {
+      "id": "q1-no",
+      "label": "没有留恋",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "q1",
+          "value": false
+        }
+      ],
+      "next": [
+        "q2-wait"
+      ]
+    },
+    {
+      "id": "q2-wait",
+      "label": "第二问等待",
+      "type": "delay",
+      "delayMs": 400,
+      "actions": [
+        {
+          "type": "notification",
+          "key": "",
+          "value": "第二个问题：在这段断联期间，你有对别人心动过吗？"
+        }
+      ],
+      "next": [
+        "q2"
+      ]
+    },
+    {
+      "id": "q2",
+      "label": "第二个问题",
+      "type": "choice",
+      "next": [
+        "q2-yes",
+        "q2-no"
+      ]
+    },
+    {
+      "id": "q2-yes",
+      "label": "心动过",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "q2",
+          "value": true
+        }
+      ],
+      "next": [
+        "route-a",
+        "route-b",
+        "route-c",
+        "route-d"
+      ]
+    },
+    {
+      "id": "q2-no",
+      "label": "没有心动过",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "q2",
+          "value": false
+        }
+      ],
+      "next": [
+        "route-a",
+        "route-b",
+        "route-c",
+        "route-d"
+      ]
+    },
+    {
+      "id": "route-a",
+      "label": "路线A",
+      "conditions": [
+        {
+          "key": "q1",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "q2",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "route",
+          "value": "A"
+        },
+        {
+          "type": "variable",
+          "key": "intro_done",
+          "value": true
+        }
+      ],
+      "next": [
+        "prologue-wait"
+      ]
+    },
+    {
+      "id": "route-b",
+      "label": "路线B",
+      "conditions": [
+        {
+          "key": "q1",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "q2",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "route",
+          "value": "B"
+        },
+        {
+          "type": "variable",
+          "key": "intro_done",
+          "value": true
+        }
+      ],
+      "next": [
+        "prologue-wait"
+      ]
+    },
+    {
+      "id": "route-c",
+      "label": "路线C",
+      "conditions": [
+        {
+          "key": "q1",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "key": "q2",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "route",
+          "value": "C"
+        },
+        {
+          "type": "variable",
+          "key": "intro_done",
+          "value": true
+        }
+      ],
+      "next": [
+        "prologue-wait"
+      ]
+    },
+    {
+      "id": "route-d",
+      "label": "路线D",
+      "conditions": [
+        {
+          "key": "q1",
+          "op": "eq",
+          "value": false
+        },
+        {
+          "key": "q2",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "route",
+          "value": "D"
+        },
+        {
+          "type": "variable",
+          "key": "intro_done",
+          "value": true
+        }
+      ],
+      "next": [
+        "prologue-wait"
+      ]
+    },
+    {
+      "id": "prologue-wait",
+      "label": "来电",
+      "type": "delay",
+      "delayMs": 1500,
+      "actions": [
+        {
+          "type": "call",
+          "key": "pcall-airline",
+          "value": "未知号码"
+        }
+      ]
+    },
+    {
+      "id": "ev-answered",
+      "label": "接听",
+      "event": "callAnswered",
+      "target": "pcall-airline",
+      "next": [
+        "line-1"
+      ]
+    },
+    {
+      "id": "ev-declined",
+      "label": "拒接",
+      "event": "callDeclined",
+      "target": "pcall-airline",
+      "actions": [
+        {
+          "type": "notification",
+          "key": "",
+          "value": "你拒接了来电。但电话很快又打了进来。"
+        }
+      ],
+      "next": [
+        "recall"
+      ]
+    },
+    {
+      "id": "recall",
+      "label": "再次来电",
+      "type": "delay",
+      "delayMs": 2500,
+      "actions": [
+        {
+          "type": "call",
+          "key": "pcall-airline",
+          "value": "未知号码"
+        }
+      ]
+    },
+    {
+      "id": "line-1",
+      "label": "通话 1",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？"
+        }
+      ],
+      "next": [
+        "line-2"
+      ]
+    },
+    {
+      "id": "line-2",
+      "label": "通话 2",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？"
+        }
+      ],
+      "next": [
+        "line-3"
+      ]
+    },
+    {
+      "id": "line-3",
+      "label": "通话 3",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。"
+        }
+      ],
+      "next": [
+        "line-4"
+      ]
+    },
+    {
+      "id": "line-4",
+      "label": "通话 4",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。"
+        }
+      ],
+      "next": [
+        "line-5"
+      ]
+    },
+    {
+      "id": "line-5",
+      "label": "通话 5",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）"
+        }
+      ],
+      "next": [
+        "line-6"
+      ]
+    },
+    {
+      "id": "line-6",
+      "label": "通话 6",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。"
+        }
+      ],
+      "next": [
+        "line-7"
+      ]
+    },
+    {
+      "id": "line-7",
+      "label": "通话 7",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？"
+        }
+      ],
+      "next": [
+        "line-8"
+      ]
+    },
+    {
+      "id": "line-8",
+      "label": "通话 8",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。"
+        }
+      ],
+      "next": [
+        "line-9"
+      ]
+    },
+    {
+      "id": "line-9",
+      "label": "通话 9",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………"
+        }
+      ],
+      "next": [
+        "line-10"
+      ]
+    },
+    {
+      "id": "line-10",
+      "label": "通话 10",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。"
+        }
+      ],
+      "next": [
+        "line-11"
+      ]
+    },
+    {
+      "id": "line-11",
+      "label": "通话 11",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。\n未知号码：非常抱歉。"
+        }
+      ],
+      "next": [
+        "line-12"
+      ]
+    },
+    {
+      "id": "line-12",
+      "label": "通话 12",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。\n未知号码：非常抱歉。\n未知号码：根据乘客登记信息，您是李柱延先生的紧急联系人。我们需要与您确认一些信息。"
+        }
+      ],
+      "next": [
+        "line-13"
+      ]
+    },
+    {
+      "id": "line-13",
+      "label": "通话 13",
+      "type": "delay",
+      "delayMs": 1400,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。\n未知号码：非常抱歉。\n未知号码：根据乘客登记信息，您是李柱延先生的紧急联系人。我们需要与您确认一些信息。\n………………"
+        },
+        {
+          "type": "unlock",
+          "key": "pcall-airline",
+          "value": true
+        },
+        {
+          "type": "variable",
+          "key": "act",
+          "value": 1
+        }
+      ],
+      "next": [
+        "post-call-safety"
+      ]
+    },
+    {
+      "id": "post-call-safety",
+      "label": "兜底解锁",
+      "type": "delay",
+      "delayMs": 30000,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-4",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-5",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-6",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "post-call",
+      "label": "挂断电话之后",
+      "event": "callEnded",
+      "target": "pcall-airline",
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-4",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-5",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-6",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "Eric：在吗"
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "Eric：我刚刚才知道。"
+        }
+      ]
+    },
+    {
+      "id": "ev-mail-notice",
+      "label": "兜底",
+      "event": "read",
+      "target": "pcall-airline",
+      "conditions": [
+        {
+          "key": "act",
+          "op": "eq",
+          "value": 0
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "act",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "ev-read-er5",
+      "label": "Eric 的消息",
+      "event": "read",
+      "target": "er-5",
+      "conditions": [
+        {
+          "key": "act",
+          "op": "eq",
+          "value": 1
+        }
+      ],
+      "next": [
+        "friend-choice"
+      ]
+    },
+    {
+      "id": "friend-choice",
+      "label": "如何回复Eric",
+      "type": "choice",
+      "next": [
+        "fr-1",
+        "fr-2",
+        "fr-3"
+      ]
+    },
+    {
+      "id": "fr-1",
+      "label": "回复：你知道多少？",
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-r1",
+          "value": true
+        },
+        {
+          "type": "variable",
+          "key": "frdone",
+          "value": true
+        }
+      ],
+      "next": [
+        "fr-cont"
+      ]
+    },
+    {
+      "id": "fr-2",
+      "label": "回复：我们已经很久没联系了。",
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-r2",
+          "value": true
+        },
+        {
+          "type": "variable",
+          "key": "frdone",
+          "value": true
+        }
+      ],
+      "next": [
+        "fr-cont"
+      ]
+    },
+    {
+      "id": "fr-3",
+      "label": "回复：我刚接到电话。",
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-r3",
+          "value": true
+        },
+        {
+          "type": "variable",
+          "key": "frdone",
+          "value": true
+        }
+      ],
+      "next": [
+        "fr-cont"
+      ]
+    },
+    {
+      "id": "fr-cont",
+      "label": "Eric 继续说",
+      "type": "delay",
+      "delayMs": 1800,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-7",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "er-8",
+          "value": true
+        },
+        {
+          "type": "clue",
+          "key": "f",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "Eric：他最近好像一直挺忙的。"
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "Eric：之前还问过我你的近况。"
+        }
+      ],
+      "next": [
+        "act1-check"
+      ]
+    },
+    {
+      "id": "act1-check",
+      "label": "电话线完成",
+      "conditions": [
+        {
+          "key": "clue:f",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__narration",
+          "value": "你还没有完全反应过来。\n\n你顺着指引去了航空公司，领回了李柱延的遗物。\n\n那是一部手机。家人把它交到你手上的时候，谁都没有说话。\n\n回到家，你把它放在桌上，按亮了屏幕。"
+        }
+      ]
+    },
+    {
+      "id": "narration-done",
+      "label": "旁白结束",
+      "event": "narrationDone",
+      "target": "",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__narration",
+          "value": ""
+        }
+      ],
+      "next": [
+        "handoff"
+      ]
+    },
+    {
+      "id": "handoff",
+      "label": "遗物交接",
+      "actions": [
+        {
+          "type": "hide",
+          "key": "er-1",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-2",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-3",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-4",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-5",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-6",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-7",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-8",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-r1",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-r2",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "er-r3",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "pcall-1",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "pcall-2",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "pcall-airline",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "pphoto-1",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "pphoto-2",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "pcal-1",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "pcal-2",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "pnote-1",
+          "value": true
+        },
+        {
+          "type": "hide",
+          "key": "zhuyan-card",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-1",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-2",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-3",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-4",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-5",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-6",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-7",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-8",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-9",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-good",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "ke-0a",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "ke-0b",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcall-missed",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcall-1",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcall-2",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcall-3",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcall-4",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hphoto-2018",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hphoto-2019",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hphoto-2021",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hphoto-2022",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hphoto-2023",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hphoto-2024",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hphoto-2025a",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hphoto-2025b",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcal-2018",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcal-2019",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcal-2021",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcal-2022",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcal-2023",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcal-2024",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcal-2025",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hmail-book",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hmail-change",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hmail-2025",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hmail-2024",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hmail-2023",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hmail-2022",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hmail-2021",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hnote-paris",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hnote-pack",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "you-card",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "zhuyan-self-card",
+          "value": true
+        },
+        {
+          "type": "wallpaper",
+          "key": "",
+          "value": "night"
+        },
+        {
+          "type": "time",
+          "key": "",
+          "value": "18:04"
+        },
+        {
+          "type": "variable",
+          "key": "act",
+          "value": 2
+        },
+        {
+          "type": "variable",
+          "key": "__chatapp",
+          "value": "kakao"
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "—— 你拿起的，是李柱延的手机 ——"
+        }
+      ]
+    },
+    {
+      "id": "on-act2-b",
+      "label": "B线线索：账户资料",
+      "event": "variable",
+      "target": "act",
+      "conditions": [
+        {
+          "key": "act",
+          "op": "eq",
+          "value": 2
+        },
+        {
+          "key": "route",
+          "op": "eq",
+          "value": "B"
+        }
+      ],
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "hset-profile",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "ke-1",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "ke-2",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "ke-3",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "设置 · 账户资料有一条新的查看提醒。"
+        }
+      ]
+    },
+    {
+      "id": "ev-read-self",
+      "label": "他的本人资料",
+      "event": "read",
+      "target": "zhuyan-self-card",
+      "actions": [
+        {
+          "type": "clue",
+          "key": "d1",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "联系人 · 李柱延（本人）：紧急联系人——你。最后更新：2019年11月3日。"
+        }
+      ],
+      "next": [
+        "act2-check"
+      ]
+    },
+    {
+      "id": "ev-read-hphoto",
+      "label": "最后一张合照",
+      "event": "read",
+      "target": "hphoto-2025b",
+      "actions": [
+        {
+          "type": "clue",
+          "key": "d2",
+          "value": true
+        }
+      ],
+      "next": [
+        "act2-check"
+      ]
+    },
+    {
+      "id": "ev-read-hcal",
+      "label": "去年的巴黎",
+      "event": "read",
+      "target": "hcal-2025",
+      "actions": [
+        {
+          "type": "clue",
+          "key": "d3",
+          "value": true
+        }
+      ],
+      "next": [
+        "act2-check"
+      ]
+    },
+    {
+      "id": "ev-read-kpgood",
+      "label": "4月8日的对话",
+      "event": "read",
+      "target": "kp-good",
+      "actions": [
+        {
+          "type": "clue",
+          "key": "d4",
+          "value": true
+        }
+      ],
+      "next": [
+        "act2-check"
+      ]
+    },
+    {
+      "id": "act2-check",
+      "label": "探索完成",
+      "conditions": [
+        {
+          "key": "clue:d1",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "clue:d2",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "clue:d3",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "clue:d4",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "act",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "on-act3",
+      "label": "进入节点",
+      "event": "variable",
+      "target": "act",
+      "conditions": [
+        {
+          "key": "act",
+          "op": "eq",
+          "value": 3
+        }
+      ],
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "kp-draft",
+          "value": true
+        },
+        {
+          "type": "variable",
+          "key": "node_stage",
+          "value": 1
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "聊天 · 一条未发送的草稿（2026年4月14日）：「今年圣诞，你还想来巴黎吗？」"
+        }
+      ]
+    },
+    {
+      "id": "ev-node1",
+      "label": "发现他的草稿",
+      "event": "read",
+      "target": "kp-draft",
+      "conditions": [
+        {
+          "key": "node_stage",
+          "op": "eq",
+          "value": 1
+        }
+      ],
+      "next": [
+        "node1-choice"
+      ]
+    },
+    {
+      "id": "node1-choice",
+      "label": "节点一",
+      "type": "choice",
+      "next": [
+        "n1-send",
+        "n1-del"
+      ]
+    },
+    {
+      "id": "n1-send",
+      "label": "如果当时，这条消息发给了你",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "n1a",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-send1",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "反事实 · 消息在4月14日的深夜发了出去。你们的对话框，重新亮了起来。"
+        }
+      ],
+      "next": [
+        "go-node2"
+      ]
+    },
+    {
+      "id": "n1-del",
+      "label": "让它保持未发送",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "n1a",
+          "value": false
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "现实中，那条草稿一直留在他的手机里。"
+        }
+      ],
+      "next": [
+        "go-node2"
+      ]
+    },
+    {
+      "id": "go-node2",
+      "label": "指向节点二",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "node_stage",
+          "value": 2
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "通话记录 · 那通拨给你、却没有人接的电话。"
+        }
+      ]
+    },
+    {
+      "id": "ev-node2",
+      "label": "回望未接通的电话",
+      "event": "read",
+      "target": "hcall-missed",
+      "conditions": [
+        {
+          "key": "node_stage",
+          "op": "eq",
+          "value": 2
+        }
+      ],
+      "next": [
+        "node2-choice"
+      ]
+    },
+    {
+      "id": "node2-choice",
+      "label": "节点二",
+      "type": "choice",
+      "next": [
+        "n2-call",
+        "n2-skip"
+      ]
+    },
+    {
+      "id": "n2-call",
+      "label": "如果当时，你回拨了这通电话",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "n2a",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "反事实 · 电话在第三声被接通了。「喂？」——你们重新开始说话。"
+        }
+      ],
+      "next": [
+        "go-node3"
+      ]
+    },
+    {
+      "id": "n2-skip",
+      "label": "让电话保持未接通",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "n2a",
+          "value": false
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "现实中，这通电话始终停在未接通的状态。"
+        }
+      ],
+      "next": [
+        "go-node3"
+      ]
+    },
+    {
+      "id": "go-node3",
+      "label": "指向节点三",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "node_stage",
+          "value": 3
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "机票订单 · 订单变更通知（2026年4月10日）：乘客由 2 人变更为 1 人。"
+        }
+      ]
+    },
+    {
+      "id": "on-n2-b",
+      "label": "B线线索：紧急联系人提问",
+      "event": "variable",
+      "target": "n2a",
+      "conditions": [
+        {
+          "key": "route",
+          "op": "eq",
+          "value": "B"
+        }
+      ],
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "ke-4",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "ke-5",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "Eric发来新消息（更早的记录已可见）。"
+        }
+      ]
+    },
+    {
+      "id": "ev-node3",
+      "label": "重新查看订单",
+      "event": "read",
+      "target": "hmail-change",
+      "conditions": [
+        {
+          "key": "node_stage",
+          "op": "eq",
+          "value": 3
+        }
+      ],
+      "next": [
+        "node3-choice"
+      ]
+    },
+    {
+      "id": "node3-choice",
+      "label": "节点三",
+      "type": "choice",
+      "next": [
+        "n3-ask",
+        "n3-keep"
+      ]
+    },
+    {
+      "id": "n3-ask",
+      "label": "如果当时，订单改回了两个名字",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "n3a",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-send3",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "反事实 · 订单重新改回了两个名字。12月25日，巴黎，两个人。"
+        }
+      ],
+      "next": [
+        "go-node4"
+      ]
+    },
+    {
+      "id": "n3-keep",
+      "label": "不再询问",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "n3a",
+          "value": false
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "现实中，那趟航班上只有他一个人。"
+        }
+      ],
+      "next": [
+        "go-node4"
+      ]
+    },
+    {
+      "id": "go-node4",
+      "label": "指向节点四",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "node_stage",
+          "value": 4
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "日历 · 12月25日：原本的提醒已经不在了。"
+        }
+      ]
+    },
+    {
+      "id": "ev-node4",
+      "label": "回到日历",
+      "event": "read",
+      "target": "hcal-2025",
+      "conditions": [
+        {
+          "key": "node_stage",
+          "op": "eq",
+          "value": 4
+        }
+      ],
+      "next": [
+        "node4-choice"
+      ]
+    },
+    {
+      "id": "node4-choice",
+      "label": "节点四",
+      "type": "choice",
+      "next": [
+        "n4-restore",
+        "n4-leave"
+      ]
+    },
+    {
+      "id": "n4-restore",
+      "label": "如果当时，那条提醒被恢复了",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "n4a",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "hcal-xmas",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "反事实 · 提醒重新亮起：Paris · Christmas"
+        }
+      ],
+      "next": [
+        "go-node5"
+      ]
+    },
+    {
+      "id": "n4-leave",
+      "label": "让它继续空白",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "n4a",
+          "value": false
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "现实中，那条提醒再也没有被恢复。"
+        }
+      ],
+      "next": [
+        "go-node5"
+      ]
+    },
+    {
+      "id": "go-node5",
+      "label": "指向节点五",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "node_stage",
+          "value": 5
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "聊天 · 回到4月8日的那段对话。"
+        }
+      ]
+    },
+    {
+      "id": "ev-node5",
+      "label": "重读那段对话",
+      "event": "read",
+      "target": "kp-good",
+      "conditions": [
+        {
+          "key": "node_stage",
+          "op": "eq",
+          "value": 5
+        }
+      ],
+      "next": [
+        "node5-choice"
+      ]
+    },
+    {
+      "id": "node5-choice",
+      "label": "节点五",
+      "type": "choice",
+      "next": [
+        "n5-say",
+        "n5-silent"
+      ]
+    },
+    {
+      "id": "n5-say",
+      "label": "如果当时，那句解释说了出口",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "n5a",
+          "value": true
+        },
+        {
+          "type": "unlock",
+          "key": "kp-send5",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "反事实 · 「我那天不是那个意思。」——那句话，终于说了出口。"
+        }
+      ],
+      "next": [
+        "epilogue"
+      ]
+    },
+    {
+      "id": "n5-silent",
+      "label": "保持沉默",
+      "actions": [
+        {
+          "type": "variable",
+          "key": "n5a",
+          "value": false
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "现实中，那句话始终没有被说出口。"
+        }
+      ],
+      "next": [
+        "epilogue"
+      ]
+    },
+    {
+      "id": "epilogue",
+      "label": "尾声分岔",
+      "next": [
+        "cond-ah",
+        "cond-ap",
+        "cond-b",
+        "cond-c",
+        "cond-d"
+      ]
+    },
+    {
+      "id": "cond-ah",
+      "label": "A线隐藏结局判定",
+      "conditions": [
+        {
+          "key": "route",
+          "op": "eq",
+          "value": "A"
+        },
+        {
+          "key": "playthrough",
+          "op": "eq",
+          "value": 0
+        },
+        {
+          "key": "n1a",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "n2a",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "n3a",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "n4a",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "n5a",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "a_hidden",
+          "value": true
+        }
+      ],
+      "next": [
+        "a1-open"
+      ]
+    },
+    {
+      "id": "cond-ap",
+      "label": "A线普通结局判定",
+      "conditions": [
+        {
+          "key": "route",
+          "op": "eq",
+          "value": "A"
+        },
+        {
+          "key": "a_hidden",
+          "op": "neq",
+          "value": true
+        }
+      ],
+      "next": [
+        "ending-ap"
+      ]
+    },
+    {
+      "id": "cond-b",
+      "label": "B线判定",
+      "conditions": [
+        {
+          "key": "route",
+          "op": "eq",
+          "value": "B"
+        }
+      ],
+      "next": [
+        "b-final"
+      ]
+    },
+    {
+      "id": "cond-c",
+      "label": "C线判定",
+      "conditions": [
+        {
+          "key": "route",
+          "op": "eq",
+          "value": "C"
+        }
+      ],
+      "next": [
+        "ending-c"
+      ]
+    },
+    {
+      "id": "cond-d",
+      "label": "D线判定",
+      "conditions": [
+        {
+          "key": "route",
+          "op": "eq",
+          "value": "D"
+        }
+      ],
+      "next": [
+        "ending-d"
+      ]
+    },
+    {
+      "id": "a1-open",
+      "label": "解锁其一",
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "note-a1",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "备忘录 · 出现了一份不属于任何人的备忘录：《如果 · 一》"
+        }
+      ]
+    },
+    {
+      "id": "ev-a1",
+      "label": "读其一",
+      "event": "read",
+      "target": "note-a1",
+      "next": [
+        "a2-open"
+      ]
+    },
+    {
+      "id": "a2-open",
+      "label": "解锁其二",
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "note-a2",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "备忘录 · 《如果 · 二》"
+        }
+      ]
+    },
+    {
+      "id": "ev-a2",
+      "label": "读其二",
+      "event": "read",
+      "target": "note-a2",
+      "next": [
+        "a3-open"
+      ]
+    },
+    {
+      "id": "a3-open",
+      "label": "解锁其三",
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "note-a3",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "备忘录 · 《如果 · 三》"
+        }
+      ]
+    },
+    {
+      "id": "ev-a3",
+      "label": "读其三",
+      "event": "read",
+      "target": "note-a3",
+      "next": [
+        "a4-open"
+      ]
+    },
+    {
+      "id": "a4-open",
+      "label": "解锁其四",
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "note-a4",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "备忘录 · 《如果 · 四》"
+        }
+      ]
+    },
+    {
+      "id": "ev-a4",
+      "label": "读其四",
+      "event": "read",
+      "target": "note-a4",
+      "next": [
+        "awake-choice"
+      ]
+    },
+    {
+      "id": "awake-choice",
+      "label": "最后的问题",
+      "type": "choice",
+      "next": [
+        "awake-yes",
+        "awake-no"
+      ]
+    },
+    {
+      "id": "awake-yes",
+      "label": "叫醒他。",
+      "next": [
+        "ending-a"
+      ]
+    },
+    {
+      "id": "awake-no",
+      "label": "不叫醒他。",
+      "next": [
+        "ending-a"
+      ]
+    },
+    {
+      "id": "ending-a",
+      "label": "结局：巴黎，圣诞",
+      "type": "ending",
+      "actions": [
+        {
+          "type": "ending",
+          "key": "",
+          "value": "巴黎，圣诞 —— 这一次，你们没有错过彼此。"
+        }
+      ]
+    },
+    {
+      "id": "ending-ap",
+      "label": "结局：A线普通",
+      "type": "ending",
+      "actions": [
+        {
+          "type": "ending",
+          "key": "",
+          "value": "你们一起走过了八年，和八个季节的巴黎。今年圣诞，你们本该一起去。有些话没有说出口，有些选择没有做完。相册里最后一张合照，停在2025年的秋天。"
+        }
+      ]
+    },
+    {
+      "id": "b-final",
+      "label": "B线收束",
+      "type": "delay",
+      "delayMs": 1200,
+      "actions": [
+        {
+          "type": "notification",
+          "key": "",
+          "value": "那些散落的线索，慢慢连在了一起。"
+        }
+      ],
+      "next": [
+        "ending-b"
+      ]
+    },
+    {
+      "id": "ending-b",
+      "label": "结局：最后的赌注",
+      "type": "ending",
+      "actions": [
+        {
+          "type": "ending",
+          "key": "",
+          "value": "李柱延并不是忘记修改紧急联系人。\n他是故意留下的。\n他知道你们已经很久没有联系，也知道你可能已经开始新的生活。\n但他还是留下了你的名字。\n\n他在赌。\n赌如果真的发生什么事情，你还是会心疼他。\n\n他没有直接联系你，因为他不知道自己还有没有资格。\n他甚至想过，也许有一天，你会因为某个突发情况重新出现在他的生活里。\n\n他没有预料到真正的空难。\n这场空难不是他安排的，也不是他想要的结果。\n但他一直没有修改的那个名字，最终真的让你接到了电话。"
+        }
+      ]
+    },
+    {
+      "id": "ending-c",
+      "label": "结局：C线",
+      "type": "ending",
+      "actions": [
+        {
+          "type": "ending",
+          "key": "",
+          "value": "你已经开始向前走了，他的离开不会把你拉回过去。但八年不是假的——那些四季的巴黎，那些习惯，都是真的。你为他的离开难过。这不需要理由，也不需要变成别的什么。"
+        }
+      ]
+    },
+    {
+      "id": "ending-d",
+      "label": "结局：D线",
+      "type": "ending",
+      "actions": [
+        {
+          "type": "ending",
+          "key": "",
+          "value": "这段关系，你已经放下了。他的离开让你难过——难过是正常的，这不等于你还爱他。八年有它自己的重量，它会留在那里，不增不减。你继续过你的生活。"
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "name": "a-hidden",
+      "steps": [
+        {
+          "advanceMs": 1000
+        },
+        {
+          "choose": "q1-yes"
+        },
+        {
+          "advanceMs": 600
+        },
+        {
+          "choose": "q2-no"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 21500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "event": "read",
+          "target": "er-5"
+        },
+        {
+          "choose": "fr-1"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "event": "read",
+          "target": "zhuyan-self-card"
+        },
+        {
+          "event": "read",
+          "target": "hphoto-2025b"
+        },
+        {
+          "event": "read",
+          "target": "hcal-2025"
+        },
+        {
+          "event": "read",
+          "target": "kp-good"
+        },
+        {
+          "event": "read",
+          "target": "kp-draft"
+        },
+        {
+          "choose": "n1-send"
+        },
+        {
+          "event": "read",
+          "target": "hcall-missed"
+        },
+        {
+          "choose": "n2-call"
+        },
+        {
+          "event": "read",
+          "target": "hmail-change"
+        },
+        {
+          "choose": "n3-ask"
+        },
+        {
+          "event": "read",
+          "target": "hcal-2025"
+        },
+        {
+          "choose": "n4-restore"
+        },
+        {
+          "event": "read",
+          "target": "kp-good"
+        },
+        {
+          "choose": "n5-say"
+        },
+        {
+          "event": "read",
+          "target": "note-a1"
+        },
+        {
+          "event": "read",
+          "target": "note-a2"
+        },
+        {
+          "event": "read",
+          "target": "note-a3"
+        },
+        {
+          "event": "read",
+          "target": "note-a4"
+        },
+        {
+          "choose": "awake-yes"
+        }
+      ],
+      "ending": "巴黎，圣诞 —— 这一次，你们没有错过彼此。",
+      "expectUnlocked": [
+        "note-a1",
+        "note-a4",
+        "hcal-xmas",
+        "kp-send1",
+        "er-7"
+      ]
+    },
+    {
+      "name": "a-plain",
+      "steps": [
+        {
+          "advanceMs": 1000
+        },
+        {
+          "choose": "q1-yes"
+        },
+        {
+          "advanceMs": 600
+        },
+        {
+          "choose": "q2-no"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 21500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "event": "read",
+          "target": "er-5"
+        },
+        {
+          "choose": "fr-1"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "event": "read",
+          "target": "zhuyan-self-card"
+        },
+        {
+          "event": "read",
+          "target": "hphoto-2025b"
+        },
+        {
+          "event": "read",
+          "target": "hcal-2025"
+        },
+        {
+          "event": "read",
+          "target": "kp-good"
+        },
+        {
+          "event": "read",
+          "target": "kp-draft"
+        },
+        {
+          "choose": "n1-del"
+        },
+        {
+          "event": "read",
+          "target": "hcall-missed"
+        },
+        {
+          "choose": "n2-call"
+        },
+        {
+          "event": "read",
+          "target": "hmail-change"
+        },
+        {
+          "choose": "n3-ask"
+        },
+        {
+          "event": "read",
+          "target": "hcal-2025"
+        },
+        {
+          "choose": "n4-restore"
+        },
+        {
+          "event": "read",
+          "target": "kp-good"
+        },
+        {
+          "choose": "n5-say"
+        }
+      ],
+      "ending": "你们一起走过了八年，和八个季节的巴黎。今年圣诞，你们本该一起去。有些话没有说出口，有些选择没有做完。相册里最后一张合照，停在2025年的秋天。",
+      "expectUnlocked": []
+    },
+    {
+      "name": "b-ending",
+      "steps": [
+        {
+          "advanceMs": 1000
+        },
+        {
+          "choose": "q1-yes"
+        },
+        {
+          "advanceMs": 600
+        },
+        {
+          "choose": "q2-yes"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 21500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "event": "read",
+          "target": "er-5"
+        },
+        {
+          "choose": "fr-1"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "event": "read",
+          "target": "zhuyan-self-card"
+        },
+        {
+          "event": "read",
+          "target": "hphoto-2025b"
+        },
+        {
+          "event": "read",
+          "target": "hcal-2025"
+        },
+        {
+          "event": "read",
+          "target": "kp-good"
+        },
+        {
+          "event": "read",
+          "target": "kp-draft"
+        },
+        {
+          "choose": "n1-send"
+        },
+        {
+          "event": "read",
+          "target": "hcall-missed"
+        },
+        {
+          "choose": "n2-call"
+        },
+        {
+          "event": "read",
+          "target": "hmail-change"
+        },
+        {
+          "choose": "n3-keep"
+        },
+        {
+          "event": "read",
+          "target": "hcal-2025"
+        },
+        {
+          "choose": "n4-leave"
+        },
+        {
+          "event": "read",
+          "target": "kp-good"
+        },
+        {
+          "choose": "n5-silent"
+        },
+        {
+          "advanceMs": 2000
+        }
+      ],
+      "ending": "李柱延并不是忘记修改紧急联系人。\n他是故意留下的。\n他知道你们已经很久没有联系，也知道你可能已经开始新的生活。\n但他还是留下了你的名字。\n\n他在赌。\n赌如果真的发生什么事情，你还是会心疼他。\n\n他没有直接联系你，因为他不知道自己还有没有资格。\n他甚至想过，也许有一天，你会因为某个突发情况重新出现在他的生活里。\n\n他没有预料到真正的空难。\n这场空难不是他安排的，也不是他想要的结果。\n但他一直没有修改的那个名字，最终真的让你接到了电话。",
+      "expectUnlocked": [
+        "hset-profile",
+        "ke-1",
+        "ke-4",
+        "hmail-change"
+      ]
+    },
+    {
+      "name": "c-ending",
+      "steps": [
+        {
+          "advanceMs": 1000
+        },
+        {
+          "choose": "q1-no"
+        },
+        {
+          "advanceMs": 600
+        },
+        {
+          "choose": "q2-yes"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 21500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "event": "read",
+          "target": "er-5"
+        },
+        {
+          "choose": "fr-1"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "event": "read",
+          "target": "zhuyan-self-card"
+        },
+        {
+          "event": "read",
+          "target": "hphoto-2025b"
+        },
+        {
+          "event": "read",
+          "target": "hcal-2025"
+        },
+        {
+          "event": "read",
+          "target": "kp-good"
+        },
+        {
+          "event": "read",
+          "target": "kp-draft"
+        },
+        {
+          "choose": "n1-del"
+        },
+        {
+          "event": "read",
+          "target": "hcall-missed"
+        },
+        {
+          "choose": "n2-skip"
+        },
+        {
+          "event": "read",
+          "target": "hmail-change"
+        },
+        {
+          "choose": "n3-keep"
+        },
+        {
+          "event": "read",
+          "target": "hcal-2025"
+        },
+        {
+          "choose": "n4-leave"
+        },
+        {
+          "event": "read",
+          "target": "kp-good"
+        },
+        {
+          "choose": "n5-silent"
+        }
+      ],
+      "ending": "你已经开始向前走了，他的离开不会把你拉回过去。但八年不是假的——那些四季的巴黎，那些习惯，都是真的。你为他的离开难过。这不需要理由，也不需要变成别的什么。",
+      "expectUnlocked": []
+    },
+    {
+      "name": "d-ending",
+      "steps": [
+        {
+          "advanceMs": 1000
+        },
+        {
+          "choose": "q1-no"
+        },
+        {
+          "advanceMs": 600
+        },
+        {
+          "choose": "q2-no"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 21500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "event": "read",
+          "target": "er-5"
+        },
+        {
+          "choose": "fr-1"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "event": "read",
+          "target": "zhuyan-self-card"
+        },
+        {
+          "event": "read",
+          "target": "hphoto-2025b"
+        },
+        {
+          "event": "read",
+          "target": "hcal-2025"
+        },
+        {
+          "event": "read",
+          "target": "kp-good"
+        },
+        {
+          "event": "read",
+          "target": "kp-draft"
+        },
+        {
+          "choose": "n1-send"
+        },
+        {
+          "event": "read",
+          "target": "hcall-missed"
+        },
+        {
+          "choose": "n2-skip"
+        },
+        {
+          "event": "read",
+          "target": "hmail-change"
+        },
+        {
+          "choose": "n3-keep"
+        },
+        {
+          "event": "read",
+          "target": "hcal-2025"
+        },
+        {
+          "choose": "n4-restore"
+        },
+        {
+          "event": "read",
+          "target": "kp-good"
+        },
+        {
+          "choose": "n5-say"
+        }
+      ],
+      "ending": "这段关系，你已经放下了。他的离开让你难过——难过是正常的，这不等于你还爱他。八年有它自己的重量，它会留在那里，不增不减。你继续过你的生活。",
+      "expectUnlocked": []
+    }
+  ]
+}

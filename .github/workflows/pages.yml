@@ -24,8 +24,14 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run story:validate
+        env:
+          STORY_FILE: stories/emergency-contact/story.json
       - run: npm run story:test
+        env:
+          STORY_FILE: stories/emergency-contact/story.json
       - run: npm run build
+        env:
+          STORY_FILE: stories/emergency-contact/story.json
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

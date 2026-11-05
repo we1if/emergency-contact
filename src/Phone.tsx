@@ -63,6 +63,14 @@ import {
   type UiValue,
 } from "./schema";
 import { dispatch, choose, visible, advance } from "./engine";
+import {
+  Intro,
+  readIntroAnswers,
+  applyPlayerName,
+  freshStart,
+  resetIntro,
+  bumpPlaythrough,
+} from "./Intro";
 import { db } from "./persistence";
 export function AppIcon({
   id,
@@ -164,6 +172,11 @@ function PhoneRuntime({
   const [own, setOwn] = useState(() => initialRuntime(work));
   const [ready, setReady] = useState(creator || !!external);
   const [loadError, setLoadError] = useState("");
+  // 紧急联络人：开场引导层（旁白 + 隐藏问答 + 称呼）只在首次游玩前出现
+  const [introDone, setIntroDone] = useState(
+    () => !!readIntroAnswers() || creator || !!external,
+  );
+  applyPlayerName(work);
   useEffect(() => {
     const el = shell.current;
     if (!el) return;
@@ -206,13 +219,13 @@ function PhoneRuntime({
         if (saved && saved.state.revision === work.updatedAt)
           setOwn(saved.state);
         else {
-          setOwn(dispatch(work, initialRuntime(work), "start"));
+          setOwn(dispatch(work, freshStart(work), "start"));
           if (saved) setLoadError("作品已更新，已开始新的进度。");
         }
         setReady(true);
       })
       .catch(() => {
-        setOwn(dispatch(work, initialRuntime(work), "start"));
+        setOwn(dispatch(work, freshStart(work), "start"));
         setLoadError("无法读取本地存档。本次仍可游玩。");
         setReady(true);
       });
@@ -294,7 +307,12 @@ function PhoneRuntime({
   const plugin = getApp(app);
   useEffect(() => {
     const count = s.notifications.length;
-    if (!locked && work.phone.notifications && count > noticesSeen.current) {
+    if (
+      !locked &&
+      work.phone.notifications &&
+      count > noticesSeen.current &&
+      !s.incomingCall // 通话中字幕直接上屏，不弹横幅
+    ) {
       setBanner(s.notifications.at(-1) || "");
       const timer = setTimeout(() => setBanner(""), 4500);
       noticesSeen.current = count;
@@ -310,6 +328,18 @@ function PhoneRuntime({
       ),
     });
   if (!ready) return <div className="phone-loading">正在恢复进度…</div>;
+  if (!introDone)
+    return (
+      <Intro
+        onDone={() => {
+          applyPlayerName(work);
+          setIntroDone(true);
+          setOwn(dispatch(work, freshStart(work), "start"));
+          setApp("");
+          setLocked(true);
+        }}
+      />
+    );
   return (
     <div
       ref={shell}
@@ -318,7 +348,7 @@ function PhoneRuntime({
     >
       <KeyboardContext.Provider value={setKeyboard}>
         <div
-          className={`phone-screen wallpaper-${work.phone.wallpaper} ${locked ? "is-locked" : ""} ${app ? "in-app" : ""} ${keyboard ? "keyboard-open" : ""}`}
+          className={`phone-screen wallpaper-${s.variables.__wallpaper || work.phone.wallpaper} ${locked ? "is-locked" : ""} ${app ? "in-app" : ""} ${keyboard ? "keyboard-open" : ""}`}
           data-app={app}
           onDragStart={(e) => e.preventDefault()}
           onPointerDown={(e) => {
@@ -558,13 +588,48 @@ function PhoneRuntime({
                       onOpen={() => {
                         setPanel("");
                         if (locked) beginUnlock();
-                        else if (installedApps.some((a) => a.id === "messages"))
-                          open("messages");
+                        else {
+                          // 紧急联络人：通知点击跳转到当前剧情使用的聊天 App
+                          const chatApp =
+                            String(s.variables.__chatapp || "") ||
+                            (installedApps.some((a) => a.id === "messages")
+                              ? "messages"
+                              : installedApps.some((a) => a.id === "wechat")
+                                ? "wechat"
+                                : "kakao");
+                          if (installedApps.some((a) => a.id === chatApp))
+                            open(chatApp);
+                        }
                       }}
                       onDismiss={dismissNotice}
                     />
                   ) : (
                     <p>没有新通知</p>
+                  )}
+                  {/* 紧急联络人：随时可以从头开始 */}
+                  {!creator && (
+                    <button
+                      style={{
+                        marginTop: 18,
+                        width: "100%",
+                        padding: "10px",
+                        background: "none",
+                        border: "1px solid #33333a",
+                        borderRadius: 20,
+                        color: "#8b8e98",
+                        fontSize: 13,
+                        cursor: "pointer",
+                      }}
+                      onClick={() => {
+                        if (!confirm("从头开始？当前进度将被清除。")) return;
+                        bumpPlaythrough();
+                        resetIntro();
+                        void db.saves.delete(work.id);
+                        location.reload();
+                      }}
+                    >
+                      从头开始
+                    </button>
                   )}
                 </>
               ) : panel === "search" ? (
@@ -599,12 +664,37 @@ function PhoneRuntime({
               <p>{s.endings[s.endings.length - 1]}</p>
               <button
                 onClick={() => {
-                  update(dispatch(work, initialRuntime(work), "start"));
-                  setApp("");
-                  setLocked(true);
+                  // 紧急联络人：重开 = 清档回开场（游玩次数在 localStorage 自增，隐藏结局规则不受影响）
+                  bumpPlaythrough();
+                  resetIntro();
+                  void db.saves.delete(work.id);
+                  location.reload();
                 }}
               >
                 重新开始
+              </button>
+            </div>
+          )}
+          {/* 紧急联络人：剧情旁白转场（由 __narration 变量驱动，「继续」派发 narrationDone 事件） */}
+          {!creator && s.variables.__narration && !s.endings.length && (
+            <div className="story-overlay narration">
+              <p
+                style={{
+                  whiteSpace: "pre-line",
+                  lineHeight: 2.1,
+                  fontSize: 16,
+                  maxWidth: 340,
+                  textAlign: "center",
+                }}
+              >
+                {String(s.variables.__narration)}
+              </p>
+              <button
+                onClick={() =>
+                  update(dispatch(work, runtimeRef.current, "narrationDone", ""))
+                }
+              >
+                继续
               </button>
             </div>
           )}
@@ -623,10 +713,30 @@ function PhoneRuntime({
                   const record = work.data.phone?.find(
                     (i) => i.id === s.incomingCall?.target,
                   );
-                  return record?.kind === "audio" && safeMedia(record.media) ? (
-                    <audio controls src={safeMedia(record.media)} />
-                  ) : (
-                    <p>这是一通虚构来电。</p>
+                  if (record?.kind === "audio" && safeMedia(record.media))
+                    return <audio controls src={safeMedia(record.media)} />;
+                  // 紧急联络人：通话字幕专用通道（__sub 变量），与通知列表完全隔离
+                  const lines = String(s.variables.__sub || "")
+                    .split("\n")
+                    .filter(Boolean)
+                    .slice(-7);
+                  return (
+                    <div style={{ maxWidth: 320, textAlign: "center" }}>
+                      {lines.map((n, i) => (
+                        <p
+                          key={i}
+                          style={{
+                            fontSize: i === lines.length - 1 ? 16 : 13,
+                            color:
+                              i === lines.length - 1 ? "#fff" : "#7a7d88",
+                            margin: "6px 0",
+                            lineHeight: 1.7,
+                          }}
+                        >
+                          {n}
+                        </p>
+                      ))}
+                    </div>
                   );
                 })()}
               <div className="incoming-actions">

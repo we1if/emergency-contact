@@ -54,6 +54,10 @@ function apply(a: Action, s: Runtime, w: Work) {
         status: "ringing",
       };
       break;
+    case "wallpaper":
+      // 紧急联络人：设备切换时更换壁纸（存入变量，Phone.tsx 读取）
+      s.variables.__wallpaper = String(a.value);
+      break;
     case "clue":
       if (!s.clues.includes(a.key)) s.clues.push(a.key);
       break;
