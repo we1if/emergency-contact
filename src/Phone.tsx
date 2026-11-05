@@ -677,7 +677,25 @@ function PhoneRuntime({
           )}
           {/* 紧急联络人：剧情旁白转场（由 __narration 变量驱动，「继续」派发 narrationDone 事件） */}
           {!creator && s.variables.__narration && !s.endings.length && (
-            <div className="story-overlay narration">
+            <div
+              className="story-overlay narration"
+              style={{
+                position: "absolute",
+                inset: 0,
+                bottom: 0,
+                background: "#000",
+                borderRadius: 0,
+                backdropFilter: "none",
+                boxShadow: "none",
+                color: "#d8d9de",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 26,
+                zIndex: 70,
+              }}
+            >
               <p
                 style={{
                   whiteSpace: "pre-line",
@@ -690,6 +708,15 @@ function PhoneRuntime({
                 {String(s.variables.__narration)}
               </p>
               <button
+                style={{
+                  justifyContent: "center",
+                  background: "none",
+                  border: "1px solid #3a3a42",
+                  color: "#9db8e8",
+                  borderRadius: 24,
+                  padding: "13px 38px",
+                  fontSize: 14,
+                }}
                 onClick={() =>
                   update(dispatch(work, runtimeRef.current, "narrationDone", ""))
                 }

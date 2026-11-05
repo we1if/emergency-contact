@@ -67,6 +67,8 @@ export function applyPlayerName(work: Work) {
         i.title = i.title.replaceAll("{player}", name);
       if (i.body.includes("{player}"))
         i.body = i.body.replaceAll("{player}", name);
+      if (i.sender.includes("{player}"))
+        i.sender = i.sender.replaceAll("{player}", name);
     }
 }
 
