@@ -3,7 +3,7 @@
   "id": "emergency-contact",
   "title": "紧急联络人",
   "description": "如果当时做出了不同的选择，我们的关系会不会不一样？你的手机接到了那通电话。之后，他的手机交到了你的手上。（EMERGENCY CONTACT · 互动手机故事）",
-  "revision": 6,
+  "revision": 7,
   "phone": {
     "owner": "{player}",
     "date": "2026-12-25",
@@ -1334,137 +1334,26 @@
           "value": 1
         }
       ],
-      "next": [
-        "post-call-safety"
-      ]
-    },
-    {
-      "id": "post-call-safety",
-      "label": "兜底解锁",
-      "type": "delay",
-      "delayMs": 30000,
-      "actions": [
-        {
-          "type": "unlock",
-          "key": "er-f1",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f2",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f3",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f4",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f5",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f6",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f7",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f8",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f9",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f10",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f11",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f12",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f13",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f14",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f15",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f16",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f17",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f18",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f19",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f20",
-          "value": true
-        }
-      ]
+      "next": []
     },
     {
       "id": "post-call",
-      "label": "挂断电话之后 · 第一波",
+      "label": "挂断电话之后",
       "event": "callEnded",
       "target": "pcall-airline",
+      "next": [
+        "flood-m1"
+      ]
+    },
+    {
+      "id": "flood-m1",
+      "label": "Eric 1",
+      "type": "delay",
+      "delayMs": 1200,
       "actions": [
         {
           "type": "unlock",
           "key": "er-f1",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f2",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f3",
           "value": true
         },
         {
@@ -1474,14 +1363,56 @@
         }
       ],
       "next": [
-        "flood-2"
+        "flood-m2"
       ]
     },
     {
-      "id": "flood-2",
-      "label": "第二波",
+      "id": "flood-m2",
+      "label": "Eric 2",
       "type": "delay",
-      "delayMs": 5000,
+      "delayMs": 2200,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f2",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：juyeon他"
+        }
+      ],
+      "next": [
+        "flood-m3"
+      ]
+    },
+    {
+      "id": "flood-m3",
+      "label": "Eric 3",
+      "type": "delay",
+      "delayMs": 2200,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f3",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：李柱延他——"
+        }
+      ],
+      "next": [
+        "flood-m4"
+      ]
+    },
+    {
+      "id": "flood-m4",
+      "label": "Eric 4",
+      "type": "delay",
+      "delayMs": 3200,
       "actions": [
         {
           "type": "unlock",
@@ -1489,44 +1420,24 @@
           "value": true
         },
         {
-          "type": "unlock",
-          "key": "er-f5",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f6",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f7",
-          "value": true
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：你在哪"
         }
       ],
       "next": [
-        "flood-3"
+        "flood-m5"
       ]
     },
     {
-      "id": "flood-3",
-      "label": "第三波",
+      "id": "flood-m5",
+      "label": "Eric 5",
       "type": "delay",
-      "delayMs": 6000,
+      "delayMs": 2200,
       "actions": [
         {
           "type": "unlock",
-          "key": "er-f8",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f9",
-          "value": true
-        },
-        {
-          "type": "unlock",
-          "key": "er-f10",
+          "key": "er-f5",
           "value": true
         },
         {
@@ -1536,14 +1447,119 @@
         }
       ],
       "next": [
-        "flood-4"
+        "flood-m6"
       ]
     },
     {
-      "id": "flood-4",
-      "label": "第四波",
+      "id": "flood-m6",
+      "label": "Eric 6",
       "type": "delay",
-      "delayMs": 6000,
+      "delayMs": 2200,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f6",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：我刷到新闻了"
+        }
+      ],
+      "next": [
+        "flood-m7"
+      ]
+    },
+    {
+      "id": "flood-m7",
+      "label": "Eric 7",
+      "type": "delay",
+      "delayMs": 3400,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f7",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：是不是那班"
+        }
+      ],
+      "next": [
+        "flood-m8"
+      ]
+    },
+    {
+      "id": "flood-m8",
+      "label": "Eric 8",
+      "type": "delay",
+      "delayMs": 2200,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f8",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：电话打得通吗。他的电话"
+        }
+      ],
+      "next": [
+        "flood-m9"
+      ]
+    },
+    {
+      "id": "flood-m9",
+      "label": "Eric 9",
+      "type": "delay",
+      "delayMs": 2200,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f9",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：我一开始以为是假的"
+        }
+      ],
+      "next": [
+        "flood-m10"
+      ]
+    },
+    {
+      "id": "flood-m10",
+      "label": "Eric 10",
+      "type": "delay",
+      "delayMs": 3200,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f10",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：媒体都在发"
+        }
+      ],
+      "next": [
+        "flood-m11"
+      ]
+    },
+    {
+      "id": "flood-m11",
+      "label": "Eric 11",
+      "type": "delay",
+      "delayMs": 2200,
       "actions": [
         {
           "type": "unlock",
@@ -1551,25 +1567,62 @@
           "value": true
         },
         {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：你接电话了吗 航空公司那边"
+        }
+      ],
+      "next": [
+        "flood-m12"
+      ]
+    },
+    {
+      "id": "flood-m12",
+      "label": "Eric 12",
+      "type": "delay",
+      "delayMs": 2200,
+      "actions": [
+        {
           "type": "unlock",
           "key": "er-f12",
           "value": true
         },
         {
-          "type": "unlock",
-          "key": "er-f13",
-          "value": true
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：他说什么了"
         }
       ],
       "next": [
-        "flood-5"
+        "flood-m13"
       ]
     },
     {
-      "id": "flood-5",
-      "label": "第五波",
+      "id": "flood-m13",
+      "label": "Eric 13",
       "type": "delay",
-      "delayMs": 6000,
+      "delayMs": 3000,
+      "actions": [
+        {
+          "type": "unlock",
+          "key": "er-f13",
+          "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：……"
+        }
+      ],
+      "next": [
+        "flood-m14"
+      ]
+    },
+    {
+      "id": "flood-m14",
+      "label": "Eric 14",
+      "type": "delay",
+      "delayMs": 2600,
       "actions": [
         {
           "type": "unlock",
@@ -1577,34 +1630,135 @@
           "value": true
         },
         {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：你知道吗 十一月他还来问我 你最近怎么样"
+        }
+      ],
+      "next": [
+        "flood-m15"
+      ]
+    },
+    {
+      "id": "flood-m15",
+      "label": "Eric 15",
+      "type": "delay",
+      "delayMs": 2200,
+      "actions": [
+        {
           "type": "unlock",
           "key": "er-f15",
           "value": true
         },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：他最近好像一直挺忙的 我以为只是忙"
+        }
+      ],
+      "next": [
+        "flood-m16"
+      ]
+    },
+    {
+      "id": "flood-m16",
+      "label": "Eric 16",
+      "type": "delay",
+      "delayMs": 2400,
+      "actions": [
         {
           "type": "unlock",
           "key": "er-f16",
           "value": true
         },
         {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：你还好吗"
+        }
+      ],
+      "next": [
+        "flood-m17"
+      ]
+    },
+    {
+      "id": "flood-m17",
+      "label": "Eric 17",
+      "type": "delay",
+      "delayMs": 2200,
+      "actions": [
+        {
           "type": "unlock",
           "key": "er-f17",
           "value": true
         },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：你在哪"
+        }
+      ],
+      "next": [
+        "flood-m18"
+      ]
+    },
+    {
+      "id": "flood-m18",
+      "label": "Eric 18",
+      "type": "delay",
+      "delayMs": 3200,
+      "actions": [
         {
           "type": "unlock",
           "key": "er-f18",
           "value": true
         },
         {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：家人那边到了会联系你的"
+        }
+      ],
+      "next": [
+        "flood-m19"
+      ]
+    },
+    {
+      "id": "flood-m19",
+      "label": "Eric 19",
+      "type": "delay",
+      "delayMs": 2200,
+      "actions": [
+        {
           "type": "unlock",
           "key": "er-f19",
           "value": true
         },
         {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：有消息随时告诉我"
+        }
+      ],
+      "next": [
+        "flood-m20"
+      ]
+    },
+    {
+      "id": "flood-m20",
+      "label": "Eric 20",
+      "type": "delay",
+      "delayMs": 2600,
+      "actions": [
+        {
           "type": "unlock",
           "key": "er-f20",
           "value": true
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：Eric：你在哪"
         }
       ],
       "next": [
