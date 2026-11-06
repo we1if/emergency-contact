@@ -3,7 +3,7 @@
   "id": "emergency-contact",
   "title": "紧急联络人",
   "description": "如果当时做出了不同的选择，我们的关系会不会不一样？你的手机接到了那通电话。之后，他的手机交到了你的手上。（EMERGENCY CONTACT · 互动手机故事）",
-  "revision": 9,
+  "revision": 10,
   "phone": {
     "owner": "{player}",
     "date": "2026-12-25",
@@ -2044,6 +2044,13 @@
       "label": "解锁李柱延的手机",
       "event": "password",
       "target": "",
+      "conditions": [
+        {
+          "key": "__lock",
+          "op": "eq",
+          "value": true
+        }
+      ],
       "actions": [
         {
           "type": "variable",
