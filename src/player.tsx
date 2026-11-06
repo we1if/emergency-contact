@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Phone } from "./Phone";
+import { DualStage } from "./game/DualStage";
 import { validateWork, type Work } from "./schema";
 import "./styles.css";
 function Player() {
@@ -26,7 +27,11 @@ function Player() {
           <div className="player-title">
             <h1>{work.title}</h1>
           </div>
-          <Phone work={work} />
+          {work.phones ? (
+            <DualStage work={work} />
+          ) : (
+            <Phone work={work} />
+          )}
           <p className="player-footnote">
             {work.description}
             <br />

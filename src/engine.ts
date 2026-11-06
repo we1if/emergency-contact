@@ -1,5 +1,12 @@
 import type { Action, Condition, Runtime, StoryNode, Work } from "./schema";
-import { makeItem } from "./schema";
+import { makeItem, safeMedia } from "./schema";
+
+// 紧急联络人双手机：dispatch 可携带设备映射（缺省 = 单设备，行为与旧版完全一致）
+export type DispatchCtx = {
+  devices?: Record<string, Runtime>;
+  activeDevice?: string;
+  phase?: string; // "parallel" 时对玩家手机的 message/notification 落 overlay
+};
 export function testCondition(c: Condition, s: Runtime): boolean {
   const [scope, ...rest] = c.key.split(":");
   const key = rest.join(":");
@@ -13,9 +20,15 @@ export function testCondition(c: Condition, s: Runtime): boolean {
   const actual =
     scope === "ui"
       ? s.ui?.[rest[0]]?.[rest.slice(1).join(":")]
-      : lists[scope]
-        ? lists[scope].includes(key)
-        : s.variables[c.key];
+      : scope === "change"
+        ? s.changes?.[key] // 紧急联络人：跨轮次累积改变（<nodeId> 或 <nodeId>.<subKey>）
+        : scope === "memory"
+          ? s.memory?.includes(key)
+            ? true
+            : undefined
+          : lists[scope]
+            ? lists[scope].includes(key)
+            : s.variables[c.key];
   switch (c.op) {
     case "eq":
       return actual === c.value;
@@ -29,7 +42,61 @@ export function testCondition(c: Condition, s: Runtime): boolean {
       return String(actual ?? "").includes(String(c.value));
   }
 }
-function apply(a: Action, s: Runtime, w: Work) {
+function apply(a: Action, s: Runtime, w: Work, ctx?: DispatchCtx) {
+  // 双手机路由：动作声明 device 且不等于当前交互设备 → 落到目标设备 runtime
+  if (a.device && ctx?.devices && ctx.activeDevice && a.device !== ctx.activeDevice) {
+    const t = ctx.devices[a.device];
+    if (!t) return;
+    // 平行/最终世界期间玩家手机的消息、通知与来电属于平行记录 → 进 overlay，不污染现实池
+    if (
+      (ctx.phase === "parallel" || ctx.phase === "final") &&
+      a.device === "player" &&
+      (a.type === "message" || a.type === "notification" || a.type === "call")
+    ) {
+      t.overlay ??= { messages: {}, notifications: [] };
+      if (a.type === "message") {
+        // 跨设备消息发送者 = 发起设备的机主；"@player" = 以玩家本人身份发出（去信，落入与李柱延的会话）
+        const isPlayerSend = a.sender === "@player";
+        const other =
+          ctx.activeDevice === "juyeon"
+            ? w.phones?.juyeon?.phone.owner ?? w.phone.owner
+            : w.phone.owner;
+        const sender = isPlayerSend
+          ? w.phones?.player?.phone.owner ?? other
+          : a.sender ??
+            (ctx.activeDevice === "juyeon"
+              ? w.phones?.juyeon?.phone.owner ?? w.phone.owner
+              : w.phone.owner);
+        // 消息时间：显式声明优先，否则取发起设备的剧情时钟
+        const at = a.time || [s.date, s.time].filter(Boolean).join(" ");
+        const media = a.media ? safeMedia(a.media) : "";
+        t.overlay.messages[a.key] = [
+          ...(t.overlay.messages[a.key] ?? []),
+          makeItem({
+            id: `event-${a.key}-${t.overlay.messages[a.key]?.length ?? 0}`,
+            title: isPlayerSend ? other : sender, // 会话名 = 聊天对象
+            sender,
+            body: String(a.value),
+            ...(at ? { time: at } : {}),
+            ...(media ? { kind: "image", media } : {}),
+            ...(isPlayerSend ? { outgoing: true } : {}),
+            timeline: "parallel",
+          }),
+        ];
+      } else if (a.type === "call") {
+        // 平行世界的来电：真实振铃落在玩家手机，通知留痕进 overlay
+        t.incomingCall = {
+          caller: String(a.value),
+          target: a.key,
+          status: "ringing",
+        };
+        t.overlay.notifications.push(`${String(a.value)} 来电`);
+      } else t.overlay.notifications.push(String(a.value));
+      return;
+    }
+    apply(a, t, w);
+    return;
+  }
   switch (a.type) {
     case "date":
       if (/^\d{4}-\d{2}-\d{2}$/.test(String(a.value))) s.date = String(a.value);
@@ -92,6 +159,7 @@ function runQueue(
   target: string,
   queue: string[],
   resuming = new Set<string>(),
+  ctx?: DispatchCtx,
 ) {
   const seen = new Set<string>();
   let steps = 0;
@@ -127,7 +195,7 @@ function runQueue(
           : a.type === "time"
             ? s.time
             : undefined;
-      apply(a, s, w);
+      apply(a, s, w, ctx);
       if (a.type === "variable" && previous !== s.variables[a.key])
         queue.push(
           ...w.nodes
@@ -169,6 +237,7 @@ export function dispatch(
   previous: Runtime,
   event: string,
   target = "",
+  ctx?: DispatchCtx,
 ): Runtime {
   const s = structuredClone(previous);
   if (event === "choose") s.choices = [];
@@ -183,12 +252,13 @@ export function dispatch(
         (n.event === event && (!n.target || n.target === target)),
     )
     .map((n) => n.id);
-  return runQueue(w, s, event, target, queue);
+  return runQueue(w, s, event, target, queue, new Set(), ctx);
 }
 export function advance(
   w: Work,
   previous: Runtime,
   milliseconds: number,
+  ctx?: DispatchCtx,
 ): Runtime {
   const s = structuredClone(previous);
   const delta = Number.isFinite(milliseconds)
@@ -231,20 +301,22 @@ export function advance(
                 (n) => n.event === "time" && (!n.target || n.target === s.time),
               )
               .map((n) => n.id),
+            new Set(),
+            ctx,
           );
       }
     }
     if (due && due.due <= s.elapsedMs) {
       s.scheduled.splice(s.scheduled.indexOf(due), 1);
       resumes++;
-      runQueue(w, s, "timer", due.nodeId, [due.nodeId], new Set([due.nodeId]));
+      runQueue(w, s, "timer", due.nodeId, [due.nodeId], new Set([due.nodeId]), ctx);
       continue;
     }
     if (s.elapsedMs >= end) break;
   }
   return s;
 }
-export function choose(w: Work, s: Runtime, id: string) {
+export function choose(w: Work, s: Runtime, id: string, ctx?: DispatchCtx) {
   const node = w.nodes.find((n) => n.id === id);
   if (!node || !s.choices.some((c) => c.target === id)) return s;
   return dispatch(
@@ -257,6 +329,7 @@ export function choose(w: Work, s: Runtime, id: string) {
     s,
     "choose",
     id,
+    ctx,
   );
 }
 export function validateGraph(nodes: StoryNode[]) {

@@ -129,6 +129,9 @@ function PhoneRuntime({
   onOpen,
   runtime: external,
   onRuntime,
+  onEvent,
+  dimmed,
+  archives,
 }: {
   deviceLayout: ReturnType<typeof useDeviceLayout>;
   work: Work;
@@ -139,6 +142,16 @@ function PhoneRuntime({
   onOpen?: (app: string) => void;
   runtime?: Runtime;
   onRuntime?: (s: Runtime) => void;
+  // 紧急联络人双手机：事件路由给游戏层（dispatchGame），本机不再自行 dispatch
+  onEvent?: (event: string, target: string) => void;
+  // 双手机熄屏态：保留存在感与锁屏时间，不可交互
+  dimmed?: boolean;
+  // 历轮平行记录归档（通知中心"另一个可能性"入口，可回看、非重入）
+  archives?: {
+    round: number;
+    notifications: string[];
+    messages: Record<string, Item[]>;
+  }[];
 }) {
   const [app, setApp] = useState("");
   const [homeRequest, setHomeRequest] = useState(0);
@@ -181,13 +194,15 @@ function PhoneRuntime({
     const el = shell.current;
     if (!el) return;
     const fit = () => {
+      // 双手机模式（onEvent）：全屏舞台，只扣舞台内边距；外部运行时（预览）：扣预览头尾
+      const reserved = creator ? 170 : external ? (onEvent ? 56 : 150) : 40;
       setDeviceScale(
         Math.max(
           0.4,
           Math.min(
             1,
             (el.parentElement!.clientWidth - 24) / 407,
-            (window.innerHeight - (creator ? 170 : external ? 150 : 40)) / 866,
+            (window.innerHeight - reserved) / 866,
           ),
         ),
       );
@@ -240,7 +255,8 @@ function PhoneRuntime({
         .catch(() => setLoadError("存档失败，请检查浏览器存储权限。"));
   }, [own, creator, work.id, external, ready]);
   useEffect(() => {
-    if (creator || !ready) return;
+    // 双手机模式（onEvent）：时钟由游戏层统一推进，本机不再自行 advance
+    if (creator || !ready || onEvent) return;
     const interval = setInterval(() => {
       const previous = runtimeRef.current;
       const next = advance(work, previous, 1000);
@@ -257,6 +273,10 @@ function PhoneRuntime({
     return () => clearInterval(interval);
   }, [creator, ready, work.id, work.updatedAt]);
   const event = (event: string, target: string) => {
+    if (onEvent) {
+      onEvent(event, target);
+      return;
+    }
     if (!creator) update(dispatch(work, runtimeRef.current, event, target));
   };
   // 紧急联络人：遗物交接后回到锁屏（__lock 变量驱动；解锁时故事清除该变量）
@@ -310,27 +330,43 @@ function PhoneRuntime({
   const displayTime = creator ? work.phone.time : s.time || work.phone.time;
   const plugin = getApp(app);
   useEffect(() => {
-    const count = s.notifications.length;
+    const notices = [...s.notifications, ...(s.overlay?.notifications ?? [])];
+    const count = notices.length;
     if (
       !locked &&
       work.phone.notifications &&
       count > noticesSeen.current &&
       !s.incomingCall // 通话中字幕直接上屏，不弹横幅
     ) {
-      setBanner(s.notifications.at(-1) || "");
+      setBanner(notices.at(-1) || "");
       const timer = setTimeout(() => setBanner(""), 4500);
       noticesSeen.current = count;
       return () => clearTimeout(timer);
     }
     noticesSeen.current = count;
-  }, [s.notifications.length, locked, work.phone.notifications]);
-  const dismissNotice = (index: number) =>
-    update({
-      ...runtimeRef.current,
-      notifications: runtimeRef.current.notifications.filter(
-        (_, i) => i !== index,
-      ),
-    });
+  }, [s.notifications.length, s.overlay?.notifications.length, locked, work.phone.notifications]);
+  // 双手机：显示用通知 = 现实通知 + 平行记录浮层通知（overlay 随轮次归档，由游戏层清空）
+  const allNotices = [...s.notifications, ...(s.overlay?.notifications ?? [])];
+  const dismissNotice = (index: number) => {
+    const cur = runtimeRef.current;
+    if (index < cur.notifications.length)
+      update({
+        ...cur,
+        notifications: cur.notifications.filter((_, i) => i !== index),
+      });
+    else {
+      const oi = index - cur.notifications.length;
+      update({
+        ...cur,
+        overlay: {
+          ...cur.overlay!,
+          notifications: (cur.overlay?.notifications ?? []).filter(
+            (_, i) => i !== oi,
+          ),
+        },
+      });
+    }
+  };
   if (!ready) return <div className="phone-loading">正在恢复进度…</div>;
   if (!introDone)
     return (
@@ -456,7 +492,7 @@ function PhoneRuntime({
                     : work
                 }
                 time={displayTime}
-                notices={s.notifications}
+                notices={allNotices}
                 onDismiss={dismissNotice}
                 pinOpen={pinOpen}
                 setPinOpen={setPinOpen}
@@ -483,6 +519,7 @@ function PhoneRuntime({
                   items={[
                     ...(work.data[app] ?? []),
                     ...(s.messages[app] ?? []),
+                    ...(s.overlay?.messages[app] ?? []),
                   ]}
                   creator={creator}
                   state={s}
@@ -585,9 +622,9 @@ function PhoneRuntime({
               {panel === "notification" ? (
                 <>
                   <h2>通知中心</h2>
-                  {work.phone.notifications && s.notifications.length ? (
+                  {work.phone.notifications && allNotices.length ? (
                     <SystemNotifications
-                      notices={s.notifications}
+                      notices={allNotices}
                       apps={work.apps}
                       onOpen={() => {
                         setPanel("");
@@ -610,6 +647,56 @@ function PhoneRuntime({
                   ) : (
                     <p>没有新通知</p>
                   )}
+                  {/* 紧急联络人：历轮平行记录归档——经历过的痕迹，可回看、不是重入入口 */}
+                  {archives?.length ? (
+                    <div style={{ marginTop: 18 }}>
+                      <h3 style={{ fontSize: 13, color: "#8b8e98", margin: "0 0 8px" }}>
+                        另一个可能性
+                      </h3>
+                      {archives.map((a) => (
+                        <div
+                          key={a.round}
+                          style={{
+                            border: "1px solid #26262c",
+                            borderRadius: 14,
+                            padding: "10px 12px",
+                            marginBottom: 8,
+                          }}
+                        >
+                          <small style={{ color: "#5c5f6a", fontSize: 11 }}>
+                            第 {a.round} 轮 · 平行世界记录
+                          </small>
+                          {Object.values(a.messages)
+                            .flat()
+                            .map((m) => (
+                              <p
+                                key={m.id}
+                                style={{
+                                  margin: "6px 0 0",
+                                  fontSize: 12,
+                                  color: "#9a9da8",
+                                  lineHeight: 1.6,
+                                }}
+                              >
+                                {m.sender}：{m.body}
+                              </p>
+                            ))}
+                          {a.notifications.map((n, i) => (
+                            <p
+                              key={i}
+                              style={{
+                                margin: "6px 0 0",
+                                fontSize: 12,
+                                color: "#9a9da8",
+                              }}
+                            >
+                              {n}
+                            </p>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
                   {/* 紧急联络人：随时可以从头开始 */}
                   {!creator && (
                     <button
@@ -653,7 +740,11 @@ function PhoneRuntime({
               {s.choices.map((c) => (
                 <button
                   key={c.target}
-                  onClick={() => update(choose(work, s, c.target))}
+                  onClick={() =>
+                    onEvent
+                      ? onEvent("choose", c.target)
+                      : update(choose(work, s, c.target))
+                  }
                 >
                   {c.label}
                   <ArrowUp size={15} />
@@ -661,7 +752,8 @@ function PhoneRuntime({
               ))}
             </div>
           )}
-          {!creator && s.endings.length > 0 && !locked && (
+          {/* 结局浮层（单机在手机屏内；双手机模式由全局层渲染） */}
+          {!creator && !onEvent && s.endings.length > 0 && !locked && (
             <div className="story-overlay ending">
               <span className="eyebrow">ENDING · {s.endings.length}</span>
               <h2>故事在这里停泊。</h2>
@@ -679,8 +771,8 @@ function PhoneRuntime({
               </button>
             </div>
           )}
-          {/* 紧急联络人：剧情旁白转场（由 __narration 变量驱动，「继续」派发 narrationDone 事件） */}
-          {!creator && s.variables.__narration && !s.endings.length && (
+          {/* 紧急联络人：剧情旁白转场（单机在手机屏内；双手机模式由全局层渲染） */}
+          {!creator && !onEvent && s.variables.__narration && !s.endings.length && (
             <div
               className="story-overlay narration"
               style={{
@@ -780,17 +872,21 @@ function PhoneRuntime({
                   className={s.variables.__call_over ? "accept-call" : "decline-call"}
                   onClick={() => {
                     const call = runtimeRef.current.incomingCall;
-                    if (call)
-                      update(
-                        dispatch(
-                          work,
-                          { ...runtimeRef.current, incomingCall: null },
-                          call.status === "ringing"
-                            ? "callDeclined"
-                            : "callEnded",
-                          call.target || call.caller,
-                        ),
-                      );
+                    if (!call) return;
+                    const ev =
+                      call.status === "ringing" ? "callDeclined" : "callEnded";
+                    if (onEvent) {
+                      onEvent(ev, call.target || call.caller);
+                      return;
+                    }
+                    update(
+                      dispatch(
+                        work,
+                        { ...runtimeRef.current, incomingCall: null },
+                        ev,
+                        call.target || call.caller,
+                      ),
+                    );
                   }}
                 >
                   <PhoneIcon size={25} />
@@ -807,18 +903,22 @@ function PhoneRuntime({
                     className="accept-call"
                     onClick={() => {
                       const call = runtimeRef.current.incomingCall;
-                      if (call)
-                        update(
-                          dispatch(
-                            work,
-                            {
-                              ...runtimeRef.current,
-                              incomingCall: { ...call, status: "answered" },
-                            },
-                            "callAnswered",
-                            call.target || call.caller,
-                          ),
-                        );
+                      if (!call) return;
+                      if (onEvent) {
+                        onEvent("callAnswered", call.target || call.caller);
+                        return;
+                      }
+                      update(
+                        dispatch(
+                          work,
+                          {
+                            ...runtimeRef.current,
+                            incomingCall: { ...call, status: "answered" },
+                          },
+                          "callAnswered",
+                          call.target || call.caller,
+                        ),
+                      );
                     }}
                   >
                     <PhoneIcon size={25} />
@@ -940,6 +1040,15 @@ function PhoneRuntime({
               setPanel("");
             }}
           />
+          {/* 双手机熄屏态：屏幕变黑但保留时间与存在感，阻断全部交互 */}
+          {dimmed && (
+            <div className="screen-off-cover">
+              <span className="screen-off-time">{displayTime}</span>
+              {s.date && (
+                <small className="screen-off-date">{s.date.replaceAll("-", ".")}</small>
+              )}
+            </div>
+          )}
           <div className="screen-dimmer" />
           <div className="hardware-reflection" />
         </div>

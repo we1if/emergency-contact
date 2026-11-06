@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Phone } from "../Phone";
+import { DualStage } from "../game/DualStage";
 import { validateWork, type Work } from "../schema";
 import "../styles.css";
 import "./player.css";
@@ -35,7 +36,11 @@ function StoryPlayer() {
   return (
     <main className="story-runtime">
       {work ? (
-        <Phone work={work} />
+        work.phones ? (
+          <DualStage work={work} />
+        ) : (
+          <Phone work={work} />
+        )
       ) : (
         <p role="status">{error || "正在打开手机…"}</p>
       )}

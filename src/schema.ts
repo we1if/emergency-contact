@@ -1,5 +1,7 @@
 import { z } from "zod";
 export const uid = () => crypto.randomUUID();
+// 紧急联络人：记录所属时间线（现实记录不受平行世界影响；平行记录随轮次归档）
+export const timelineSchema = z.enum(["reality", "parallel"]).default("reality");
 export const itemSchema = z.object({
   id: z.string(),
   title: z.string().max(1000),
@@ -34,6 +36,7 @@ export const itemSchema = z.object({
   read: z.boolean().default(false),
   likes: z.number().default(0),
   comments: z.array(z.string()).default([]),
+  timeline: timelineSchema,
 });
 export type Item = z.infer<typeof itemSchema>;
 export const conditionSchema = z.object({
@@ -59,6 +62,13 @@ export const actionSchema = z.object({
   ]),
   key: z.string(),
   value: z.union([z.string(), z.number(), z.boolean()]),
+  // 紧急联络人双手机：动作可指定落到哪台设备（缺省 = 当前交互设备，行为不变）
+  device: z.enum(["player", "juyeon"]).optional(),
+  // message 动作跨设备路由时的发送者（"@player" = 以玩家本人身份发出）
+  sender: z.string().max(60).optional(),
+  // message 动作的显式时间戳与图片附件（跨设备记录与李柱延侧 curated 记录保持一致）
+  time: z.string().max(24).optional(),
+  media: z.string().optional(),
 });
 export type Action = z.infer<typeof actionSchema>;
 export const nodeSchema = z.object({
@@ -86,6 +96,35 @@ export const nodeSchema = z.object({
   y: z.number(),
 });
 export type StoryNode = z.infer<typeof nodeSchema>;
+// 紧急联络人双手机：phone/apps/data 抽为可复用 schema（单设备作品行为不变）
+const phoneConfigSchema = z.object({
+  owner: z.string(),
+  date: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/)
+    .optional(),
+  passcode: z.string().max(12),
+  wallpaper: z.string(),
+  theme: z.enum(["light", "dark"]),
+  time: z.string(),
+  battery: z.number().min(0).max(100),
+  network: z.string(),
+  notifications: z.boolean(),
+});
+const appsSchema = z
+  .array(
+    z.object({
+      id: z.string(),
+      name: z.string(),
+      installed: z.boolean().default(true),
+      visible: z.boolean(),
+      dock: z.boolean(),
+      folder: z.string(),
+      icon: z.string(),
+    }),
+  )
+  .max(100);
+const dataSchema = z.record(z.string(), z.array(itemSchema).max(20000));
 export const workSchema = z.object({
   formatVersion: z.literal(1),
   id: z.string(),
@@ -94,34 +133,24 @@ export const workSchema = z.object({
   category: z.string(),
   cover: z.string(),
   updatedAt: z.number(),
-  phone: z.object({
-    owner: z.string(),
-    date: z
-      .string()
-      .regex(/^\d{4}-\d{2}-\d{2}$/)
-      .optional(),
-    passcode: z.string().max(12),
-    wallpaper: z.string(),
-    theme: z.enum(["light", "dark"]),
-    time: z.string(),
-    battery: z.number().min(0).max(100),
-    network: z.string(),
-    notifications: z.boolean(),
-  }),
-  apps: z
-    .array(
-      z.object({
-        id: z.string(),
-        name: z.string(),
-        installed: z.boolean().default(true),
-        visible: z.boolean(),
-        dock: z.boolean(),
-        folder: z.string(),
-        icon: z.string(),
+  phone: phoneConfigSchema,
+  apps: appsSchema,
+  data: dataSchema,
+  // 双手机模式：player = 玩家（现实时间线锚点），juyeon = 李柱延（平行世界持久设备）
+  phones: z
+    .object({
+      player: z.object({
+        phone: phoneConfigSchema,
+        apps: appsSchema,
+        data: dataSchema,
       }),
-    )
-    .max(100),
-  data: z.record(z.string(), z.array(itemSchema).max(20000)),
+      juyeon: z.object({
+        phone: phoneConfigSchema,
+        apps: appsSchema,
+        data: dataSchema,
+      }),
+    })
+    .optional(),
   nodes: z.array(nodeSchema).max(2000),
   variables: z.record(
     z.string(),
@@ -157,6 +186,15 @@ export type Runtime = {
   messages: Record<string, Item[]>;
   time: string;
   trace: string[];
+  // 双手机扩展：设备标识 + 平行世界记录浮层（玩家手机在平行世界期间的对应记录）
+  deviceId?: string;
+  overlay?: {
+    messages: Record<string, Item[]>;
+    notifications: string[];
+  };
+  // 跨轮次镜像（由游戏层维护，条件作用域 change:/memory: 读取）
+  changes?: Record<string, string | number | boolean>;
+  memory?: string[];
 };
 export function initialRuntime(w: Work): Runtime {
   return {

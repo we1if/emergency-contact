@@ -1,0 +1,143 @@
+/* 紧急联络人 · 双手机舞台（整个界面，不只是手机屏幕） */
+
+.dual-stage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 16px 24px;
+  background: radial-gradient(120% 120% at 50% 0%, #14161c 0%, #060608 70%);
+  overflow: hidden;
+}
+
+.dual-device {
+  /* 各占一半舞台宽度：缩放计算基于固定份额，避免内容自适应的循环收缩 */
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.6s ease, filter 0.6s ease;
+}
+.dual-device:not(.active) {
+  opacity: 0.72;
+}
+
+/* 熄屏态：黑屏但保留时间与存在感 */
+.screen-off-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 90;
+  background: #050507;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: default;
+  animation: screen-off-in 0.8s ease;
+}
+.screen-off-time {
+  color: #3c3f4a;
+  font-size: 54px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+}
+.screen-off-date {
+  color: #2c2e36;
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+@keyframes screen-off-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 全局转场层：黑屏，覆盖整个界面（不属于任何一部手机） */
+.dual-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: dual-fade 1.4s ease;
+}
+.dual-transition-mark {
+  color: #2a2c33;
+  font-size: 20px;
+  letter-spacing: 8px;
+  animation: dual-mark 2.4s ease infinite;
+}
+@keyframes dual-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes dual-mark {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.dual-loading {
+  color: #6b6e78;
+  font-size: 14px;
+}
+
+/* 全局旁白层（开场/结尾/转场文字都在整个界面上，不在手机屏幕内） */
+.dual-narration {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  background: #000;
+  color: #d8d9de;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  animation: dual-fade 0.8s ease;
+}
+.dual-narration p {
+  white-space: pre-line;
+  line-height: 2.1;
+  font-size: 16px;
+  max-width: 380px;
+  text-align: center;
+  padding: 0 24px;
+}
+.dual-narration button {
+  background: none;
+  border: 1px solid #3a3a42;
+  color: #9db8e8;
+  border-radius: 24px;
+  padding: 13px 38px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .dual-stage {
+    flex-direction: column;
+    gap: 24px;
+    padding: 20px 12px;
+  }
+}
