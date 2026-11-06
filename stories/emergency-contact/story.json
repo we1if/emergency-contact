@@ -1151,6 +1151,7 @@
     "round_gate": 1,
     "a_hidden": false,
     "__chatapp": "kakao",
+    "__relic": false,
     "__narration": "",
     "__sub": "",
     "__call_over": false,
@@ -2208,6 +2209,11 @@
           "value": ""
         },
         {
+          "type": "variable",
+          "key": "__relic",
+          "value": true
+        },
+        {
           "type": "unlock",
           "key": "jr1-1",
           "value": true,
@@ -2402,7 +2408,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "KakaoTalk：4月8日的对话有一条未读。",
+          "value": "他的手机在你手里。KakaoTalk 里，4月8日的对话有一条未读。",
           "device": "juyeon"
         }
       ],
@@ -2815,7 +2821,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "日历：回收站里有一条被删除的提醒（3月14日）。",
+          "value": "他的手机亮了——打开日历，回收站里有一条被删除的提醒（3月14日）。",
           "device": "juyeon"
         }
       ]
@@ -3075,7 +3081,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "邮件：有一条订单变更通知（2月18日）。",
+          "value": "他的手机亮了——打开邮件，有一条订单变更通知（2月18日）。",
           "device": "juyeon"
         }
       ]
@@ -3347,7 +3353,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "电话：有一条拨出却没有接通的电话（去年11月6日）。",
+          "value": "他的手机亮了——打开电话，有一条拨出却没有接通的通话（去年11月6日）。",
           "device": "juyeon"
         }
       ]
@@ -3735,7 +3741,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "KakaoTalk：草稿箱里有一条没有发送的消息（去年8月16日）。",
+          "value": "他的手机亮了——KakaoTalk 的会话里，有一条没有发送出去的草稿（去年8月16日）。",
           "device": "juyeon"
         }
       ]

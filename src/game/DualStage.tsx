@@ -57,6 +57,7 @@ export function DualStage({ work }: { work: Work }) {
   const gameRef = useRef<GameRuntime | null>(null);
   gameRef.current = game;
   const booted = useRef(false);
+  const relicFocused = useRef(false);
   const playerWork = deviceWork(work, "player");
   const juyeonWork = deviceWork(work, "juyeon");
 
@@ -159,6 +160,11 @@ export function DualStage({ work }: { work: Work }) {
     // 另一部设备来电时自动亮屏（亮屏提醒）
     if (g.player.incomingCall && active !== "player") setActive("player");
     if (g.juyeon.incomingCall && active !== "juyeon") setActive("juyeon");
+    // 遗物交接完成：镜头交给他的手机（只切一次，之后不抢焦点）
+    if (pv.__relic && !relicFocused.current) {
+      relicFocused.current = true;
+      setActive("juyeon");
+    }
   }
 
   const handleEvent = (device: DeviceId, ev: string, target: string) => {
@@ -215,9 +221,11 @@ export function DualStage({ work }: { work: Work }) {
 
   const dimPlayer = active !== "player";
   const dimJuyeon = active !== "juyeon";
+  // 遗物交接（__relic）之前：只有玩家手机，李柱延手机尚未进入故事
+  const relic = !!game.player.variables.__relic;
 
   return (
-    <div className={`dual-stage phase-${game.world.phase}`}>
+    <div className={`dual-stage phase-${game.world.phase} ${relic ? "" : "single"}`}>
       <div
         className={`dual-device device-player ${active === "player" ? "active" : ""}`}
         onClick={() => {
@@ -230,24 +238,26 @@ export function DualStage({ work }: { work: Work }) {
           runtime={game.player}
           onRuntime={syncDevice("player")}
           onEvent={(e, t) => handleEvent("player", e, t)}
-          dimmed={dimPlayer && !game.player.incomingCall}
+          dimmed={dimPlayer && relic && !game.player.incomingCall}
           archives={game.world.archives}
         />
       </div>
-      <div
-        className={`dual-device device-juyeon ${active === "juyeon" ? "active" : ""}`}
-        onClick={() => {
-          if (active !== "juyeon") setActive("juyeon");
-        }}
-      >
-        <Phone
-          work={juyeonWork}
-          runtime={game.juyeon}
-          onRuntime={syncDevice("juyeon")}
-          onEvent={(e, t) => handleEvent("juyeon", e, t)}
-          dimmed={dimJuyeon && !game.juyeon.incomingCall}
-        />
-      </div>
+      {relic && (
+        <div
+          className={`dual-device device-juyeon ${active === "juyeon" ? "active" : ""}`}
+          onClick={() => {
+            if (active !== "juyeon") setActive("juyeon");
+          }}
+        >
+          <Phone
+            work={juyeonWork}
+            runtime={game.juyeon}
+            onRuntime={syncDevice("juyeon")}
+            onEvent={(e, t) => handleEvent("juyeon", e, t)}
+            dimmed={dimJuyeon && !game.juyeon.incomingCall}
+          />
+        </div>
+      )}
       {/* 全局转场层：黑屏，不属于任何一部手机 */}
       {transition && (
         <div className={`dual-transition ${transition}`}>
