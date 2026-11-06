@@ -81,7 +81,6 @@ export function DualStage({ work }: { work: Work }) {
     return () => {
       live = false;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [work.id]);
 
   // 存档持久化
@@ -101,7 +100,6 @@ export function DualStage({ work }: { work: Work }) {
       setGame({ ...g });
     }, 1000);
     return () => clearInterval(t);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [game !== null, work.id]);
 
   function startNew() {
