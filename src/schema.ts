@@ -92,6 +92,8 @@ export const nodeSchema = z.object({
   actions: z.array(actionSchema),
   next: z.array(z.string()),
   once: z.boolean(),
+  // 紧急联络人：门控延时——计时到后不自动执行，停下等玩家点全局 › 再继续（探索节奏由玩家控制）
+  gate: z.boolean().optional(),
   x: z.number(),
   y: z.number(),
 });
@@ -195,6 +197,8 @@ export type Runtime = {
   // 跨轮次镜像（由游戏层维护，条件作用域 change:/memory: 读取）
   changes?: Record<string, string | number | boolean>;
   memory?: string[];
+  // 门控延时：计时已到、等待玩家点 › 推进的节点 id（advance 事件消费）
+  awaiting?: string;
 };
 export function initialRuntime(w: Work): Runtime {
   return {

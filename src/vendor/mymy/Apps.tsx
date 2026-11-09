@@ -76,7 +76,9 @@ export function MymyKakao(p: SkinProps) {
     [menu, setMenu] = useState(false);
   const list = grouped(p.items),
     messages = [
-      ...p.items.filter((i) => i.title === p.thread),
+      ...p.items.filter(
+        (i) => i.title === p.thread && i.meta?.draft !== "true",
+      ),
       ...sent.flatMap((raw, index) => {
         try {
           const entry: unknown = JSON.parse(raw);
@@ -108,6 +110,10 @@ export function MymyKakao(p: SkinProps) {
     const node = scroll.current;
     if (node) node.scrollTop = node.scrollHeight;
   }, [p.thread, messages.length]);
+  // 未发送的草稿：不进对话气泡，显示在输入栏里（点开可查看/触发剧情读取）
+  const draftItem = [...p.items]
+    .reverse()
+    .find((i) => i.title === p.thread && i.meta?.draft === "true");
   return (
     <div className="mymy-ui mymy-kakao" data-mymy="kakao">
       {p.thread ? (
@@ -190,13 +196,25 @@ export function MymyKakao(p: SkinProps) {
             >
               <Plus size={21} />
             </button>
-            <input
-              aria-label="KKT消息"
-              placeholder="输入消息"
-              value={draft}
-              maxLength={2000}
-              onChange={(e) => setDraft(e.target.value)}
-            />
+            <span className="kzdraft-box">
+              <input
+                aria-label="KKT消息"
+                placeholder={draftItem ? "" : "输入消息"}
+                value={draft}
+                maxLength={2000}
+                onChange={(e) => setDraft(e.target.value)}
+              />
+              {!draft && draftItem && (
+                <button
+                  type="button"
+                  className="kzdraft"
+                  aria-label="未发送的草稿"
+                  onClick={() => read(p, draftItem)}
+                >
+                  {draftItem.body}
+                </button>
+              )}
+            </span>
             <Smile size={22} />
             <button
               className={draft.trim() ? "go" : ""}

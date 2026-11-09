@@ -98,6 +98,34 @@
   background: rgba(255, 255, 255, 0.55);
   color: #5a6a78;
   font-size: 11px;
+}
+/* 未发送草稿：叠在输入栏上的灰字（点开触发查看） */
+.mymy-ui .kzdraft-box {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+}
+.mymy-ui .kzdraft-box input {
+  flex: 1;
+  min-width: 0;
+}
+.mymy-ui .kzinp .kzdraft {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: 100%;
+  border-radius: 0;
+  background: none;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  color: #9a9aa2;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
 }.mymy-ui .kzm.kzot .kzbub {
   background: white;
 }

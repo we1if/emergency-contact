@@ -121,8 +121,18 @@ function runDual(story: Story, work: Work) {
         g = chooseGame(work, g, step.choose, device);
       }
       if (step.advanceMs !== undefined) {
-        advanceGame(work, g, "player", step.advanceMs);
-        advanceGame(work, g, "juyeon", step.advanceMs);
+        // 门控延时（gate: true）计时到后停下等 ›；测试自动排空 awaiting 使链路走完
+        for (let i = 0; i < 30; i++) {
+          advanceGame(work, g, "player", step.advanceMs);
+          advanceGame(work, g, "juyeon", step.advanceMs);
+          const aw: DeviceId | null = g.juyeon.awaiting
+            ? "juyeon"
+            : g.player.awaiting
+              ? "player"
+              : null;
+          if (!aw) break;
+          g = dispatchGame(work, g, "advance", "", aw);
+        }
       }
       if (step.event) g = dispatchGame(work, g, step.event, step.target, device);
       // 复刻游戏层约定：剧情写入 __change_done 后收割 __res_* 进累积集合

@@ -268,3 +268,51 @@
   top: 64px;
   bottom: auto;
 }
+
+/* ---------- 步进控制（节奏由玩家掌握） ---------- */
+/* 屏幕最左 / 最右的大按钮：‹ 回看，› 前进 */
+.dual-step {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1600;
+  width: 64px;
+  height: 104px;
+  display: grid;
+  place-items: center;
+  background: rgba(18, 20, 26, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+  color: #cfd6e4;
+  font-size: 36px;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+.dual-step:hover {
+  background: rgba(40, 44, 56, 0.75);
+}
+.dual-step:disabled {
+  opacity: 0.22;
+  cursor: default;
+}
+.dual-step-left {
+  left: 10px;
+}
+.dual-step-right {
+  right: 10px;
+}
+@media (max-width: 900px) {
+  .dual-step {
+    width: 48px;
+    height: 84px;
+    font-size: 30px;
+  }
+  .dual-step-left {
+    left: 4px;
+  }
+  .dual-step-right {
+    right: 4px;
+  }
+}

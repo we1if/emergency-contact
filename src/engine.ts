@@ -241,6 +241,12 @@ export function dispatch(
 ): Runtime {
   const s = structuredClone(previous);
   if (event === "choose") s.choices = [];
+  // 门控延时推进：玩家点 › 后从这里继续执行 awaiting 节点（resuming 使其跳过再次计时）
+  if (event === "advance" && s.awaiting) {
+    const id = s.awaiting;
+    s.awaiting = undefined;
+    return runQueue(w, s, event, target, [id], new Set([id]), ctx);
+  }
   if (event === "openApp" && !s.visited.includes(target))
     s.visited.push(target);
   if (event === "read" && !s.read.includes(target)) s.read.push(target);
@@ -309,6 +315,11 @@ export function advance(
     if (due && due.due <= s.elapsedMs) {
       s.scheduled.splice(s.scheduled.indexOf(due), 1);
       resumes++;
+      // 门控延时：计时到后不自动执行，标记 awaiting 等玩家点 ›（advance 事件）再继续
+      if (w.nodes.find((n) => n.id === due.nodeId)?.gate) {
+        s.awaiting = due.nodeId;
+        continue;
+      }
       runQueue(w, s, "timer", due.nodeId, [due.nodeId], new Set([due.nodeId]), ctx);
       continue;
     }

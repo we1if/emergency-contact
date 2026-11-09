@@ -54,10 +54,29 @@ export function DualStage({ work }: { work: Work }) {
   const [introDone, setIntroDone] = useState(() => !!readIntroAnswers());
   const [active, setActive] = useState<DeviceId>("player");
   const [transition, setTransition] = useState<"" | "enter" | "exit">("");
+  // 节奏控制：round_over 后世界保持可探索，点 › 才回现实（awaitExit）；旁白层 ‹ › 翻段
+  const [awaitExit, setAwaitExit] = useState(false);
+  const [review, setReview] = useState(false);
+  const [viewIdx, setViewIdx] = useState(-1);
+  const narrLogRef = useRef<string[]>([]);
   const gameRef = useRef<GameRuntime | null>(null);
   gameRef.current = game;
   const booted = useRef(false);
   const relicFocused = useRef(false);
+  // 旁白段落历史（‹ 回看）；viewIdx = -1 表示跟随最新一段
+  const narrNow = game
+    ? game.juyeon.variables.__narration
+      ? String(game.juyeon.variables.__narration)
+      : game.player.variables.__narration
+        ? String(game.player.variables.__narration)
+        : ""
+    : "";
+  useEffect(() => {
+    if (narrNow && narrLogRef.current[narrLogRef.current.length - 1] !== narrNow) {
+      narrLogRef.current = [...narrLogRef.current, narrNow];
+      setViewIdx(-1);
+    }
+  }, [narrNow]);
   const playerWork = deviceWork(work, "player");
   const juyeonWork = deviceWork(work, "juyeon");
 
@@ -149,17 +168,8 @@ export function DualStage({ work }: { work: Work }) {
     if (g.world.phase === "parallel" && (jv.__round_over || pv.__round_over)) {
       jv.__round_over = false;
       pv.__round_over = false;
-      setTransition("exit");
-      setTimeout(() => {
-        exitParallel(work, g); // 恢复锚点 + parallelExit 事件（航司来电重现）
-        setActive("player");
-        if (finalReady(g, Number(g.player.variables.playthrough ?? 1))) {
-          enterFinal(g);
-          dispatchGame(work, g, "finalEnter", "", "juyeon");
-        }
-        setTransition("");
-        setGame({ ...g });
-      }, 1600);
+      // 不自动黑屏：世界保持可探索，玩家点右侧 › 才回到现实
+      setAwaitExit(true);
       return;
     }
     // 另一部设备来电时自动亮屏（亮屏提醒）
@@ -203,6 +213,34 @@ export function DualStage({ work }: { work: Work }) {
     if (!g) return;
     g[device] = s;
     setGame({ ...g });
+  };
+
+  /** 玩家点 ›：从门控延时处继续（世界保持可见，节奏由玩家控制） */
+  const advanceGate = () => {
+    const g = gameRef.current;
+    if (!g) return;
+    const device: DeviceId = g.juyeon.awaiting ? "juyeon" : "player";
+    dispatchGame(work, g, "advance", "", device);
+    setGame({ ...g });
+    afterDispatch(g);
+  };
+
+  /** 玩家点 ›（round_over 之后）：黑屏转场 → 回到现实锚点 */
+  const doExit = () => {
+    const g = gameRef.current;
+    if (!g) return;
+    setAwaitExit(false);
+    setTransition("exit");
+    setTimeout(() => {
+      exitParallel(work, g); // 恢复锚点 + parallelExit 事件（航司来电重现）
+      setActive("player");
+      if (finalReady(g, Number(g.player.variables.playthrough ?? 1))) {
+        enterFinal(g);
+        dispatchGame(work, g, "finalEnter", "", "juyeon");
+      }
+      setTransition("");
+      setGame({ ...g });
+    }, 1600);
   };
 
   if (!introDone)
@@ -319,25 +357,108 @@ export function DualStage({ work }: { work: Work }) {
           </div>
         );
       })()}
-      {/* 全局旁白层：转场文字出现在整个界面，不在手机屏幕内 */}
+      {/* 全局旁白层：转场文字出现在整个界面，不在手机屏幕内；‹ 回看上一段 / › 前进或继续 */}
       {(() => {
-        const narrDevice: DeviceId | null = game.juyeon.variables.__narration
-          ? "juyeon"
-          : game.player.variables.__narration
-            ? "player"
-            : null;
-        if (!narrDevice) return null;
+        const narrDevice: DeviceId | null = narrNow
+          ? game.juyeon.variables.__narration
+            ? "juyeon"
+            : "player"
+          : null;
+        if (!narrDevice || review) return null;
+        const log = narrLogRef.current;
+        const idx = viewIdx < 0 ? log.length - 1 : viewIdx;
+        const text = log[idx] ?? narrNow;
         return (
-          <div className="dual-narration">
-            <p>{String(game[narrDevice].variables.__narration)}</p>
+          <>
+            <div className="dual-narration">
+              <p key={idx}>{text}</p>
+            </div>
             <button
-              onClick={() => handleEvent(narrDevice, "narrationDone", "")}
+              className="dual-step dual-step-left"
+              aria-label="回看上一段"
+              disabled={idx <= 0}
+              onClick={() => setViewIdx(idx - 1)}
             >
-              继续
+              ‹
             </button>
-          </div>
+            <button
+              className="dual-step dual-step-right"
+              aria-label={idx < log.length - 1 ? "下一段" : "继续"}
+              onClick={() => {
+                if (idx < log.length - 1) setViewIdx(idx + 1);
+                else handleEvent(narrDevice, "narrationDone", "");
+              }}
+            >
+              ›
+            </button>
+          </>
         );
       })()}
+      {/* 门控延时：世界保持可探索，玩家点 › 才推进下一步 */}
+      {game.juyeon.awaiting || game.player.awaiting ? (
+        !transition &&
+        !narrNow && (
+          <button
+            className="dual-step dual-step-right"
+            aria-label="继续"
+            onClick={advanceGate}
+          >
+            ›
+          </button>
+        )
+      ) : null}
+      {/* 本轮结束：世界保持可探索，点 › 回到现实；‹ 回看旁白 */}
+      {awaitExit && !narrNow && !transition && !review && (
+        <>
+          {narrLogRef.current.length > 0 && (
+            <button
+              className="dual-step dual-step-left"
+              aria-label="回看旁白"
+              onClick={() => setReview(true)}
+            >
+              ‹
+            </button>
+          )}
+          <button
+            className="dual-step dual-step-right"
+            aria-label="回到现实"
+            onClick={doExit}
+          >
+            ›
+          </button>
+        </>
+      )}
+      {/* 旁白回看层：‹ › 翻段，› 到最后一段时关闭 */}
+      {review &&
+        (() => {
+          const log = narrLogRef.current;
+          const idx = viewIdx < 0 ? log.length - 1 : viewIdx;
+          return (
+            <>
+              <div className="dual-narration">
+                <p key={idx}>{log[idx]}</p>
+              </div>
+              <button
+                className="dual-step dual-step-left"
+                aria-label="上一段"
+                disabled={idx <= 0}
+                onClick={() => setViewIdx(idx - 1)}
+              >
+                ‹
+              </button>
+              <button
+                className="dual-step dual-step-right"
+                aria-label={idx < log.length - 1 ? "下一段" : "关闭回看"}
+                onClick={() => {
+                  if (idx < log.length - 1) setViewIdx(idx + 1);
+                  else setReview(false);
+                }}
+              >
+                ›
+              </button>
+            </>
+          );
+        })()}
     </div>
   );
 }
