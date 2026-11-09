@@ -1,7 +1,7 @@
 /* React/data adapters for dudwo5/Mymy UI templates: kt/ktn/KHD/bub,
  * igHome/igProfile/igDM/igSheet, xHome. See NOTICE.txt for permission.
  * Author content, DOM globals, timers and media dependencies are excluded. */
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import {
   ArrowLeft,
   Search,
@@ -36,6 +36,13 @@ function grouped(items: Item[]) {
     title,
     items: items.filter((i) => i.title === title),
   }));
+}
+/** "2026-04-08 21:44" → "2026年4月8日"；无日期的时间（HH:mm 本地消息）返回空串 */
+function dayLabel(time: string) {
+  const d = time.slice(0, 10);
+  return /^\d{4}-\d{2}-\d{2}$/.test(d)
+    ? `${Number(d.slice(0, 4))}年${Number(d.slice(5, 7))}月${Number(d.slice(8))}日`
+    : "";
 }
 export function messageRun(items: Item[], index: number) {
   const m = items[index],
@@ -117,15 +124,18 @@ export function MymyKakao(p: SkinProps) {
           <div className="msgs kk" ref={scroll}>
             {messages.map((m, i) => {
               const run = messageRun(messages, i);
+              const day = dayLabel(m.time);
+              const prevDay = i > 0 ? dayLabel(messages[i - 1].time) || day : "";
               return (
-                <div
-                  key={m.id}
-                  className={
-                    "kzm " +
-                    (m.outgoing ? "kzmy" : "kzot") +
-                    (run.first ? " first" : "")
-                  }
-                >
+                <Fragment key={m.id}>
+                  {day && day !== prevDay && <div className="kzday">{day}</div>}
+                  <div
+                    className={
+                      "kzm " +
+                      (m.outgoing ? "kzmy" : "kzot") +
+                      (run.first ? " first" : "")
+                    }
+                  >
                   {!m.outgoing && run.first && (
                     <>
                       <div className="kzmav">
@@ -150,7 +160,8 @@ export function MymyKakao(p: SkinProps) {
                   {!m.outgoing && run.last && (
                     <span className="kzt">{m.time.slice(-5)}</span>
                   )}
-                </div>
+                  </div>
+                </Fragment>
               );
             })}
             {!messages.length && <Blank />}

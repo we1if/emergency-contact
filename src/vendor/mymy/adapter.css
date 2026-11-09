@@ -89,7 +89,16 @@
   white-space: pre-wrap;
   flex: none;
 }
-.mymy-ui .kzm.kzot .kzbub {
+/* 日期分隔胶囊（仿 Kakao：会话顶部/跨天处居中显示） */
+.mymy-ui .kzday {
+  margin: 10px auto 6px;
+  width: fit-content;
+  padding: 3px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.55);
+  color: #5a6a78;
+  font-size: 11px;
+}.mymy-ui .kzm.kzot .kzbub {
   background: white;
 }
 .mymy-ui .kzm.kzmy .kzbub {

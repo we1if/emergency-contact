@@ -3,7 +3,7 @@
   "id": "emergency-contact",
   "title": "紧急联络人",
   "description": "如果当时做出了不同的选择，我们的关系会不会不一样？你的手机接到了那通电话。之后，他的手机交到了你的手上。（EMERGENCY CONTACT · 双手机互动故事）",
-  "revision": 13,
+  "revision": 14,
   "phone": {
     "owner": "{player}",
     "date": "2026-12-25",
@@ -2410,7 +2410,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "KakaoTalk：他的手机在你手里。4 月 8 日的对话有一条未读。",
+          "value": "KakaoTalk：4 月 8 日的对话有一条未读。",
           "device": "juyeon"
         },
         {
@@ -2835,7 +2835,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "日历：他的手机亮了——回收站里有一条被删除的提醒（3 月 14 日）。",
+          "value": "日历：回收站里有一条被删除的提醒（3 月 14 日）。",
           "device": "juyeon"
         },
         {
@@ -3107,7 +3107,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "邮件：他的手机亮了——有一条订单变更通知（2 月 18 日）。",
+          "value": "邮件：有一封订单变更通知（2 月 18 日）。",
           "device": "juyeon"
         },
         {
@@ -3391,7 +3391,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "电话：他的手机亮了——有一条拨出却没有接通的通话（去年 11 月 6 日）。",
+          "value": "电话：有一条拨出却没有接通的通话（去年 11 月 6 日）。",
           "device": "juyeon"
         },
         {
@@ -3791,7 +3791,7 @@
         {
           "type": "notification",
           "key": "",
-          "value": "KakaoTalk：他的手机亮了——会话里有一条没有发送出去的草稿（去年 8 月 16 日）。",
+          "value": "KakaoTalk：会话里有一条没有发送出去的草稿（去年 8 月 16 日）。",
           "device": "juyeon"
         },
         {
