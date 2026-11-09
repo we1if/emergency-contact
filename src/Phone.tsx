@@ -79,6 +79,7 @@ export function AppIcon({
   custom = "",
   date,
   time,
+  hint = false,
 }: {
   id: string;
   name?: string;
@@ -86,6 +87,8 @@ export function AppIcon({
   custom?: string;
   date?: string;
   time?: string;
+  // 紧急联络人引导：该 App 有待查看的剧情入口时的一次性红点提示
+  hint?: boolean;
 }) {
   const a = getApp(id);
   const Icon = a.icon;
@@ -104,6 +107,7 @@ export function AppIcon({
           <Icon size={small ? 21 : 28} strokeWidth={1.65} />
         )}
       </span>
+      {hint && <span className="app-hint-dot" />}
       {name && <span className="app-name">{name}</span>}
     </span>
   );
@@ -573,6 +577,11 @@ function PhoneRuntime({
                     custom={a.icon}
                     date={s.date || work.phone.date}
                     time={s.time}
+                    hint={
+                      Boolean(onEvent) &&
+                      !locked &&
+                      String(s.variables.__hint_app || "") === a.id
+                    }
                   />
                 )}
                 clearApp={(id) =>
@@ -588,6 +597,19 @@ function PhoneRuntime({
               />
             )}
           </AnimatePresence>
+          {/* 紧急联络人引导：主屏/任意 App 内的提示条（进入平行世界时游戏层清除变量） */}
+          {onEvent &&
+            !locked &&
+            !dimmed &&
+            !panel &&
+            !folder &&
+            Boolean(s.variables.__hint_text) && (
+              <div
+                className={`story-hint-bar ${app ? "in-app" : ""}`}
+              >
+                {String(s.variables.__hint_text)}
+              </div>
+            )}
           {folder && (
             <div className="folder-overlay" onClick={() => setFolder("")}>
               <h2>{folder}</h2>

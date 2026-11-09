@@ -3,7 +3,7 @@
   "id": "emergency-contact",
   "title": "紧急联络人",
   "description": "如果当时做出了不同的选择，我们的关系会不会不一样？你的手机接到了那通电话。之后，他的手机交到了你的手上。（EMERGENCY CONTACT · 双手机互动故事）",
-  "revision": 12,
+  "revision": 13,
   "phone": {
     "owner": "{player}",
     "date": "2026-12-25",
@@ -1158,7 +1158,9 @@
     "__in_world": false,
     "__enter_node": false,
     "__change_done": false,
-    "__round_over": false
+    "__round_over": false,
+    "__hint_app": "",
+    "__hint_text": ""
   },
   "events": [
     {
@@ -2408,7 +2410,19 @@
         {
           "type": "notification",
           "key": "",
-          "value": "他的手机在你手里。KakaoTalk 里，4月8日的对话有一条未读。",
+          "value": "KakaoTalk：他的手机在你手里。4 月 8 日的对话有一条未读。",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_app",
+          "value": "kakao",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_text",
+          "value": "打开 KakaoTalk——4 月 8 日的对话里，有一条未读",
           "device": "juyeon"
         }
       ],
@@ -2821,7 +2835,19 @@
         {
           "type": "notification",
           "key": "",
-          "value": "他的手机亮了——打开日历，回收站里有一条被删除的提醒（3月14日）。",
+          "value": "日历：他的手机亮了——回收站里有一条被删除的提醒（3 月 14 日）。",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_app",
+          "value": "calendar",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_text",
+          "value": "打开 日历——回收站里有一条被删除的提醒（3 月 14 日）",
           "device": "juyeon"
         }
       ]
@@ -3081,7 +3107,19 @@
         {
           "type": "notification",
           "key": "",
-          "value": "他的手机亮了——打开邮件，有一条订单变更通知（2月18日）。",
+          "value": "邮件：他的手机亮了——有一条订单变更通知（2 月 18 日）。",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_app",
+          "value": "mail",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_text",
+          "value": "打开 邮件——有一封订单变更通知（2 月 18 日）",
           "device": "juyeon"
         }
       ]
@@ -3353,7 +3391,19 @@
         {
           "type": "notification",
           "key": "",
-          "value": "他的手机亮了——打开电话，有一条拨出却没有接通的通话（去年11月6日）。",
+          "value": "电话：他的手机亮了——有一条拨出却没有接通的通话（去年 11 月 6 日）。",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_app",
+          "value": "phone",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_text",
+          "value": "打开 电话——有一条拨出却未接通的通话（去年 11 月 6 日）",
           "device": "juyeon"
         }
       ]
@@ -3741,7 +3791,19 @@
         {
           "type": "notification",
           "key": "",
-          "value": "他的手机亮了——KakaoTalk 的会话里，有一条没有发送出去的草稿（去年8月16日）。",
+          "value": "KakaoTalk：他的手机亮了——会话里有一条没有发送出去的草稿（去年 8 月 16 日）。",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_app",
+          "value": "kakao",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_text",
+          "value": "打开 KakaoTalk——会话里有一条没有发送出去的草稿（去年 8 月 16 日）",
           "device": "juyeon"
         }
       ]

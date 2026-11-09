@@ -132,6 +132,11 @@ export function DualStage({ work }: { work: Work }) {
       const nodeId = String(jv.__enter_node || pv.__enter_node);
       jv.__enter_node = false;
       pv.__enter_node = false;
+      // 引导提示完成使命：黑屏进入平行世界，提示条与 App 红点一并消失
+      jv.__hint_app = "";
+      jv.__hint_text = "";
+      pv.__hint_app = "";
+      pv.__hint_text = "";
       setTransition("enter");
       setActive("juyeon");
       setTimeout(() => {
@@ -223,9 +228,34 @@ export function DualStage({ work }: { work: Work }) {
   const dimJuyeon = active !== "juyeon";
   // 遗物交接（__relic）之前：只有玩家手机，李柱延手机尚未进入故事
   const relic = !!game.player.variables.__relic;
+  // 引导：下一轮入口已解锁但玩家还没回到他的手机——未聚焦设备呼吸光晕提示切换
+  const juyeonHint =
+    game.world.phase === "reality" && !!game.juyeon.variables.__hint_app;
+  const doneCount = game.world.completedChanges.length;
 
   return (
     <div className={`dual-stage phase-${game.world.phase} ${relic ? "" : "single"}`}>
+      {/* 进度指示：五个瞬间，点亮一个是一个（只表达轮数，不暗示结局） */}
+      {relic && game.world.phase !== "final" && (
+        <div
+          className="dual-progress"
+          role="status"
+          aria-label={`已完成 ${doneCount} / 5`}
+        >
+          {[0, 1, 2, 3, 4].map((i) => (
+            <span
+              key={i}
+              className={
+                i < doneCount
+                  ? "done"
+                  : i === doneCount && game.world.phase === "parallel"
+                    ? "now"
+                    : ""
+              }
+            />
+          ))}
+        </div>
+      )}
       <div
         className={`dual-device device-player ${active === "player" ? "active" : ""}`}
         onClick={() => {
@@ -244,7 +274,7 @@ export function DualStage({ work }: { work: Work }) {
       </div>
       {relic && (
         <div
-          className={`dual-device device-juyeon ${active === "juyeon" ? "active" : ""}`}
+          className={`dual-device device-juyeon ${active === "juyeon" ? "active" : ""} ${juyeonHint && active !== "juyeon" ? "hint-glow" : ""}`}
           onClick={() => {
             if (active !== "juyeon") setActive("juyeon");
           }}
