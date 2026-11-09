@@ -13,7 +13,7 @@
  */
 import { useEffect, useRef, useState } from "react";
 import { Phone } from "../Phone";
-import { Intro, applyPlayerName, freshStart, readIntroAnswers, bumpPlaythrough, resetIntro } from "../Intro";
+import { Intro, applyPlayerName, freshStart, readIntroAnswers, fullRestart } from "../Intro";
 import { db } from "../persistence";
 import type { Runtime, Work } from "../schema";
 import {
@@ -156,6 +156,7 @@ export function DualStage({ work }: { work: Work }) {
       jv.__hint_text = "";
       pv.__hint_app = "";
       pv.__hint_text = "";
+      gateStackRef.current = [];
       setTransition("enter");
       setActive("juyeon");
       setTimeout(() => {
@@ -215,14 +216,28 @@ export function DualStage({ work }: { work: Work }) {
     setGame({ ...g });
   };
 
-  /** 玩家点 ›：从门控延时处继续（世界保持可见，节奏由玩家控制） */
+  /** 玩家点 ›：从门控延时处继续（世界保持可见，节奏由玩家控制）；回退栈记录每步快照 */
+  const gateStackRef = useRef<{ player: Runtime; juyeon: Runtime }[]>([]);
   const advanceGate = () => {
     const g = gameRef.current;
     if (!g) return;
     const device: DeviceId = g.juyeon.awaiting ? "juyeon" : "player";
+    gateStackRef.current.push({
+      player: structuredClone(g.player),
+      juyeon: structuredClone(g.juyeon),
+    });
     dispatchGame(work, g, "advance", "", device);
     setGame({ ...g });
     afterDispatch(g);
+  };
+  /** 玩家点 ‹：回退一步（恢复上一步快照，可一直退回；只回退展示步，不重开选择） */
+  const rollbackGate = () => {
+    const g = gameRef.current;
+    const snap = gateStackRef.current.pop();
+    if (!g || !snap) return;
+    g.player = snap.player;
+    g.juyeon = snap.juyeon;
+    setGame({ ...g });
   };
 
   /** 玩家点 ›（round_over 之后）：黑屏转场 → 回到现实锚点 */
@@ -230,6 +245,7 @@ export function DualStage({ work }: { work: Work }) {
     const g = gameRef.current;
     if (!g) return;
     setAwaitExit(false);
+    gateStackRef.current = [];
     setTransition("exit");
     setTimeout(() => {
       exitParallel(work, g); // 恢复锚点 + parallelExit 事件（航司来电重现）
@@ -369,10 +385,7 @@ export function DualStage({ work }: { work: Work }) {
             <p>{endings[endings.length - 1]}</p>
             <button
               onClick={() => {
-                bumpPlaythrough();
-                resetIntro();
-                void db.saves.delete(work.id);
-                location.reload();
+                fullRestart(work.id);
               }}
             >
               重新开始
@@ -417,17 +430,28 @@ export function DualStage({ work }: { work: Work }) {
           </>
         );
       })()}
-      {/* 门控延时：世界保持可探索，玩家点 › 才推进下一步 */}
+      {/* 门控延时：世界保持可探索，点 › 推进下一步；‹ 一步一步回退重看 */}
       {game.juyeon.awaiting || game.player.awaiting ? (
         !transition &&
         !narrNow && (
-          <button
-            className="dual-step dual-step-right"
-            aria-label="继续"
-            onClick={advanceGate}
-          >
-            ›
-          </button>
+          <>
+            {gateStackRef.current.length > 0 && (
+              <button
+                className="dual-step dual-step-left"
+                aria-label="回退一步"
+                onClick={rollbackGate}
+              >
+                ‹
+              </button>
+            )}
+            <button
+              className="dual-step dual-step-right"
+              aria-label="继续"
+              onClick={advanceGate}
+            >
+              ›
+            </button>
+          </>
         )
       ) : null}
       {/* 本轮结束：世界保持可探索，点 › 回到现实；‹ 回看旁白 */}

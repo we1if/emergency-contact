@@ -68,8 +68,7 @@ import {
   readIntroAnswers,
   applyPlayerName,
   freshStart,
-  resetIntro,
-  bumpPlaythrough,
+  fullRestart,
 } from "./Intro";
 import { db } from "./persistence";
 export function AppIcon({
@@ -719,7 +718,7 @@ function PhoneRuntime({
                       ))}
                     </div>
                   ) : null}
-                  {/* 紧急联络人：随时可以从头开始 */}
+                  {/* 紧急联络人：随时可以从头开始（完全重置：回到输入名字，游玩次数归零） */}
                   {!creator && (
                     <button
                       style={{
@@ -735,10 +734,7 @@ function PhoneRuntime({
                       }}
                       onClick={() => {
                         if (!confirm("从头开始？当前进度将被清除。")) return;
-                        bumpPlaythrough();
-                        resetIntro();
-                        void db.saves.delete(work.id);
-                        location.reload();
+                        fullRestart(work.id);
                       }}
                     >
                       从头开始
@@ -779,11 +775,8 @@ function PhoneRuntime({
               <p>{s.endings[s.endings.length - 1]}</p>
               <button
                 onClick={() => {
-                  // 紧急联络人：重开 = 清档回开场（游玩次数在 localStorage 自增，隐藏结局规则不受影响）
-                  bumpPlaythrough();
-                  resetIntro();
-                  void db.saves.delete(work.id);
-                  location.reload();
+                  // 紧急联络人：重开 = 完全重置（回输入名字，游玩次数归零）
+                  fullRestart(work.id);
                 }}
               >
                 重新开始

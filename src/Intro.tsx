@@ -6,6 +6,7 @@
 import { useState, type CSSProperties } from "react";
 import type { Work } from "./schema";
 import { initialRuntime, type Runtime } from "./schema";
+import { db } from "./persistence";
 
 const KEY = "ec_intro_v1";
 export type IntroAnswers = {
@@ -47,6 +48,17 @@ export function bumpPlaythrough() {
   } catch {
     /* ignore */
   }
+}
+/** 完全重置：游玩次数归零 + 清档 + 回开场（「从头开始 / 重新开始」共用——退回到输入名字那一刻） */
+export function fullRestart(workId: string) {
+  try {
+    localStorage.removeItem("ec_playthrough");
+  } catch {
+    /* ignore */
+  }
+  resetIntro();
+  void db.saves.delete(workId);
+  location.reload();
 }
 
 export function computeRoute(q1: boolean, q2: boolean) {

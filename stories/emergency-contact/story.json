@@ -3,7 +3,7 @@
   "id": "emergency-contact",
   "title": "紧急联络人",
   "description": "如果当时做出了不同的选择，我们的关系会不会不一样？你的手机接到了那通电话。之后，他的手机交到了你的手上。（EMERGENCY CONTACT · 双手机互动故事）",
-  "revision": 15,
+  "revision": 16,
   "phone": {
     "owner": "{player}",
     "date": "2026-12-25",
@@ -1150,6 +1150,7 @@
     "q2": false,
     "round_gate": 1,
     "a_hidden": false,
+    "opening_done": false,
     "__chatapp": "kakao",
     "__relic": false,
     "__narration": "",
@@ -1730,6 +1731,72 @@
       "next": []
     },
     {
+      "id": "ev-replay-answered",
+      "label": "接听重现来电",
+      "event": "callAnswered",
+      "target": "pcall-airline",
+      "once": false,
+      "conditions": [
+        {
+          "key": "opening_done",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__call_over",
+          "value": false
+        },
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？"
+        }
+      ],
+      "next": [
+        "replay-sub2"
+      ]
+    },
+    {
+      "id": "replay-sub2",
+      "label": "现实来电 · 开场",
+      "type": "delay",
+      "delayMs": 2200,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。"
+        },
+        {
+          "type": "variable",
+          "key": "__call_over",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "ev-replay-hangup",
+      "label": "挂断重现来电",
+      "event": "callEnded",
+      "target": "pcall-airline",
+      "once": false,
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__sub",
+          "value": ""
+        },
+        {
+          "type": "variable",
+          "key": "__call_over",
+          "value": false
+        }
+      ]
+    },
+    {
       "id": "post-call",
       "label": "挂断电话之后",
       "event": "callEnded",
@@ -2213,6 +2280,11 @@
         {
           "type": "variable",
           "key": "__relic",
+          "value": true
+        },
+        {
+          "type": "variable",
+          "key": "opening_done",
           "value": true
         },
         {
