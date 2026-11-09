@@ -222,11 +222,6 @@ function PhoneRuntime({
   }, [creator, ready]);
   const s = external ?? own;
   const runtimeRef = useRef(s);
-  // 选择浮层可收起（先探索再决定）；换一组选项时自动重新展开
-  const [peek, setPeek] = useState(false);
-  useEffect(() => {
-    setPeek(false);
-  }, [s.choices[0]?.target]);
   runtimeRef.current = s;
   const update = (next: Runtime) => {
     runtimeRef.current = next;
@@ -760,40 +755,21 @@ function PhoneRuntime({
               )}
             </div>
           )}
-          {!creator && s.choices.length > 0 && !locked && !peek && (
+          {/* 选择浮层（单机模式；双手机模式由全局层 DualStage 渲染，不遮挡手机内容） */}
+          {!creator && !onEvent && s.choices.length > 0 && !locked && (
             <div className="story-overlay">
               <span className="eyebrow">故事来到一个岔路口</span>
-              <button
-                className="story-peek-toggle"
-                aria-label="收起浮层，先探索手机"
-                onClick={() => setPeek(true)}
-              >
-                收起
-              </button>
               <h3>你会如何选择？</h3>
               {s.choices.map((c) => (
                 <button
                   key={c.target}
-                  onClick={() =>
-                    onEvent
-                      ? onEvent("choose", c.target)
-                      : update(choose(work, s, c.target))
-                  }
+                  onClick={() => update(choose(work, s, c.target))}
                 >
                   {c.label}
                   <ArrowUp size={15} />
                 </button>
               ))}
             </div>
-          )}
-          {/* 收起后的浮层小条：探索完点它重新展开做选择 */}
-          {!creator && s.choices.length > 0 && !locked && peek && (
-            <button
-              className="story-peek-chip"
-              onClick={() => setPeek(false)}
-            >
-              你会如何选择？ ▾
-            </button>
           )}
           {/* 结局浮层（单机在手机屏内；双手机模式由全局层渲染） */}
           {!creator && !onEvent && s.endings.length > 0 && !locked && (

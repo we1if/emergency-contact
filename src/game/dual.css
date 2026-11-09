@@ -269,8 +269,54 @@
   bottom: auto;
 }
 
-/* ---------- 步进控制（节奏由玩家掌握） ---------- */
-/* 屏幕最左 / 最右的大按钮：‹ 回看，› 前进 */
+/* ---------- 全局选择层 ---------- */
+/* 岔路口：舞台底部中央的独立浮层，两台手机始终完整可探索 */
+.dual-choice {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: min(520px, 92vw);
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(18, 20, 26, 0.86);
+  border: 1px solid rgba(157, 184, 232, 0.24);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.45);
+  animation: hint-bar-in 0.5s ease;
+}
+.dual-choice-eyebrow {
+  color: #8b93a8;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.dual-choice button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(157, 184, 232, 0.1);
+  border: 1px solid rgba(157, 184, 232, 0.2);
+  color: #d5dded;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+.dual-choice button:hover {
+  background: rgba(157, 184, 232, 0.2);
+}
+.dual-choice button span {
+  color: #8b93a8;
+}
+
+/* ---------- 步进控制（节奏由玩家掌握） ---------- *//* 屏幕最左 / 最右的大按钮：‹ 回看，› 前进 */
 .dual-step {
   position: fixed;
   top: 50%;

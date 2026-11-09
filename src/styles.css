@@ -1733,34 +1733,6 @@ svg {
   font-weight: 500;
   margin: 12px 0 18px;
 }
-/* 收起浮层：右上角小按钮 + 收起后底部的小条 */
-.story-peek-toggle {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  font-size: 12px;
-  color: #7a8568;
-  background: none;
-  border: 0;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-.story-peek-chip {
-  position: absolute;
-  z-index: 55;
-  top: 64px;
-  left: 10px;
-  right: 10px;
-  padding: 10px;
-  border-radius: 18px;
-  background: #f7f8efee;
-  backdrop-filter: blur(18px);
-  color: #394731;
-  font-size: 14px;
-  text-align: center;
-  box-shadow: 0 -6px 28px #21351f1a;
-  cursor: pointer;
-}
 .story-overlay button {
   display: flex;
   justify-content: space-between;

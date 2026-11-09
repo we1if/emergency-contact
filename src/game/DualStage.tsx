@@ -326,6 +326,29 @@ export function DualStage({ work }: { work: Work }) {
           />
         </div>
       )}
+      {/* 全局选择层：岔路口属于整个故事，不属于某一部手机（不遮挡手机内容，可先探索再决定） */}
+      {(() => {
+        const choiceDevice: DeviceId | null = game.juyeon.choices.length
+          ? "juyeon"
+          : game.player.choices.length
+            ? "player"
+            : null;
+        if (!choiceDevice || transition || narrNow || review) return null;
+        return (
+          <div className="dual-choice">
+            <span className="dual-choice-eyebrow">你会如何选择？</span>
+            {game[choiceDevice].choices.map((c) => (
+              <button
+                key={c.target}
+                onClick={() => handleEvent(choiceDevice, "choose", c.target)}
+              >
+                {c.label}
+                <span aria-hidden="true">›</span>
+              </button>
+            ))}
+          </div>
+        );
+      })()}
       {/* 全局转场层：黑屏，不属于任何一部手机 */}
       {transition && (
         <div className={`dual-transition ${transition}`}>
