@@ -83,6 +83,29 @@ function apply(a: Action, s: Runtime, w: Work, ctx?: DispatchCtx) {
             timeline: "parallel",
           }),
         ];
+        // 平行对话镜像进对方手机（李柱延手机）的同一会话——他手里那台也能看着对话展开；
+        // 他的手机视角：机主来信 = outgoing，玩家来信 = incoming，线程标题 = 玩家名
+        const mirror = ctx.devices?.juyeon;
+        if (mirror && mirror !== t) {
+          mirror.overlay ??= { messages: {}, notifications: [] };
+          const jSender = isPlayerSend
+            ? w.phones?.player?.phone.owner ?? other
+            : a.sender ??
+              (w.phones?.juyeon?.phone.owner ?? w.phone.owner);
+          mirror.overlay.messages[a.key] = [
+            ...(mirror.overlay.messages[a.key] ?? []),
+            makeItem({
+              id: `event-mirror-${a.key}-${mirror.overlay.messages[a.key]?.length ?? 0}`,
+              title: w.phones?.player?.phone.owner ?? other, // 会话 = 与玩家
+              sender: jSender,
+              body: String(a.value),
+              ...(at ? { time: at } : {}),
+              ...(media ? { kind: "image", media } : {}),
+              ...(!isPlayerSend ? { outgoing: true } : {}),
+              timeline: "parallel",
+            }),
+          ];
+        }
       } else if (a.type === "call") {
         // 平行世界的来电：真实振铃落在玩家手机，通知留痕进 overlay
         t.incomingCall = {
