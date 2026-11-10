@@ -740,6 +740,19 @@ function PhoneRuntime({
                       从头开始
                     </button>
                   )}
+                  {/* 版本指示：让玩家确认自己测的是不是最新版 */}
+                  {!creator && (
+                    <p
+                      style={{
+                        margin: "12px 0 0",
+                        textAlign: "center",
+                        fontSize: 11,
+                        color: "#4a4d57",
+                      }}
+                    >
+                      版本 revision {work.updatedAt}
+                    </p>
+                  )}
                 </>
               ) : panel === "search" ? (
                 <>

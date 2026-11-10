@@ -53,7 +53,13 @@ export function SystemNotifications({
                 if (info.offset.x < -80) onDismiss(index);
               }}
             >
-              <button className="notice-open" onClick={onOpen}>
+              <button
+                className="notice-open"
+                onClick={() => {
+                  onDismiss(index); // 点开过的消息从通知中心消失（已读）
+                  onOpen();
+                }}
+              >
                 <span className="notice-app-art">
                   <AppArtwork id={n.appId} />
                 </span>

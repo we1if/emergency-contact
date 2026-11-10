@@ -9,7 +9,7 @@ export default defineConfig(({ command }) => ({
     localIconPlugin(command),
     react(),
     VitePWA({
-      registerType: "prompt",
+      registerType: "autoUpdate",
       manifest: {
         name: "捡手机 FoundPhone Studio",
         short_name: "捡手机",

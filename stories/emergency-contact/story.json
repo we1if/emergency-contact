@@ -3,7 +3,7 @@
   "id": "emergency-contact",
   "title": "紧急联络人",
   "description": "如果当时做出了不同的选择，我们的关系会不会不一样？你的手机接到了那通电话。之后，他的手机交到了你的手上。（EMERGENCY CONTACT · 双手机互动故事）",
-  "revision": 16,
+  "revision": 17,
   "phone": {
     "owner": "{player}",
     "date": "2026-12-25",
@@ -3032,7 +3032,6 @@
       "label": "他的回复",
       "type": "delay",
       "delayMs": 1800,
-      "gate": true,
       "actions": [
         {
           "type": "message",
@@ -3040,6 +3039,12 @@
           "value": "留着啊，我还以为你不想去了。",
           "device": "player",
           "time": "2026-03-12 21:05"
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：李柱延",
+          "device": "player"
         }
       ],
       "next": [
@@ -3051,7 +3056,6 @@
       "label": "约定成立",
       "type": "delay",
       "delayMs": 1600,
-      "gate": true,
       "actions": [
         {
           "type": "message",
@@ -3300,7 +3304,6 @@
       "label": "他同意了",
       "type": "delay",
       "delayMs": 1800,
-      "gate": true,
       "actions": [
         {
           "type": "message",
@@ -3308,6 +3311,12 @@
           "value": "好，那我们一起看看。",
           "device": "player",
           "time": "2026-02-18 17:32"
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：李柱延",
+          "device": "player"
         }
       ],
       "next": [
@@ -3319,7 +3328,6 @@
       "label": "行程敲定",
       "type": "delay",
       "delayMs": 1600,
-      "gate": true,
       "actions": [
         {
           "type": "message",
@@ -3344,7 +3352,6 @@
       "label": "那个周末",
       "type": "delay",
       "delayMs": 1600,
-      "gate": true,
       "actions": [
         {
           "type": "message",
@@ -3996,7 +4003,6 @@
       "label": "你的回复",
       "type": "delay",
       "delayMs": 1800,
-      "gate": true,
       "actions": [
         {
           "type": "message",
@@ -4016,7 +4022,6 @@
       "label": "他发来照片",
       "type": "delay",
       "delayMs": 1800,
-      "gate": true,
       "actions": [
         {
           "type": "message",
@@ -4042,7 +4047,6 @@
       "label": "小店",
       "type": "delay",
       "delayMs": 1600,
-      "gate": true,
       "actions": [
         {
           "type": "message",
@@ -4050,6 +4054,12 @@
           "value": "上次那家店，我又去了一次。还是那个老板。",
           "device": "player",
           "time": "2025-08-16 14:34"
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：李柱延",
+          "device": "player"
         }
       ],
       "next": [
