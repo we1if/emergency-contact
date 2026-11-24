@@ -338,7 +338,7 @@ export function DualStage({ work }: { work: Work }) {
             runtime={game.juyeon}
             onRuntime={syncDevice("juyeon")}
             onEvent={(e, t) => handleEvent("juyeon", e, t)}
-            dimmed={dimJuyeon && !game.juyeon.incomingCall}
+            dimmed={game.world.phase !== "parallel" && dimJuyeon && !game.juyeon.incomingCall}
           />
         </div>
       )}
@@ -454,26 +454,28 @@ export function DualStage({ work }: { work: Work }) {
           </>
         )
       ) : null}
-      {/* 本轮结束：世界保持可探索，点 › 回到现实；‹ 回看旁白 */}
+      {/* 本轮结束：世界保持可探索，回到现实按钮；‹ 回看旁白 */}
       {awaitExit && !narrNow && !transition && !review && (
-        <>
+        <div className="dual-exit-banner">
           {narrLogRef.current.length > 0 && (
             <button
-              className="dual-step dual-step-left"
+              className="dual-exit-btn dual-review-btn"
               aria-label="回看旁白"
               onClick={() => setReview(true)}
             >
-              ‹
+              ‹ 回看旁白
             </button>
           )}
           <button
-            className="dual-step dual-step-right"
+            className="dual-exit-btn"
             aria-label="回到现实"
             onClick={doExit}
           >
-            ›
+            <span>回到现实</span>
+            <small>（2026年12月25日 15:00）</small>
+            <span aria-hidden="true">›</span>
           </button>
-        </>
+        </div>
       )}
       {/* 旁白回看层：‹ › 翻段，› 到最后一段时关闭 */}
       {review &&

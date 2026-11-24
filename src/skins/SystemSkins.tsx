@@ -101,7 +101,7 @@ export function PhoneSkin(p: Props) {
             <SearchBox value={q} set={setQ} />
             {list.map((i) => (
               <button
-                className={`call-row ${meta(i, "status") === "未接" ? "missed" : ""}`}
+                className={`call-row ${meta(i, "status") === "未接" ? "missed" : ""} ${i.id === 'hcall-r4' || i.meta?.entrance === 'true' ? 'entrance-target' : ''}`}
                 key={i.id}
                 onClick={() => p.onItem(i)}
               >
@@ -112,6 +112,9 @@ export function PhoneSkin(p: Props) {
                     {meta(i, "number", i.sender)} ·{" "}
                     {meta(i, "status", "通话记录")}
                   </small>
+                  {(i.id === 'hcall-r4' || i.meta?.entrance === 'true') && (
+                    <span className="entrance-badge">回到那一刻 ›</span>
+                  )}
                 </span>
                 <time>{i.time.slice(5, 10)}</time>
               </button>
@@ -409,9 +412,21 @@ export function NotesSkin(p: Props) {
   );
 }
 export function CalendarSkin(p: Props) {
-  const [month, setMonth] = useState(8),
-    [year, setYear] = useState(2026),
-    [day, setDay] = useState(1);
+  const initDate = (() => {
+    if (p.virtualDate) {
+      const parts = p.virtualDate.split('-');
+      if (parts.length === 3) return { y: Number(parts[0]), m: Number(parts[1]) - 1, d: Number(parts[2]) };
+    }
+    const t = p.items.find((x) => x.meta?.entrance === 'true' || x.id === 'hcal-r2');
+    if (t?.time) {
+      const d = t.time.split(' ')[0].split('-');
+      if (d.length === 3) return { y: Number(d[0]), m: Number(d[1]) - 1, d: Number(d[2]) };
+    }
+    return null;
+  })();
+  const [month, setMonth] = useState(initDate ? initDate.m : 2),
+    [year, setYear] = useState(initDate ? initDate.y : 2026),
+    [day, setDay] = useState(initDate ? initDate.d : 14);
   const prefix = `${year}-${String(month + 1).padStart(2, "0")}`;
   const list = p.items.filter((i) =>
     i.time.startsWith(`${prefix}-${String(day).padStart(2, "0")}`),
@@ -466,7 +481,7 @@ export function CalendarSkin(p: Props) {
         </h4>
         {list.map((i) => (
           <button
-            className="calendar-event"
+            className={`calendar-event ${i.id === 'hcal-r2' || i.meta?.entrance === 'true' ? 'entrance-target' : ''}`}
             key={i.id}
             onClick={() => p.onItem(i)}
           >
@@ -474,6 +489,9 @@ export function CalendarSkin(p: Props) {
             <div>
               <strong>{i.title}</strong>
               <p>{meta(i, "location", i.body)}</p>
+              {(i.id === 'hcal-r2' || i.meta?.entrance === 'true') && (
+                <span className="entrance-badge">回到那一刻 ›</span>
+              )}
             </div>
           </button>
         ))}
@@ -511,7 +529,7 @@ export function MailSkin(p: Props) {
         <SearchBox value={q} set={setQ} />
         {list.map((i) => (
           <button
-            className="mail-preview"
+            className={`mail-preview ${i.id === 'hmail-r3a' || i.meta?.entrance === 'true' ? 'entrance-target' : ''}`}
             key={i.id}
             onClick={() => p.onItem(i)}
           >
@@ -520,6 +538,9 @@ export function MailSkin(p: Props) {
               <strong>{i.sender}</strong>
               <h3>{i.title}</h3>
               <p>{i.body}</p>
+              {(i.id === 'hmail-r3a' || i.meta?.entrance === 'true') && (
+                <span className="entrance-badge">回到那一刻 ›</span>
+              )}
             </div>
             <time>{i.time.slice(5, 10)}</time>
           </button>

@@ -665,3 +665,38 @@
   width: 25px;
   height: 25px;
 }
+
+/* 紧急联络人：回忆节点入口高亮与引导 */
+.mymy-ui .kz-entrance-target {
+  position: relative;
+  box-shadow: 0 0 0 2px rgba(90, 115, 160, 0.55), 0 0 16px rgba(90, 115, 160, 0.35) !important;
+  animation: kz-entrance-pulse 2s ease infinite;
+  cursor: pointer;
+}
+.mymy-ui .kz-entrance-badge {
+  display: block;
+  font-size: 11px;
+  color: #435b88;
+  margin-top: 4px;
+  font-weight: 600;
+  text-align: right;
+  letter-spacing: 0.5px;
+}
+.mymy-ui .kzdraft-entrance {
+  animation: kz-entrance-pulse 2s ease infinite;
+}
+.mymy-ui .kzdraft-badge {
+  display: inline-block;
+  margin-left: 8px;
+  color: #3b5a8c;
+  font-size: 11px;
+  font-weight: 600;
+}
+@keyframes kz-entrance-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2px rgba(90, 115, 160, 0.5), 0 0 10px rgba(90, 115, 160, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 3px rgba(90, 115, 160, 0.85), 0 0 20px rgba(90, 115, 160, 0.5);
+  }
+}

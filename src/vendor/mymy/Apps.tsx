@@ -158,10 +158,13 @@ export function MymyKakao(p: SkinProps) {
                     </span>
                   )}
                   <button
-                    className={"kzbub" + (m.media ? " kzimg" : "")}
+                    className={"kzbub" + (m.media ? " kzimg" : "") + (m.id === "jr1-3" || m.meta?.entrance === "true" ? " kz-entrance-target" : "")}
                     onClick={() => m.meta.local !== "true" && read(p, m)}
                   >
                     {m.media ? <Media item={m} /> : m.body}
+                    {(m.id === "jr1-3" || m.meta?.entrance === "true") && (
+                      <span className="kz-entrance-badge">回到那一刻 ›</span>
+                    )}
                   </button>
                   {!m.outgoing && run.last && (
                     <span className="kzt">{m.time.slice(-5)}</span>
@@ -207,11 +210,12 @@ export function MymyKakao(p: SkinProps) {
               {!draft && draftItem && (
                 <button
                   type="button"
-                  className="kzdraft"
+                  className="kzdraft kzdraft-entrance"
                   aria-label="未发送的草稿"
                   onClick={() => read(p, draftItem)}
                 >
-                  {draftItem.body}
+                  <span>{draftItem.body}</span>
+                  <span className="kzdraft-badge">点击进入 ›</span>
                 </button>
               )}
             </span>

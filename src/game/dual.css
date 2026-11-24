@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   gap: 40px;
-  padding: 16px 24px;
+  padding: 16px 24px 130px 24px;
   background: radial-gradient(120% 120% at 50% 0%, #14161c 0%, #060608 70%);
   overflow: hidden;
 }
@@ -271,6 +271,10 @@
 
 /* ---------- 全局选择层 ---------- */
 /* 岔路口：舞台底部中央的独立浮层，两台手机始终完整可探索 */
+/* 岔路口出现时，设备自动轻微向上平移避让，确保底部的草稿/输入框完整可见 */
+.dual-stage:has(.dual-choice) .dual-device {
+  transform: translateY(-56px);
+}
 .dual-choice {
   position: fixed;
   bottom: 16px;
@@ -360,5 +364,72 @@
   }
   .dual-step-right {
     right: 4px;
+  }
+}
+
+/* 回到现实：完成一轮后清晰的返回按钮 */
+.dual-exit-banner {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  gap: 14px;
+  animation: hint-bar-in 0.6s ease;
+}
+.dual-exit-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  border-radius: 28px;
+  background: rgba(22, 26, 36, 0.94);
+  border: 1px solid rgba(157, 184, 232, 0.45);
+  color: #e2e8f8;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 18px rgba(157, 184, 232, 0.25);
+  backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+}
+.dual-exit-btn:hover {
+  background: rgba(36, 42, 58, 0.98);
+  border-color: rgba(157, 184, 232, 0.75);
+  transform: scale(1.02);
+}
+.dual-exit-btn small {
+  color: #8a94a8;
+  font-size: 12px;
+}
+.dual-review-btn {
+  padding: 14px 20px;
+  background: rgba(18, 20, 26, 0.85);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #a8abb5;
+}
+
+/* 系统原生皮肤中的入口高亮（日历/邮件/通话） */
+.entrance-target {
+  position: relative;
+  box-shadow: 0 0 0 1.5px rgba(157, 184, 232, 0.7), 0 0 16px rgba(157, 184, 232, 0.35) !important;
+  animation: entrance-glow 2s ease infinite;
+}
+.entrance-badge {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(157, 184, 232, 0.2);
+  color: #9db8e8;
+  font-size: 11px;
+  font-weight: 500;
+}
+@keyframes entrance-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 1.5px rgba(157, 184, 232, 0.5), 0 0 12px rgba(157, 184, 232, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 2.5px rgba(157, 184, 232, 0.9), 0 0 24px rgba(157, 184, 232, 0.55);
   }
 }

@@ -889,7 +889,7 @@ function PhoneRuntime({
                 })()}
               {s.incomingCall.status === "answered" && s.variables.__call_over && (
                 <small style={{ color: "#8b8e98", fontSize: 12, marginTop: 8 }}>
-                  通话已结束 · 点「挂断，继续」回到手机
+                  通话已结束 · 请点击下方按钮返回
                 </small>
               )}
               <div className="incoming-actions">
@@ -1273,6 +1273,7 @@ function AppContent({
               appId={app.id}
               owner={work.phone.owner}
               virtualTime={state.time}
+              virtualDate={state.date}
               ui={state.ui?.[app.id]}
               onUi={creator ? undefined : onUi}
               name={name}

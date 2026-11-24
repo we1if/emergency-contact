@@ -3,7 +3,7 @@
   "id": "emergency-contact",
   "title": "紧急联络人",
   "description": "如果当时做出了不同的选择，我们的关系会不会不一样？你的手机接到了那通电话。之后，他的手机交到了你的手上。（EMERGENCY CONTACT · 双手机互动故事）",
-  "revision": 17,
+  "revision": 18,
   "phone": {
     "owner": "{player}",
     "date": "2026-12-25",
@@ -508,7 +508,10 @@
               "senderId": "owner",
               "body": "好，那你早点休息。",
               "time": "2026-04-08 21:44",
-              "hidden": true
+              "hidden": true,
+              "meta": {
+                "entrance": "true"
+              }
             },
             {
               "id": "jr1-draft",
@@ -526,14 +529,14 @@
               "senderId": "you",
               "body": "其实今天有点想跟你多聊一会儿。",
               "time": "2026-04-08 21:47",
-              "unlock": "change:round1"
+              "hidden": true
             },
             {
               "id": "jr1-5",
               "senderId": "owner",
               "body": "那你现在方便打电话吗？",
               "time": "2026-04-08 21:49",
-              "unlock": "change:round1",
+              "hidden": true,
               "outgoing": true
             },
             {
@@ -652,7 +655,8 @@
               "hidden": true,
               "outgoing": true,
               "meta": {
-                "draft": "true"
+                "draft": "true",
+                "entrance": "true"
               }
             },
             {
@@ -777,7 +781,10 @@
             "body": "拨出 · 未接通 · 2025年11月6日 21:47",
             "kind": "call",
             "time": "2025-11-06 21:47",
-            "hidden": true
+            "hidden": true,
+            "meta": {
+              "entrance": "true"
+            }
           },
           {
             "id": "hcall-r4b",
@@ -974,7 +981,10 @@
             "body": "3月14日 周六 19:30 · 已删除",
             "kind": "event",
             "time": "2026-03-14 19:30",
-            "hidden": true
+            "hidden": true,
+            "meta": {
+              "entrance": "true"
+            }
           },
           {
             "id": "hcal-r2-done",
@@ -1019,6 +1029,9 @@
             "time": "2026-02-18 16:06",
             "hidden": true,
             "folder": "收件箱",
+            "meta": {
+              "entrance": "true"
+            },
             "body": "订单 FV-0220\n乘客：{player}\n原定：2026-02-20（周五）19:30 起飞\n改签：2026-02-21（周六）08:30 起飞\n变更时间：2026-02-18 16:05"
           },
           {
@@ -1523,7 +1536,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？"
         }
       ],
       "next": [
@@ -1539,7 +1552,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？"
         }
       ],
       "next": [
@@ -1555,7 +1568,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。"
         }
       ],
       "next": [
@@ -1571,7 +1584,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。"
         }
       ],
       "next": [
@@ -1587,7 +1600,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）"
         }
       ],
       "next": [
@@ -1603,7 +1616,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。"
         }
       ],
       "next": [
@@ -1619,7 +1632,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？"
         }
       ],
       "next": [
@@ -1635,7 +1648,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。"
         }
       ],
       "next": [
@@ -1651,7 +1664,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………"
         }
       ],
       "next": [
@@ -1667,7 +1680,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。"
         }
       ],
       "next": [
@@ -1683,7 +1696,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。\n未知号码：非常抱歉。"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。\n未知号码：非常抱歉。"
         }
       ],
       "next": [
@@ -1699,7 +1712,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。\n未知号码：非常抱歉。\n未知号码：根据乘客登记信息，您是李柱延先生的紧急联系人。我们需要与您确认一些信息。"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。\n未知号码：非常抱歉。\n未知号码：根据乘客登记信息，您是李柱延先生的紧急联系人。我们需要与您确认一些信息。"
         }
       ],
       "next": [
@@ -1715,7 +1728,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n我：我是。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。\n未知号码：非常抱歉。\n未知号码：根据乘客登记信息，您是李柱延先生的紧急联系人。我们需要与您确认一些信息。\n………………\n—— 对方已挂断 ——"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n…………（停顿）\n未知号码：目前我们正在核实乘客身份及相关紧急联系人信息。\n我：什么事故？\n未知号码：非常抱歉。目前我们能确认的是，您所联系的乘客在本次事故中遇难。\n………………\n我：……你再说一遍。\n未知号码：非常抱歉。\n未知号码：根据乘客登记信息，您是李柱延先生的紧急联系人。我们需要与您确认一些信息。\n………………\n—— 对方已挂断 ——"
         },
         {
           "type": "variable",
@@ -1752,7 +1765,7 @@
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？"
         }
       ],
       "next": [
@@ -1763,12 +1776,12 @@
       "id": "replay-sub2",
       "label": "现实来电 · 开场",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 1800,
       "actions": [
         {
           "type": "variable",
           "key": "__sub",
-          "value": "未知号码：您好，请问是李柱延先生的紧急联系人吗？\n未知号码：您好，这里是航空公司工作人员。很抱歉通过这种方式联系您。"
+          "value": "未知号码：您好，请问是李柱延先生的家属吗？\n我：……我是他的紧急联系人。发生什么事了？\n未知号码：李柱延先生乘坐的航班发生了严重事故。\n\n—— 对方已挂断 ——\n（现实没有改变。2026年12月25日 15:00）"
         },
         {
           "type": "variable",
@@ -1809,7 +1822,7 @@
       "id": "flood-m1",
       "label": "Eric 1",
       "type": "delay",
-      "delayMs": 1200,
+      "delayMs": 500,
       "actions": [
         {
           "type": "unlock",
@@ -1830,7 +1843,7 @@
       "id": "flood-m2",
       "label": "Eric 2",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 500,
       "actions": [
         {
           "type": "unlock",
@@ -1851,7 +1864,7 @@
       "id": "flood-m3",
       "label": "Eric 3",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 600,
       "actions": [
         {
           "type": "unlock",
@@ -1872,7 +1885,7 @@
       "id": "flood-m4",
       "label": "Eric 4",
       "type": "delay",
-      "delayMs": 3200,
+      "delayMs": 700,
       "actions": [
         {
           "type": "unlock",
@@ -1893,7 +1906,7 @@
       "id": "flood-m5",
       "label": "Eric 5",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 500,
       "actions": [
         {
           "type": "unlock",
@@ -1914,7 +1927,7 @@
       "id": "flood-m6",
       "label": "Eric 6",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 600,
       "actions": [
         {
           "type": "unlock",
@@ -1935,7 +1948,7 @@
       "id": "flood-m7",
       "label": "Eric 7",
       "type": "delay",
-      "delayMs": 3400,
+      "delayMs": 700,
       "actions": [
         {
           "type": "unlock",
@@ -1956,7 +1969,7 @@
       "id": "flood-m8",
       "label": "Eric 8",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 500,
       "actions": [
         {
           "type": "unlock",
@@ -1977,7 +1990,7 @@
       "id": "flood-m9",
       "label": "Eric 9",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 500,
       "actions": [
         {
           "type": "unlock",
@@ -1998,7 +2011,7 @@
       "id": "flood-m10",
       "label": "Eric 10",
       "type": "delay",
-      "delayMs": 3200,
+      "delayMs": 700,
       "actions": [
         {
           "type": "unlock",
@@ -2019,7 +2032,7 @@
       "id": "flood-m11",
       "label": "Eric 11",
       "type": "delay",
-      "delayMs": 2600,
+      "delayMs": 600,
       "actions": [
         {
           "type": "unlock",
@@ -2040,7 +2053,7 @@
       "id": "flood-m12",
       "label": "Eric 12",
       "type": "delay",
-      "delayMs": 3000,
+      "delayMs": 700,
       "actions": [
         {
           "type": "unlock",
@@ -2061,7 +2074,7 @@
       "id": "flood-m13",
       "label": "Eric 13",
       "type": "delay",
-      "delayMs": 3000,
+      "delayMs": 700,
       "actions": [
         {
           "type": "unlock",
@@ -2082,7 +2095,7 @@
       "id": "flood-m14",
       "label": "Eric 14",
       "type": "delay",
-      "delayMs": 2600,
+      "delayMs": 600,
       "actions": [
         {
           "type": "unlock",
@@ -2103,7 +2116,7 @@
       "id": "flood-m15",
       "label": "Eric 15",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 500,
       "actions": [
         {
           "type": "unlock",
@@ -2124,7 +2137,7 @@
       "id": "flood-m16",
       "label": "Eric 16",
       "type": "delay",
-      "delayMs": 2400,
+      "delayMs": 500,
       "actions": [
         {
           "type": "unlock",
@@ -2145,7 +2158,7 @@
       "id": "flood-m17",
       "label": "Eric 17",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 500,
       "actions": [
         {
           "type": "unlock",
@@ -2166,7 +2179,7 @@
       "id": "flood-m18",
       "label": "Eric 18",
       "type": "delay",
-      "delayMs": 3200,
+      "delayMs": 700,
       "actions": [
         {
           "type": "unlock",
@@ -2187,7 +2200,7 @@
       "id": "flood-m19",
       "label": "Eric 19",
       "type": "delay",
-      "delayMs": 2200,
+      "delayMs": 500,
       "actions": [
         {
           "type": "unlock",
@@ -2208,7 +2221,7 @@
       "id": "flood-m20",
       "label": "Eric 20",
       "type": "delay",
-      "delayMs": 2400,
+      "delayMs": 500,
       "actions": [
         {
           "type": "unlock",
@@ -2229,7 +2242,7 @@
       "id": "flood-m21",
       "label": "Eric 21",
       "type": "delay",
-      "delayMs": 2600,
+      "delayMs": 600,
       "actions": [
         {
           "type": "unlock",
@@ -2621,9 +2634,15 @@
           "device": "juyeon"
         },
         {
-          "type": "variable",
-          "key": "__change_done",
-          "value": "round1",
+          "type": "unlock",
+          "key": "jr1-4",
+          "value": true,
+          "device": "juyeon"
+        },
+        {
+          "type": "unlock",
+          "key": "jr1-5",
+          "value": true,
           "device": "juyeon"
         },
         {
@@ -2679,8 +2698,7 @@
       "id": "r1-sub1",
       "label": "那通电话",
       "type": "delay",
-      "delayMs": 1600,
-      "gate": true,
+      "delayMs": 1800,
       "actions": [
         {
           "type": "variable",
@@ -2697,8 +2715,7 @@
       "id": "r1-sub2",
       "label": "那通电话 · 二",
       "type": "delay",
-      "delayMs": 1600,
-      "gate": true,
+      "delayMs": 2000,
       "actions": [
         {
           "type": "variable",
@@ -2715,8 +2732,7 @@
       "id": "r1-sub3",
       "label": "那通电话 · 三",
       "type": "delay",
-      "delayMs": 1600,
-      "gate": true,
+      "delayMs": 2200,
       "actions": [
         {
           "type": "variable",
@@ -2810,6 +2826,33 @@
       "type": "delay",
       "delayMs": 1500,
       "actions": [
+        {
+          "type": "variable",
+          "key": "__change_done",
+          "value": "round1",
+          "device": "juyeon"
+        },
+        {
+          "type": "message",
+          "key": "kakao",
+          "value": "明天再聊？",
+          "device": "player",
+          "time": "2026-04-09 00:28"
+        },
+        {
+          "type": "message",
+          "key": "kakao",
+          "value": "好。",
+          "device": "player",
+          "sender": "@player",
+          "time": "2026-04-09 00:30"
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：李柱延",
+          "device": "player"
+        },
         {
           "type": "variable",
           "key": "__narration",
@@ -3653,8 +3696,7 @@
       "id": "r4-sub1",
       "label": "回拨 · 一",
       "type": "delay",
-      "delayMs": 1600,
-      "gate": true,
+      "delayMs": 1800,
       "actions": [
         {
           "type": "variable",
@@ -3671,8 +3713,7 @@
       "id": "r4-sub2",
       "label": "回拨 · 二",
       "type": "delay",
-      "delayMs": 1600,
-      "gate": true,
+      "delayMs": 2000,
       "actions": [
         {
           "type": "variable",
@@ -3689,8 +3730,7 @@
       "id": "r4-sub3",
       "label": "回拨 · 三",
       "type": "delay",
-      "delayMs": 1600,
-      "gate": true,
+      "delayMs": 2000,
       "actions": [
         {
           "type": "variable",
@@ -3707,8 +3747,7 @@
       "id": "r4-sub4",
       "label": "回拨 · 四",
       "type": "delay",
-      "delayMs": 1600,
-      "gate": true,
+      "delayMs": 2200,
       "actions": [
         {
           "type": "variable",
@@ -4685,6 +4724,22 @@
           "device": "juyeon"
         },
         {
+          "advanceMs": 3000
+        },
+        {
+          "event": "callAnswered",
+          "target": "hcall-r1",
+          "device": "player"
+        },
+        {
+          "advanceMs": 7000
+        },
+        {
+          "event": "callEnded",
+          "target": "hcall-r1",
+          "device": "player"
+        },
+        {
           "advanceMs": 12000
         },
         {
@@ -4761,6 +4816,22 @@
         {
           "choose": "r4-fix",
           "device": "juyeon"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "callAnswered",
+          "target": "hcall-r4b",
+          "device": "player"
+        },
+        {
+          "advanceMs": 9000
+        },
+        {
+          "event": "callEnded",
+          "target": "hcall-r4b",
+          "device": "player"
         },
         {
           "advanceMs": 12000
@@ -4980,6 +5051,22 @@
           "device": "juyeon"
         },
         {
+          "advanceMs": 2000
+        },
+        {
+          "event": "callAnswered",
+          "target": "hcall-r4b",
+          "device": "player"
+        },
+        {
+          "advanceMs": 9000
+        },
+        {
+          "event": "callEnded",
+          "target": "hcall-r4b",
+          "device": "player"
+        },
+        {
           "advanceMs": 12000
         },
         {
@@ -5072,6 +5159,22 @@
           "device": "juyeon"
         },
         {
+          "advanceMs": 3000
+        },
+        {
+          "event": "callAnswered",
+          "target": "hcall-r1",
+          "device": "player"
+        },
+        {
+          "advanceMs": 7000
+        },
+        {
+          "event": "callEnded",
+          "target": "hcall-r1",
+          "device": "player"
+        },
+        {
           "advanceMs": 12000
         },
         {
@@ -5148,6 +5251,22 @@
         {
           "choose": "r4-fix",
           "device": "juyeon"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "callAnswered",
+          "target": "hcall-r4b",
+          "device": "player"
+        },
+        {
+          "advanceMs": 9000
+        },
+        {
+          "event": "callEnded",
+          "target": "hcall-r4b",
+          "device": "player"
         },
         {
           "advanceMs": 12000
@@ -5417,6 +5536,22 @@
           "device": "juyeon"
         },
         {
+          "advanceMs": 3000
+        },
+        {
+          "event": "callAnswered",
+          "target": "hcall-r1",
+          "device": "player"
+        },
+        {
+          "advanceMs": 7000
+        },
+        {
+          "event": "callEnded",
+          "target": "hcall-r1",
+          "device": "player"
+        },
+        {
           "advanceMs": 12000
         },
         {
@@ -5493,6 +5628,22 @@
         {
           "choose": "r4-fix",
           "device": "juyeon"
+        },
+        {
+          "advanceMs": 2000
+        },
+        {
+          "event": "callAnswered",
+          "target": "hcall-r4b",
+          "device": "player"
+        },
+        {
+          "advanceMs": 9000
+        },
+        {
+          "event": "callEnded",
+          "target": "hcall-r4b",
+          "device": "player"
         },
         {
           "advanceMs": 12000
