@@ -34,6 +34,7 @@ export type DeviceLayout = z.infer<typeof layoutSchema>;
 export type Widget = z.infer<typeof widgetSchema>;
 export type AppConfig = Work["apps"][number];
 export function ensureAppStore(work: Work): Work {
+  if (work.id === "emergency-contact") return work;
   return work.apps.some((a) => a.id === "appstore")
     ? work
     : {
@@ -61,7 +62,7 @@ export function defaultLayout(input: Work): DeviceLayout {
     apps: structuredClone(w.apps)
       .sort((a, b) => (a.id === "appstore" ? -1 : b.id === "appstore" ? 1 : 0))
       .map((a) =>
-        a.id === "appstore"
+        a.id === "appstore" && w.id !== "emergency-contact"
           ? { ...a, installed: true, visible: true, folder: "", dock: false }
           : a,
       ),
@@ -89,7 +90,7 @@ export function validateLayout(raw: unknown, input: Work) {
     ...w.apps.filter((a) => !layout.apps.some((b) => b.id === a.id)),
   );
   const store = layout.apps.find((a) => a.id === "appstore");
-  if (store) {
+  if (store && w.id !== "emergency-contact") {
     store.installed = true;
     store.visible = true;
     store.folder = "";

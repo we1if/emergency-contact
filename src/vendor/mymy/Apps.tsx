@@ -162,7 +162,7 @@ export function MymyKakao(p: SkinProps) {
                     onClick={() => m.meta.local !== "true" && read(p, m)}
                   >
                     {m.media ? <Media item={m} /> : m.body}
-                    {(m.id === "jr1-3" || m.meta?.entrance === "true") && (
+                    {m.id !== "jr1-3" && m.meta?.entrance === "true" && (
                       <span className="kz-entrance-badge">回到那一刻 ›</span>
                     )}
                   </button>

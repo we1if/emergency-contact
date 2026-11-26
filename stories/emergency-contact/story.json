@@ -3,7 +3,7 @@
   "id": "emergency-contact",
   "title": "紧急联络人",
   "description": "如果当时做出了不同的选择，我们的关系会不会不一样？你的手机接到了那通电话。之后，他的手机交到了你的手上。（EMERGENCY CONTACT · 双手机互动故事）",
-  "revision": 18,
+  "revision": 19,
   "phone": {
     "owner": "{player}",
     "date": "2026-12-25",
@@ -1796,6 +1796,13 @@
       "event": "callEnded",
       "target": "pcall-airline",
       "once": false,
+      "conditions": [
+        {
+          "key": "opening_done",
+          "op": "eq",
+          "value": true
+        }
+      ],
       "actions": [
         {
           "type": "variable",
@@ -1806,6 +1813,262 @@
           "type": "variable",
           "key": "__call_over",
           "value": false
+        }
+      ]
+    },
+    {
+      "id": "r1-replay-narration",
+      "label": "第一轮现实挂断 · 心理震撼",
+      "event": "callEnded",
+      "target": "pcall-airline",
+      "once": true,
+      "conditions": [
+        {
+          "key": "opening_done",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "round_gate",
+          "op": "eq",
+          "value": 2
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__narration",
+          "value": "挂断电话，你死死攥着手里的手机，指尖发白。\n\n刚才发生的一切绝不是幻觉。\n4月8日的对话被改变了，电话通了，你们多聊了很久——过去真的被改变了。\n\n一个近乎疯狂的念头在你心底滋生：\n如果那次可以被改变……那其他事情呢？\n那些被错过的日子、被删掉的约定、没有接通的电话……如果全都改过来呢？\n是不是就能救他？是不是就能阻止这场空难？\n\n你急切地再次滑开他的手机。"
+        }
+      ]
+    },
+    {
+      "id": "r1-replay-done",
+      "label": "第二轮拯救执念 · 日历浮现",
+      "event": "narrationDone",
+      "target": "",
+      "conditions": [
+        {
+          "key": "__narration",
+          "op": "includes",
+          "value": "你急切地再次滑开他的手机"
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__narration",
+          "value": ""
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "日历：回收站里有一条被删除的提醒（3 月 14 日）。",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_app",
+          "value": "calendar",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_text",
+          "value": "打开日历——回收站里有一条被删除的提醒（3 月 14 日）",
+          "device": "juyeon"
+        }
+      ]
+    },
+    {
+      "id": "r2-replay-narration",
+      "label": "第二轮现实挂断 · 现实如铁",
+      "event": "callEnded",
+      "target": "pcall-airline",
+      "once": true,
+      "conditions": [
+        {
+          "key": "opening_done",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "round_gate",
+          "op": "eq",
+          "value": 3
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__narration",
+          "value": "电话又一次挂断。\n「空难」这两个字像冰冷的铁钉，依然死死钉在 2026 年 12 月 25 日的下午。\n\n现实依然没有动摇分毫。\n\n可你停不下来了。你已经改掉了两件事。\n一定还有更早的事情……一定还有什么地方可以挽回。"
+        }
+      ]
+    },
+    {
+      "id": "r2-replay-done",
+      "label": "第三轮拯救执念 · 机票浮现",
+      "event": "narrationDone",
+      "target": "",
+      "conditions": [
+        {
+          "key": "__narration",
+          "op": "includes",
+          "value": "一定还有什么地方可以挽回"
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__narration",
+          "value": ""
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "邮件：有一封订单变更通知（2 月 18 日）。",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_app",
+          "value": "mail",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_text",
+          "value": "打开邮件——有一封订单变更通知（2 月 18 日）",
+          "device": "juyeon"
+        }
+      ]
+    },
+    {
+      "id": "r3-replay-narration",
+      "label": "第三轮现实挂断 · 发抖与追寻",
+      "event": "callEnded",
+      "target": "pcall-airline",
+      "once": true,
+      "conditions": [
+        {
+          "key": "opening_done",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "round_gate",
+          "op": "eq",
+          "value": 4
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__narration",
+          "value": "三次了。\n你改掉了对话，改掉了约定，改掉了行程。\n可为什么……为什么还是这个电话？为什么他还是在那班飞机上？\n\n你的手在发抖。\n你继续往更早的过去翻去。"
+        }
+      ]
+    },
+    {
+      "id": "r3-replay-done",
+      "label": "第四轮拯救执念 · 电话浮现",
+      "event": "narrationDone",
+      "target": "",
+      "conditions": [
+        {
+          "key": "__narration",
+          "op": "includes",
+          "value": "你继续往更早的过去翻去"
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__narration",
+          "value": ""
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "电话：有一条拨出却没有接通的通话（去年 11 月 6 日）。",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_app",
+          "value": "phone",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_text",
+          "value": "打开电话——有一条拨出却未接通的通话（去年 11 月 6 日）",
+          "device": "juyeon"
+        }
+      ]
+    },
+    {
+      "id": "r4-replay-narration",
+      "label": "第四轮现实挂断 · 最后的执念",
+      "event": "callEnded",
+      "target": "pcall-airline",
+      "once": true,
+      "conditions": [
+        {
+          "key": "opening_done",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "key": "round_gate",
+          "op": "eq",
+          "value": 5
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__narration",
+          "value": "四次改变。每一次都比原来更好，每一次都离他更近。\n可最终，你依然站在这个冰冷的下午，听着同一句毫无温度的通报。\n\n还有最后一次……只剩最后一次了。\n去年夏天……最早的那次错过。"
+        }
+      ]
+    },
+    {
+      "id": "r4-replay-done",
+      "label": "第五轮拯救执念 · 草稿浮现",
+      "event": "narrationDone",
+      "target": "",
+      "conditions": [
+        {
+          "key": "__narration",
+          "op": "includes",
+          "value": "最早的那次错过"
+        }
+      ],
+      "actions": [
+        {
+          "type": "variable",
+          "key": "__narration",
+          "value": ""
+        },
+        {
+          "type": "notification",
+          "key": "",
+          "value": "KakaoTalk：会话里有一条没有发送出去的草稿（去年 8 月 16 日）。",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_app",
+          "value": "kakao",
+          "device": "juyeon"
+        },
+        {
+          "type": "variable",
+          "key": "__hint_text",
+          "value": "打开 KakaoTalk——会话里有一条没有发送出去的草稿（去年 8 月 16 日）",
+          "device": "juyeon"
         }
       ]
     },
@@ -2923,6 +3186,11 @@
         {
           "type": "variable",
           "key": "round_gate",
+          "value": 2
+        },
+        {
+          "type": "variable",
+          "key": "round_gate",
           "value": 2,
           "device": "juyeon"
         },
@@ -2948,24 +3216,6 @@
           "type": "unlock",
           "key": "hcal-r2",
           "value": true,
-          "device": "juyeon"
-        },
-        {
-          "type": "notification",
-          "key": "",
-          "value": "日历：回收站里有一条被删除的提醒（3 月 14 日）。",
-          "device": "juyeon"
-        },
-        {
-          "type": "variable",
-          "key": "__hint_app",
-          "value": "calendar",
-          "device": "juyeon"
-        },
-        {
-          "type": "variable",
-          "key": "__hint_text",
-          "value": "打开 日历——回收站里有一条被删除的提醒（3 月 14 日）",
           "device": "juyeon"
         }
       ]
@@ -3213,6 +3463,11 @@
         {
           "type": "variable",
           "key": "round_gate",
+          "value": 3
+        },
+        {
+          "type": "variable",
+          "key": "round_gate",
           "value": 3,
           "device": "juyeon"
         },
@@ -3226,24 +3481,6 @@
           "type": "unlock",
           "key": "hmail-r3b",
           "value": true,
-          "device": "juyeon"
-        },
-        {
-          "type": "notification",
-          "key": "",
-          "value": "邮件：有一封订单变更通知（2 月 18 日）。",
-          "device": "juyeon"
-        },
-        {
-          "type": "variable",
-          "key": "__hint_app",
-          "value": "mail",
-          "device": "juyeon"
-        },
-        {
-          "type": "variable",
-          "key": "__hint_text",
-          "value": "打开 邮件——有一封订单变更通知（2 月 18 日）",
           "device": "juyeon"
         }
       ]
@@ -3509,6 +3746,11 @@
         {
           "type": "variable",
           "key": "round_gate",
+          "value": 4
+        },
+        {
+          "type": "variable",
+          "key": "round_gate",
           "value": 4,
           "device": "juyeon"
         },
@@ -3516,24 +3758,6 @@
           "type": "unlock",
           "key": "hcall-r4",
           "value": true,
-          "device": "juyeon"
-        },
-        {
-          "type": "notification",
-          "key": "",
-          "value": "电话：有一条拨出却没有接通的通话（去年 11 月 6 日）。",
-          "device": "juyeon"
-        },
-        {
-          "type": "variable",
-          "key": "__hint_app",
-          "value": "phone",
-          "device": "juyeon"
-        },
-        {
-          "type": "variable",
-          "key": "__hint_text",
-          "value": "打开 电话——有一条拨出却未接通的通话（去年 11 月 6 日）",
           "device": "juyeon"
         }
       ]
@@ -3909,6 +4133,11 @@
         {
           "type": "variable",
           "key": "round_gate",
+          "value": 5
+        },
+        {
+          "type": "variable",
+          "key": "round_gate",
           "value": 5,
           "device": "juyeon"
         },
@@ -3916,24 +4145,6 @@
           "type": "unlock",
           "key": "jz-draft",
           "value": true,
-          "device": "juyeon"
-        },
-        {
-          "type": "notification",
-          "key": "",
-          "value": "KakaoTalk：会话里有一条没有发送出去的草稿（去年 8 月 16 日）。",
-          "device": "juyeon"
-        },
-        {
-          "type": "variable",
-          "key": "__hint_app",
-          "value": "kakao",
-          "device": "juyeon"
-        },
-        {
-          "type": "variable",
-          "key": "__hint_text",
-          "value": "打开 KakaoTalk——会话里有一条没有发送出去的草稿（去年 8 月 16 日）",
           "device": "juyeon"
         }
       ]
@@ -4750,7 +4961,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -4776,7 +5007,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -4802,7 +5053,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -4844,7 +5115,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -4870,7 +5161,7 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
         },
         {
           "event": "finalEnter"
@@ -4983,7 +5274,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5009,7 +5320,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5035,7 +5366,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5077,7 +5428,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5103,7 +5474,7 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
         }
       ],
       "ending": "你们一起走过了八年，和八个季节的巴黎。今年圣诞，你们本该一起去。有些话没有说出口，有些选择没有做完。相册里最后一张合照，停在2025年的秋天。",
@@ -5185,7 +5556,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5211,7 +5602,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5237,7 +5648,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5279,7 +5710,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5305,7 +5756,7 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
         },
         {
           "advanceMs": 3000
@@ -5376,7 +5827,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5402,7 +5873,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5428,7 +5919,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5454,7 +5965,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5480,7 +6011,7 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
         },
         {
           "advanceMs": 3000
@@ -5562,7 +6093,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5588,7 +6139,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5614,7 +6185,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5656,7 +6247,27 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
+        },
+        {
+          "event": "callAnswered",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 2500
+        },
+        {
+          "event": "callEnded",
+          "target": "pcall-airline"
+        },
+        {
+          "advanceMs": 1000
+        },
+        {
+          "event": "narrationDone"
+        },
+        {
+          "advanceMs": 1000
         },
         {
           "event": "read",
@@ -5682,7 +6293,7 @@
           "event": "parallelExit"
         },
         {
-          "advanceMs": 3000
+          "advanceMs": 1000
         },
         {
           "advanceMs": 3000
